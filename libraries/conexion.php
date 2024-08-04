@@ -1,6 +1,11 @@
 <?php
+    function ErrorLog($mensaje){
+        $archivo_log = "registro.log";
+        $fecha_hora_segundo = date('Y-m-d H:i:s');
+        $string = " " . $fecha_hora_segundo . ":  Error: " . $mensaje . "\n";
+        error_log($string, 3, $archivo_log);
+    }
 
-    include "libraries/Query.php"; 
 
     $servername = "localhost";
     $username = "root"; 
@@ -15,13 +20,12 @@
             throw new Exception("Conexión fallida: " . mysqli_connect_error());
         }
         
-        mysqli_close($conexion);
+        
         
     }catch (Exception $error) {
-
-        echo "Error: " . $error->getMessage();
+        
         $Error = $error->getMessage();
         ErrorLog($Error);
-
     }
+
 ?>

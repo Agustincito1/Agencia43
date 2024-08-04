@@ -1,18 +1,14 @@
 <?php
 
-
-    function ErrorLog($mensaje){
-        $archivo_log = "registro.log";
-        $fecha_hora_segundo = date('Y-m-d H:i:s');
-        $string = " " . $fecha_hora_segundo . ":  Error: " . $mensaje . "\n";
-        error_log($string, 3, $archivo_log);
-    }
-
-
+function ErrorLog2($mensaje){
+    $archivo_log = "registro.log";
+    $fecha_hora_segundo = date('Y-m-d H:i:s');
+    $string = " " . $fecha_hora_segundo . ":  Error: " . $mensaje . "\n";
+    error_log($string, 3, $archivo_log);
+}
 
     function Query($query){
-        include "config.php";
-        include Conexion;
+        include "conexion.php";     
 
         try{
 
@@ -29,16 +25,14 @@
         }catch(Exeption $Error){
 
             $Error = $error->getMessage();
-            ErrorLog($Error);
+            ErrorLog2($Error);
 
         }
         
     }
 
     function QueryAndGetData($query){
-        include "config.php";
-        include Conexion;
-
+        include "conexion.php";
         try{
 
             if($ejecucion = mysqli_query($conexion, $query)){
@@ -52,13 +46,15 @@
             }
 
         }catch(Exeption $Error){
-
             $Error = $error->getMessage();
-            ErrorLog($Error);
-
+            ErrorLog2($Error);
         }
-        
     }
 
+
+    function savedataSession($data, $name){
+        session_start();
+        $SESSION[$name] = $data;
+    }
 
 ?>

@@ -9,15 +9,13 @@
         <main>
             <section>
                 <article>
-                    <form action="" method="">
-                        <h2></h2>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
-                        <input type="button" id="" name="">
+                    <form action="validar.php" method="POST">
+                        <h2>Inicio de sesion</h2>
+                        <label for="">Usuario</label>
+                        <input type="text" id="" name="usuario">
+                        <label for="">Contraseña</label>
+                        <input type="password" id="" name="contrasena">
+                        <input type="submit" id="" name="">
                     </form>
                 </article>
             </section>
