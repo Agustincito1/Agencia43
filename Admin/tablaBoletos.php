@@ -1,3 +1,26 @@
+<?php
+
+    include "../libraries/Query.php";
+    if(verificarsession()){
+
+        
+    }
+    else{
+        // header("Location: login.php");
+        // exit();
+    }
+
+
+    if($query = QueryAndGetData("SELECT `BoletoID`, `NombreBoleto`, `InicioDestino`, `LugarDestinoID`, `HoraroInicio`, `HorarioFinal`, `Precio`, `TipoboletoID`, `EmpresaID`, `CantidadPersonas` FROM `boleto` WHERE 1")){
+        
+    }
+    else{
+        //mal la consulta
+    }
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

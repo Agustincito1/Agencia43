@@ -11,7 +11,7 @@
     }
 
 
-    if($query = QueryAndGetData("SELECT `EmpresaID`, `Nombre`, `EstiloID`, `Foto` FROM `empresa` WHERE 1")){
+    if($query = QueryAndGetData("SELECT `BoletoID`, `NombreBoleto`, `InicioDestino`, `LugarDestinoID`, `HoraroInicio`, `HorarioFinal`, `Precio`, `TipoboletoID`, `EmpresaID`, `CantidadPersonas` FROM `boleto` WHERE 1")){
         
     }
     else{
@@ -19,12 +19,14 @@
     }
     
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla empresa</title>
+    <title>Tabla imagenes</title>
 </head>
     <body>
         <header>

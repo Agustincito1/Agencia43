@@ -7,10 +7,11 @@
 </head>
     <body>
         <header>
-            <h1></h1>
+            <h1>Bienvenidos al apartado del administrador</h1>
             <nav>
                 <ul>
-                    <li><a href=""></a></li> 
+                    <li><a href="">cerrar session</a></li> 
+                    <li><a href="">ir a la pagina principal</a></li> 
                 </ul>
             </nav>
         </header>
@@ -18,12 +19,9 @@
             <section>
                 <article>
                     <h2></h2>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
+                    <a href="tablaBoletos.php">Gestionar boletos</a>
+                    <a href="tablaEmpresas.php">Gestionar empresas</a>
+                    <a href="">Gestionar imagenes de empresas</a>
                 </article>
             </section>
         </main>

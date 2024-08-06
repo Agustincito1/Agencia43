@@ -1,11 +1,11 @@
 <?php
 
-function ErrorLog2($mensaje){
-    $archivo_log = "registro.log";
-    $fecha_hora_segundo = date('Y-m-d H:i:s');
-    $string = " " . $fecha_hora_segundo . ":  Error: " . $mensaje . "\n";
-    error_log($string, 3, $archivo_log);
-}
+    function ErrorLog2($mensaje){
+        $archivo_log = "registro.log";
+        $fecha_hora_segundo = date('Y-m-d H:i:s');
+        $string = " " . $fecha_hora_segundo . ":  Error: " . $mensaje . "\n";
+        error_log($string, 3, $archivo_log);
+    }
 
     function Query($query){
         include "conexion.php";     
@@ -56,5 +56,17 @@ function ErrorLog2($mensaje){
         session_start();
         $SESSION[$name] = $data;
     }
+
+    function verificarsession(){
+        session_start();
+        if(isset($_SESSION)){
+            return True;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 
 ?>
