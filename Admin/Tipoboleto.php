@@ -7,7 +7,6 @@
     else{
         //alerta personalizada
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,18 +30,32 @@
             <section>
                 <article>
                     <form action="" method="">
-                        <h2></h2>
+
+                        <h2>Tipo de boleto</h2>
+                        
                         <label for="Tipo">Nombre del Tipo</label>
                         <input type="text" id="" name="Tipo" required>
                         
                         <input type="button" id="" name="">
+
                     </form>
                 </article>
                 <article>
-                    <h2></h2>
-                </article>
-                <article>
-                    <h2></h2>
+                    <table>
+                        <tr>
+                            <th>Tipo</th>
+                        </tr>
+                        <?php 
+                            $tabla = QueryAndGetData($query);
+                            while($tabla = mysqli_fetch_assoc($tabla)){
+                                echo " <tr> 
+                                    <td>".$tabla['Tipo']."</td>
+                                </tr>";
+                            }
+                        ?>
+                        
+                    </table>
+                    
                 </article>
             </section>
         </main>

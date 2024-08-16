@@ -8,8 +8,6 @@
         //alerta personalizada
     }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -33,12 +31,32 @@
             <section>
                 <article>
                     <form action="" method="">
-                        <h2></h2>
+
+                        <h2>Empresa</h2>
 
                         <label for="Nombre">Nombre de la Empresa</label>
                         <input type="text" id="" name="Nombre" required>
+
                         <input type="button" id="" name="">
+
                     </form>
+                </article>
+                <article>
+                    <table>
+                        <tr>
+                            <th>Nombre</th>
+                        </tr>
+
+                        <?php 
+                            $tabla = QueryAndGetData($query);
+                            while($tabla = mysqli_fetch_assoc($tabla)){
+                                echo " <tr> <td>".$tabla['Nombre']."</td>
+                                </tr>";
+                            }
+                        ?>
+                        
+                    </table>
+                    
                 </article>
             </section>
         </main>

@@ -93,6 +93,36 @@
                         <input type="button" id="" name="">
                     </form>
                 </article>
+
+                <article>
+                    <table>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Inicio Destino</th>
+                            <th>Precio</th>
+                            <th>Tipo de boleto</th>
+                            <th>Empresa</th>
+                            <th>Cantidad personas</th>
+                        </tr>
+
+                        <?php 
+                            $tabla = QueryAndGetData($query);
+                            while($tabla = mysqli_fetch_assoc($tabla)){
+                                echo " <tr> <td>".$tabla['NombreBoleto']."</td>";
+                                echo "<td>".$tabla['InicioDestino']."</td>";
+                                echo "<td>".$tabla['Precio']."</td>";
+                                echo "<td>".$tabla['Tipo']."</td>";
+                                echo "<td>".$tabla['Nombre']."</td>";
+                                echo "<td>".$tabla['CantidadPersonas']."</td>
+                                </tr>";
+                            }
+                        ?>
+                        
+                    </table>
+                    
+                </article>
+
+
             </section>
         </main>
         <footer>

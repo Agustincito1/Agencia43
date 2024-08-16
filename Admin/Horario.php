@@ -38,8 +38,11 @@
             <section>
                 <article>
                     <form action="" method="">
-                        <h2></h2>
+
+                        <h2>Horarios</h2>
+
                         <label for="Empresa">Empresa</label>
+
                         <select name="Empresa" id="">
                             <?php
                                 $Empresa = QueryAndGetData($SelectE);
@@ -48,10 +51,32 @@
                                 }
                             ?>
                         </select>
+
                         <label for="Horario">Horario</label>
+
                         <input type="date" id="" name="Horario" required>
+
                         <input type="button" id="" name="">
                     </form>
+                </article>
+                <article>
+                    <table>
+                        <tr>
+                            <th>Horario</th>
+                            <th>Empresa</th>
+                        </tr>
+
+                        <?php 
+                            $tabla = QueryAndGetData($query);
+                            while($tabla = mysqli_fetch_assoc($tabla)){
+                                echo " <tr> <td>".$tabla['Horario']."</td>
+                                    <td>".$tabla['Nombre']."</td>
+                                </tr>";
+                            }
+                        ?>
+                        
+                    </table>
+                    
                 </article>
             </section>
         </main>

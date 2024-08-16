@@ -2,6 +2,7 @@
     include "../libraries/Query.php";
 
     if(verificarsession()){
+
         $SelectP = "SELECT `ProvinciaID`, `Provincia` FROM `provincia` WHERE 1";
         $SelectB = "SELECT `BoletoID`, `NombreBoleto` FROM `boleto` WHERE 1";
 
@@ -14,6 +15,7 @@
                 `localidad` ON `localidad`.`LocalidadID` = `destino`.`LocalidadID`
             INNER JOIN 
                 `boleto` ON `boleto`.`BoletoID` = `destino`.`BoletoID`;");
+        
     }
     else{
         //alerta personalizada
@@ -42,7 +44,8 @@
             <section>
                 <article>
                     <form action="" method="">
-                        <h2></h2>
+                        <h2>Lugar destino</h2>
+                    
                         <label for="Nombre">Nombre del Lugar</label>
                         <input type="text" id="" name="Nombre" required>
 
@@ -70,11 +73,27 @@
                     </form>
                 </article>
                 <article>
-                    <h2></h2>
+                    <table>
+                        <tr>
+                            <th>Destino</th>
+                            <th>Localidad</th>
+                            <th>Nombre boleto</th>
+                        </tr>
+                        <?php 
+                            $tabla = QueryAndGetData($query);
+                            while($tabla = mysqli_fetch_assoc($tabla)){
+                                echo " <tr> 
+                                    <td>".$tabla['Nombre']."</td>
+                                    <td>".$tabla['Localidad']."</td>
+                                    <td>".$tabla['NombreBoleto']."</td>
+                                </tr>";
+                            }
+                        ?>
+                        
+                    </table>
+                    
                 </article>
-                <article>
-                    <h2></h2>
-                </article>
+
             </section>
         </main>
         <footer>
