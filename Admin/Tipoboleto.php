@@ -1,9 +1,21 @@
+<?php
+    include "../libraries/Query.php";
+
+    if(verificarsession()){
+        $query = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1");
+    }
+    else{
+        //alerta personalizada
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insertar empresa</title>
+    <title>Tipo de Boleto</title>
 </head>
     <body>
         <header>
@@ -20,16 +32,9 @@
                 <article>
                     <form action="" method="">
                         <h2></h2>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
-                        <label for=""></label>
-                        <input type="text" id="" name="" required>
+                        <label for="Tipo">Nombre del Tipo</label>
+                        <input type="text" id="" name="Tipo" required>
+                        
                         <input type="button" id="" name="">
                     </form>
                 </article>
