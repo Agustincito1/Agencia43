@@ -45,12 +45,16 @@
                     <table>
                         <tr>
                             <th>Nombre</th>
+                            <th></th>
+                            <th></th>
                         </tr>
 
                         <?php 
                             $tabla = QueryAndGetData($query);
                             while($tabla = mysqli_fetch_assoc($tabla)){
                                 echo " <tr> <td>".$tabla['Nombre']."</td>
+                                    <td>Eliminar</td>
+                                    <td>modificar</td>
                                 </tr>";
                             }
                         ?>
@@ -58,6 +62,19 @@
                     </table>
                     
                 </article>
+                <article>
+                    <!-- Modificar -->
+                    <form action="" method="POST">
+
+                        <h2>Empresa</h2>
+
+                        <label for="Nombre">Nombre de la Empresa</label>
+                        <input type="text" id="" name="Nombre" required>
+
+                        <input type="button" id="" name="">
+                        
+                    </form>
+                </article>  
             </section>
         </main>
         <footer>

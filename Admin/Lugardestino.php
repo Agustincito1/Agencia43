@@ -78,6 +78,8 @@
                             <th>Destino</th>
                             <th>Localidad</th>
                             <th>Nombre boleto</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         <?php 
                             $tabla = QueryAndGetData($query);
@@ -86,6 +88,8 @@
                                     <td>".$tabla['Nombre']."</td>
                                     <td>".$tabla['Localidad']."</td>
                                     <td>".$tabla['NombreBoleto']."</td>
+                                    <td>Eliminar</td>
+                                    <td>modificar</td>
                                 </tr>";
                             }
                         ?>
@@ -93,7 +97,36 @@
                     </table>
                     
                 </article>
+                <article>
+                    <form action="" method="">
+                        <h2>Lugar destino</h2>
+                    
+                        <label for="Nombre">Nombre del Lugar</label>
+                        <input type="text" id="" name="Nombre" required>
 
+                        <label for="Localidad">Localidad</label>
+                        <select name="Localidad" id="">
+                            <?php
+                                $Localidad = QueryAndGetData($SelectP);
+                                while($valor = mysqli_fetch_assoc($Localidad)){
+                                    echo "<option value='".$valor['ProvinciaID']."'>".$valor['Provincia']."</option>";
+                                }
+                            ?>
+                        </select>
+
+                        <label for="Boleto">Boleto</label>
+                        <select name="Boleto" id="">
+                            <?php
+                                $Boleto = QueryAndGetData($SelectB);
+                                while($valor = mysqli_fetch_assoc($Boleto)){
+                                    echo "<option value='".$valor['BoletoID']."'>".$valor['NombreBoleto']."</option>";
+                                }
+                            ?>
+                        </select>
+                        
+                        <input type="button" id="" name="">
+                    </form>
+                </article>
             </section>
         </main>
         <footer>

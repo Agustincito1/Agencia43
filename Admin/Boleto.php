@@ -52,7 +52,9 @@
         <main>
             <section>
                 <article>
-                    <form action="" method="">
+                    
+                    <!-- Insert -->
+                    <form action="" method="POST">
                         <h2>Crea un boleto</h2>
 
                         <label for="Nombre">Nombre</label>
@@ -95,6 +97,7 @@
                 </article>
 
                 <article>
+                    <!-- tabla -->
                     <table>
                         <tr>
                             <th>Nombre</th>
@@ -103,6 +106,8 @@
                             <th>Tipo de boleto</th>
                             <th>Empresa</th>
                             <th>Cantidad personas</th>
+                            <th></th>
+                            <th></th>
                         </tr>
 
                         <?php 
@@ -114,6 +119,8 @@
                                 echo "<td>".$tabla['Tipo']."</td>";
                                 echo "<td>".$tabla['Nombre']."</td>";
                                 echo "<td>".$tabla['CantidadPersonas']."</td>
+                                    <td>Eliminar</td>
+                                    <td>modificar</td>
                                 </tr>";
                             }
                         ?>
@@ -122,7 +129,52 @@
                     
                 </article>
 
+                <article>
+                    <!-- Modificar -->
+                    <form action="" method="POST">
 
+                        <h2>Crea un boleto</h2>
+
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" id="" name="Nombre" value = "" required>
+
+                        <label for="Tipo">Tipo de Boleto</label>
+                        <select name="Tipo" id="">
+                            <?php
+                                $Tipo = QueryAndGetData($selectT);
+                                while($valor = mysqli_fetch_assoc($Tipo)){
+                                    echo "<option value='".$valor['TipoBoletoID	']."'>".$valor['Tipo']."</option>";
+                                }
+                            ?>
+                        </select>
+
+                        <label for="Horario">Horario</label>
+                        <select name="Horario" id="">
+                            <?php
+                                $horario = QueryAndGetData($selectH);
+                                while($valor = mysqli_fetch_assoc($horario)){
+                                    echo "<option value='".$valor['HorarioID']."'>".$valor['Tipo'].", ".$valor['']."</option>";
+                                }
+                            ?>
+                        </select>
+
+                        <label for="Precio">Precio</label>
+                        <input type="text" id="" name="Precio" value="" required>
+
+
+                        <label for="Cantidad">Cantidad Pasajeros</label>
+                        <input type="number" id="" name="Cantidad" value="" required>
+
+                        
+                        <label for="IdaYvuelta">Ida y vuelta</label>
+                        <select name="IdaYvuelta" id="">
+                            <option value='0'>Solo ida</option>
+                            <option value='1'>Ida y vuelta</option>
+                        </select>
+
+                        <input type="button" id="" name="">
+                    </form>
+                </article>  
             </section>
         </main>
         <footer>

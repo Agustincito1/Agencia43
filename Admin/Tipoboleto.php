@@ -44,18 +44,34 @@
                     <table>
                         <tr>
                             <th>Tipo</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         <?php 
                             $tabla = QueryAndGetData($query);
                             while($tabla = mysqli_fetch_assoc($tabla)){
                                 echo " <tr> 
                                     <td>".$tabla['Tipo']."</td>
+                                    <td>Eliminar</td>
+                                    <td>modificar</td>
                                 </tr>";
                             }
                         ?>
                         
                     </table>
                     
+                </article>
+                <article>
+                    <form action="" method="">
+
+                        <h2>Tipo de boleto</h2>
+                        
+                        <label for="Tipo">Nombre del Tipo</label>
+                        <input type="text" id="" name="Tipo" required>
+                        
+                        <input type="button" id="" name="">
+
+                    </form>
                 </article>
             </section>
         </main>

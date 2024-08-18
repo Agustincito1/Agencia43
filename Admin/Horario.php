@@ -64,6 +64,8 @@
                         <tr>
                             <th>Horario</th>
                             <th>Empresa</th>
+                            <th></th>
+                            <th></th>
                         </tr>
 
                         <?php 
@@ -71,12 +73,37 @@
                             while($tabla = mysqli_fetch_assoc($tabla)){
                                 echo " <tr> <td>".$tabla['Horario']."</td>
                                     <td>".$tabla['Nombre']."</td>
+                                    <td>Eliminar</td>
+                                    <td>modificar</td>
                                 </tr>";
                             }
                         ?>
                         
                     </table>
                     
+                </article>
+                <article>
+                    <form action="" method="">
+
+                        <h2>Horarios</h2>
+
+                        <label for="Empresa">Empresa</label>
+
+                        <select name="Empresa" id="">
+                            <?php
+                                $Empresa = QueryAndGetData($SelectE);
+                                while($valor = mysqli_fetch_assoc($Empresa)){
+                                    echo "<option value='".$valor['EmpresaID']."'>".$valor['Nombre']."</option>";
+                                }
+                            ?>
+                        </select>
+
+                        <label for="Horario">Horario</label>
+
+                        <input type="date" id="" name="Horario" required>
+
+                        <input type="button" id="" name="">
+                    </form>
                 </article>
             </section>
         </main>
