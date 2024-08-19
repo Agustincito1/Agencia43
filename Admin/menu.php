@@ -19,8 +19,8 @@
             <section>
                 <article>
                     <h2></h2>
-                    <a href="Boletos.php">Gestionar boletos</a>
-                    <a href="Empresas.php">Gestionar empresas</a>
+                    <a href="Boleto.php">Gestionar boletos</a>
+                    <a href="Empresa.php">Gestionar empresas</a>
                     <a href="Horario.php">Gestionar imagenes de empresas</a>
                 </article>
             </section>

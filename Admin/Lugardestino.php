@@ -82,13 +82,12 @@
                             <th></th>
                         </tr>
                         <?php 
-                            $tabla = QueryAndGetData($query);
-                            while($tabla = mysqli_fetch_assoc($tabla)){
+                            while($tabla = mysqli_fetch_assoc($query)){
                                 echo " <tr> 
                                     <td>".$tabla['Nombre']."</td>
                                     <td>".$tabla['Localidad']."</td>
                                     <td>".$tabla['NombreBoleto']."</td>
-                                    <td>Eliminar</td>
+                                    <td><a href='eliminarfila.php?tabla=destino&id=".$tabla['DestinoID']."&campo=DestinoID'>Eliminar</a></td>
                                     <td>modificar</td>
                                 </tr>";
                             }

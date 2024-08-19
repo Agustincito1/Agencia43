@@ -1,10 +1,5 @@
 <?php
-    function ErrorLog($mensaje){
-        $archivo_log = "registro.log";
-        $fecha_hora_segundo = date('Y-m-d H:i:s');
-        $string = " " . $fecha_hora_segundo . ":  Error: " . $mensaje . "\n";
-        error_log($string, 3, $archivo_log);
-    }
+
 
 
     $servername = "localhost";
@@ -25,7 +20,7 @@
     }catch (Exception $error) {
         
         $Error = $error->getMessage();
-        ErrorLog($Error);
+        
     }
 
 ?>

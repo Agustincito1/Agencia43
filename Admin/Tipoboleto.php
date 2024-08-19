@@ -48,11 +48,10 @@
                             <th></th>
                         </tr>
                         <?php 
-                            $tabla = QueryAndGetData($query);
-                            while($tabla = mysqli_fetch_assoc($tabla)){
+                            while($tabla = mysqli_fetch_assoc($query)){
                                 echo " <tr> 
                                     <td>".$tabla['Tipo']."</td>
-                                    <td>Eliminar</td>
+                                    <td><a href='eliminarfila.php?tabla=tipoboleto&id=".$tabla['TipoBoletoID']."&campo=TipoBoletoID'>Eliminar</a></td>
                                     <td>modificar</td>
                                 </tr>";
                             }

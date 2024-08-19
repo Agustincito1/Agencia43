@@ -50,10 +50,9 @@
                         </tr>
 
                         <?php 
-                            $tabla = QueryAndGetData($query);
-                            while($tabla = mysqli_fetch_assoc($tabla)){
+                            while($tabla = mysqli_fetch_assoc($query)){
                                 echo " <tr> <td>".$tabla['Nombre']."</td>
-                                    <td>Eliminar</td>
+                                    <td><a href='eliminarfila.php?tabla=empresa&id=".$tabla['EmpresaID']."&campo=EmpresaID'>Eliminar</a></td>
                                     <td>modificar</td>
                                 </tr>";
                             }

@@ -19,7 +19,7 @@
             `tipoboleto`.`Tipo`, 
             `empresa`.`Nombre`, 
             `CantidadPersonas` 
-            FROM    `boleto` 
+            FROM   `boleto` 
             INNER JOIN 
                 `empresa` ON `empresa`.`EmpresaID` = `boleto`.`EmpresaID`
             INNER JOIN 
@@ -111,15 +111,15 @@
                         </tr>
 
                         <?php 
-                            $tabla = QueryAndGetData($query);
-                            while($tabla = mysqli_fetch_assoc($tabla)){
+                    
+                            while($tabla = mysqli_fetch_assoc($query)){
                                 echo " <tr> <td>".$tabla['NombreBoleto']."</td>";
                                 echo "<td>".$tabla['InicioDestino']."</td>";
                                 echo "<td>".$tabla['Precio']."</td>";
                                 echo "<td>".$tabla['Tipo']."</td>";
                                 echo "<td>".$tabla['Nombre']."</td>";
                                 echo "<td>".$tabla['CantidadPersonas']."</td>
-                                    <td>Eliminar</td>
+                                    <td><a href='eliminarfila.php?tabla=boleto&id=".$tabla['BoletoID']."'>Eliminar</a></td>
                                     <td>modificar</td>
                                 </tr>";
                             }
@@ -143,7 +143,7 @@
                             <?php
                                 $Tipo = QueryAndGetData($selectT);
                                 while($valor = mysqli_fetch_assoc($Tipo)){
-                                    echo "<option value='".$valor['TipoBoletoID	']."'>".$valor['Tipo']."</option>";
+                                    echo "<option value='".$valor['TipoBoletoID']."&campo=TipoBoletoID'>".$valor['Tipo']."</option>";
                                 }
                             ?>
                         </select>
