@@ -1,6 +1,6 @@
 
 
-<?
+<?php
     include "../libraries/Query.php";
     if(verificarsession()){
         
@@ -12,7 +12,7 @@
             `empresa`.`Nombre` 
             FROM `horario`
             INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`");    
-        $Query = QueryAndGetData("SELECT 	
+        $query = QueryAndGetData("SELECT 	
             `BoletoID`, 
             `NombreBoleto`, 
             `InicioDestino`, 
@@ -63,12 +63,21 @@
 
                         <label for="Tipo">Tipo de Boleto</label>
                         <select name="Tipo" id="">
-
-                           
+                            <?php
+                                while($valor = mysqli_fetch_assoc($selectT)){
+                                    echo "<option value='".$valor['TipoBoletoID']."'>".$valor['Tipo']."</option>";
+                                }
+                            ?>
                         </select>
-                        <label for="Horario">Horario</label>
+
+                        <label for="Horario">Horario</lbel>
                         <select name="Horario" id="">
-                           
+                            <?php
+                                
+                                while($valor = mysqli_fetch_assoc($selectH)){
+                                    echo "<option value='".$valor['HorarioID']."'>".$valor['Horario']."</option>";
+                                }
+                            ?>
                         </select>
 
                         <label for="Precio">Precio</label>
@@ -103,7 +112,7 @@
                         </tr>
 
                         <?php 
-                            if(mysqli_num_rows($Query) > 0 ){
+                            if(mysqli_num_rows($query) > 0 ){
                                 while($tabla = mysqli_fetch_assoc($query)){
                                     echo " <tr> <td>".$tabla['NombreBoleto']."</td>";
                                     echo "<td>".$tabla['InicioDestino']."</td>";
@@ -119,7 +128,7 @@
                                     }
                                     
                                         echo "<td><a href='eliminarfila.php?tabla=boleto&id=".$tabla['BoletoID']."'>Eliminar</a></td>
-                                        <td><a href='Tipoboleto.php?id=".$tabla['BoletoID']."'>modificar</td>
+                                        <td><a href='Boleto.php?id=".$tabla['BoletoID']."'>modificar</td>
                                     </tr>";
                                 }
                             }
@@ -137,7 +146,14 @@
                         $id =$_GET['id'];
                         $Act = QueryAndGetData("SELECT `BoletoID`, `NombreBoleto`, `InicioDestino`, `Precio`, `TipoboletoID`, `EmpresaID`, `CantidadPersonas`, `localID`, `IdaYvuelta` FROM `boleto` WHERE BoletoID =  $id");
                         $datos = mysqli_fetch_assoc($Act);
-
+                        $selectT = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1");
+                        $selectH = QueryAndGetData("SELECT 
+                            `HorarioID`, 
+                            `Horario`, 
+                            `empresa`.`Nombre` 
+                            FROM `horario`
+                            INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`");  
+                            
                         echo '<article>
 
                             <form action="" method="POST">
@@ -152,8 +168,8 @@
                         echo '<label for="Tipo">Tipo de Boleto</label>
                             <select name="Tipo" id="">';
 
-                            $Tipo = QueryAndGetData($selectT);
-                            while($valor = mysqli_fetch_assoc($Tipo)){
+
+                            while($valor = mysqli_fetch_assoc($selectT)){
                                 if($valor['TipoBoletoID'] === $datos['TipoboletoID']){
                                     echo "<option value='".$valor['TipoBoletoID']."&campo=TipoBoletoID' selected>".$valor['Tipo']."</option>";
                                 }
@@ -167,9 +183,8 @@
                         echo '  
                             <label for="Horario">Horario</label>
                             <select name="Horario" id="">';
-
-                            $horario = QueryAndGetData($selectH);
-                            while($valor = mysqli_fetch_assoc($horario)){
+                            
+                            while($valor = mysqli_fetch_assoc($selectH)){
                                 if($valor['HorarioID'] === $datos['HorarioID']){
                                     echo "<option value='".$valor['HorarioID']."' selected>".$valor['Tipo']."</option>";
                                 }
