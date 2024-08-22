@@ -52,7 +52,7 @@
                                 echo " <tr> 
                                     <td>".$tabla['Tipo']."</td>
                                     <td><a href='eliminarfila.php?tabla=tipoboleto&id=".$tabla['TipoBoletoID']."&campo=TipoBoletoID'>Eliminar</a></td>
-                                    <td>modificar</td>
+                                    <td><a href='Tipoboleto.php?id=".$tabla['TipoBoletoID']."'>modificar</td>
                                 </tr>";
                             }
                         ?>
@@ -60,18 +60,30 @@
                     </table>
                     
                 </article>
-                <article>
-                    <form action="" method="">
+                <?php
+                    if(isset($_GET['id'])){
+                        $id =$_GET['id'];
+                        $Act = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE TipoBoletoID =  $id");
+                        $datos = mysqli_fetch_assoc($Act);
+                        echo ' <article>
+                            <form action="" method="">
 
-                        <h2>Tipo de boleto</h2>
-                        
-                        <label for="Tipo">Nombre del Tipo</label>
-                        <input type="text" id="" name="Tipo" required>
-                        
-                        <input type="button" id="" name="">
+                                <h2>Actualizar tipo de boleto</h2>
+                                
+                                <label for="Tipo">Nombre del Tipo</label>
+                                <input type="text" id="" name="Tipo" value = "'.$datos['Tipo'].'"required>
+                                
+                                <input type="button" id="" name="">
 
-                    </form>
-                </article>
+                            </form>
+                        </article>';
+                    }
+                    else{
+                        echo ' <article>
+                        </article>';
+                    }
+                ?>
+
             </section>
         </main>
         <footer>
