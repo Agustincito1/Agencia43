@@ -1,3 +1,10 @@
+<?php
+    if(isset($_GET['Empresa'])){
+        $id = $_GET['Empresa'];
+        $query = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE `EmpresaID` = `$id`";
+    }
+    
+?>
 
 
 <!DOCTYPE html>

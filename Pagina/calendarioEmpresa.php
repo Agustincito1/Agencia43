@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['Empresa'])){
-        $id = "Empresa";
+        $id = $_GET['Empresa'];
         $query = "SELECT `HorarioID`, 
         `Horario`, 
         `horario`.`EmpresaID`, 

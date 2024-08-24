@@ -37,6 +37,12 @@
             echo "campo vacio";
         }
 
+        $query = "SELECT	`destino`.`Nombre`, 
+		`destino`.`LocalidadID`, 
+        `destino`.`BoletoID` 
+        FROM `destino`, `horario`, `boleto` 
+        WHERE `DestinoID` = $destino AND `horario`.`Horario` = $fecha AND `boleto`.`TipoboletoID` = $tipo AND `boleto`.`CantidadPersonas` = $pasajeros AND`boleto`.`IdaYvuelta` = $option;";
+
     }
     else{
         echo "error en el envio de datos";

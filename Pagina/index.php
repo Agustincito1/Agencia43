@@ -4,7 +4,7 @@
 
 
     $queryTipo = "SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1";
-    $queryEmpresas = "";
+    $queryEmpresas = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1";
     $queryBoletosLista = "";
 
 ?>
