@@ -1,8 +1,9 @@
 <?php
 
-    include "../libraries/config.php";
-    include QuerysFunciones;
+    include "../libraries/Query.php";
 
+
+    $queryTipo = "SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1";
     $queryEmpresas = "";
     $queryBoletosLista = "";
 
@@ -50,18 +51,28 @@
                         <p>Busca el lugar donde quieras ir</p>
 
                         <input type="radio" name="option2" id="">
-                        <label for="tipo">Solo ida</label>
+                        <label for="option2">Solo ida</label>
                         <input type="radio" name="option1" id="">
-                        <label for="tipo">Ida y vuelta</label>
+                        <label for="option1">Ida y vuelta</label>
                         
                         <label for="tipo">Tipo de boleto</label>
-                        <input type="text" id="" name="tipo" required>
-
+                        <select name="tipo" id="">
+                            <?php
+                                    $Tipo = QueryAndGetData($queryTipo);
+                                    while($valor = mysqli_fetch_assoc($Tipo)){
+                                        echo "<option value='".$valor['TipoBoletoID']."'>".$valor['Tipo']."</option>";
+                                    }
+                            ?>
+                        </select>
                         <label for="inicio">Lugar de partida</label>
                         <p name="inicio"></p>
 
                         <label for="destino">Lugar de destino</label>
-                        <input type="text" id="" name="destino" required>
+                        <input type="text" name="destino" id="filtro">
+                        <div id="opciones">
+                            <!-- Las opciones se llenarán con JavaScript -->
+                        </div>
+
 
                         <label for="fecha">Fecha de viaje</label>
                         <input type="text" id="" name="fecha" required>
@@ -101,4 +112,5 @@
             
         </footer>
     </body>
+    <script src="assets/js/filtro.js"></script>
 </html>

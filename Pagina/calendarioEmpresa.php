@@ -1,3 +1,17 @@
+<?php
+    if(isset($_GET['Empresa'])){
+        $id = "Empresa";
+        $query = "SELECT `HorarioID`, 
+        `Horario`, 
+        `horario`.`EmpresaID`, 
+        `empresa`.`Nombre`
+        FROM `horario`
+        INNER JOIN empresa ON `horario`.`EmpresaID` = `empresa`.`EmpresaID` AND `horario`.`EmpresaID` = `$id`";
+    
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
