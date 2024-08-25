@@ -12,7 +12,7 @@
                 `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`;");
     }
     else{
-        //alerta personalizada
+        echo "<script> alert('No iniciaste sesion'); </script>";
     }
 
 ?>

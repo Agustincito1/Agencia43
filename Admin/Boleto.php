@@ -12,6 +12,7 @@
             `empresa`.`Nombre` 
             FROM `horario`
             INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`");    
+        
         $query = QueryAndGetData("SELECT 	
             `BoletoID`, 
             `NombreBoleto`, 
@@ -29,7 +30,7 @@
     }
     else{
         //alerta personalizada
-        ECHO "NO ANDA";
+        echo "<script> alert('No iniciaste sesion'); </script>";
     }
     
 ?>
@@ -221,6 +222,7 @@
                         </article>';
                     }
                     else{
+                        echo "<script> alert('No seleccionaste el campo para modificar'); </script>";
                         echo ' <article>
                         </article>';
                     }

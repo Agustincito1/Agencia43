@@ -12,7 +12,7 @@
                 echo "Eliminado correctamente";
             }
             else{
-                echo "no se elimino";
+                echo "<script> alert('No se elimino'); </script>";
             }
             
     

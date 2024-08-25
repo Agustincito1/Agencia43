@@ -5,7 +5,7 @@
         $query = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1");
     }
     else{
-        //alerta personalizada
+        echo "<script> alert('No iniciaste sesion'); </script>";
     }
 ?>
 

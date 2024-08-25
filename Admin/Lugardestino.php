@@ -18,7 +18,7 @@
         
     }
     else{
-        //alerta personalizada
+        echo "<script> alert('No iniciaste sesion'); </script>";
     }
 
 ?>
