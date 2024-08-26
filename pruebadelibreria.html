@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sweegt</title>
+    <link rel="stylesheet" href="libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <script src="libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+</head>
+<body>
+    <button id="miBoton">Mostrar Alerta</button>
+    
+    <script>
+        document.getElementById('miBoton').addEventListener('click', function() {
+            Swal.fire({
+                title: '¡Hola!',
+                text: 'Esto es una alerta de SweetAlert2.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,36 +1,47 @@
-<?php
-    include "../libraries/Query.php";
 
-    if(verificarsession()){
-
-        $SelectP = "SELECT `ProvinciaID`, `Provincia` FROM `provincia` WHERE 1";
-        $SelectB = "SELECT `BoletoID`, `NombreBoleto` FROM `boleto` WHERE 1";
-
-        $query = QueryAndGetData("SELECT `DestinoID`, 
-            `Nombre`, 
-            `localidad`.`Localidad`, 
-            `boleto`.`NombreBoleto`
-            FROM `destino`
-            INNER JOIN 
-                `localidad` ON `localidad`.`LocalidadID` = `destino`.`LocalidadID`
-            INNER JOIN 
-                `boleto` ON `boleto`.`BoletoID` = `destino`.`BoletoID`;");
-        
-    }
-    else{
-        echo "<script> alert('No iniciaste sesion'); </script>";
-    }
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <title>Lugar Destino</title>
 </head>
     <body>
+        <?php
+            include "../libraries/Query.php";
+
+            if(verificarsession()){
+
+                $SelectP = "SELECT `ProvinciaID`, `Provincia` FROM `provincia` WHERE 1";
+                $SelectB = "SELECT `BoletoID`, `NombreBoleto` FROM `boleto` WHERE 1";
+
+                $query = QueryAndGetData("SELECT `DestinoID`, 
+                    `Nombre`, 
+                    `localidad`.`Localidad`, 
+                    `boleto`.`NombreBoleto`
+                    FROM `destino`
+                    INNER JOIN 
+                        `localidad` ON `localidad`.`LocalidadID` = `destino`.`LocalidadID`
+                    INNER JOIN 
+                        `boleto` ON `boleto`.`BoletoID` = `destino`.`BoletoID`;");
+                
+            }
+            else{
+                echo "
+                        <script>
+                            Swal.fire({
+                                title: '¡Oops...!',
+                                text: 'No iniciaste sesion',
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar'
+                            });
+                        </script>";
+            }
+
+        ?>
         <header>
             <h1></h1>
             <nav>

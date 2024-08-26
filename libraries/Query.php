@@ -52,14 +52,10 @@
     }
 
 
-    function savedataSession($data, $name){
-        session_start();
-        $SESSION[$name] = $data;
-    }
-
     function verificarsession(){
         session_start();
-        if(isset($_SESSION)){
+        
+        if(isset($_SESSION['ID'])){
             return True;
         }
         else{

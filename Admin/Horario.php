@@ -1,30 +1,41 @@
-<?php
-    include "../libraries/Query.php";
 
-    if(verificarsession()){
-        $SelectE = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1";
-
-        $query = QueryAndGetData("SELECT `HorarioID`, 
-            `Horario`, 
-            `empresa`.`Nombre` 
-            FROM `horario` 
-            INNER JOIN
-                `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`;");
-    }
-    else{
-        echo "<script> alert('No iniciaste sesion'); </script>";
-    }
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <title>Horario</title>
 </head>
     <body>
+        <?php
+            include "../libraries/Query.php";
+
+            if(verificarsession()){
+                $SelectE = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1";
+
+                $query = QueryAndGetData("SELECT `HorarioID`, 
+                    `Horario`, 
+                    `empresa`.`Nombre` 
+                    FROM `horario` 
+                    INNER JOIN
+                        `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`;");
+            }
+            else{
+                echo "
+                        <script>
+                            Swal.fire({
+                                title: '¡Oops...!',
+                                text: 'No iniciaste sesion',
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar'
+                            });
+                        </script>";
+            }
+
+        ?>
         <header>
             <h1></h1>
             <nav>

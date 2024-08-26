@@ -1,48 +1,58 @@
 
-
-<?php
-    include "../libraries/Query.php";
-    if(verificarsession()){
-        
-        $selectL = QueryAndGetData("SELECT `LocalID`, `Nombre` FROM `local` WHERE 1");
-        $selectT = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1");
-        $selectH = QueryAndGetData("SELECT 
-            `HorarioID`, 
-            `Horario`, 
-            `empresa`.`Nombre` 
-            FROM `horario`
-            INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`");    
-        
-        $query = QueryAndGetData("SELECT 	
-            `BoletoID`, 
-            `NombreBoleto`, 
-            `InicioDestino`, 
-            `Precio`, 
-            `tipoboleto`.`Tipo`, 
-            `empresa`.`Nombre`, 
-            `CantidadPersonas`,
-            `IdaYvuelta` 
-            FROM   `boleto` 
-            INNER JOIN 
-                `empresa` ON `empresa`.`EmpresaID` = `boleto`.`EmpresaID`
-            INNER JOIN 
-                `tipoboleto` ON `tipoboleto`.`TipoBoletoID` = `boleto`.`TipoBoletoID`");
-    }
-    else{
-        //alerta personalizada
-        echo "<script> alert('No iniciaste sesion'); </script>";
-    }
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <title>Boleto</title>
 </head>
     <body>
+        
+        <?php
+            include "../libraries/Query.php";
+            if(verificarsession()){
+                $selectL = QueryAndGetData("SELECT `LocalID`, `Nombre` FROM `local` WHERE 1");
+                $selectT = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1");
+                $selectH = QueryAndGetData("SELECT 
+                        `HorarioID`, 
+                        `Horario`, 
+                        `empresa`.`Nombre` 
+                        FROM `horario`
+                        INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`");    
+        
+                $query = QueryAndGetData("SELECT 	
+                    `BoletoID`, 
+                    `NombreBoleto`, 
+                    `InicioDestino`, 
+                    `Precio`, 
+                    `tipoboleto`.`Tipo`, 
+                    `empresa`.`Nombre`, 
+                    `CantidadPersonas`,
+                    `IdaYvuelta` 
+                    FROM   `boleto` 
+                    INNER JOIN 
+                        `empresa` ON `empresa`.`EmpresaID` = `boleto`.`EmpresaID`
+                    INNER JOIN 
+                        `tipoboleto` ON `tipoboleto`.`TipoBoletoID` = `boleto`.`TipoBoletoID`");
+
+            }
+            else{
+                //alerta personalizada
+                echo "
+                <script>
+                    Swal.fire({
+                        title: '¡Oops...!',
+                        text: 'No iniciaste sesion',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                </script>";
+            }
+
+        ?>
+
         <header>
             <h1></h1>
             <nav>
@@ -221,11 +231,7 @@
                         </form>
                         </article>';
                     }
-                    else{
-                        echo "<script> alert('No seleccionaste el campo para modificar'); </script>";
-                        echo ' <article>
-                        </article>';
-                    }
+                    
                 ?>
                 
             </section>
