@@ -10,32 +10,11 @@
     <title>Horario</title>
 </head>
     <body>
+        
         <?php
-            include "../libraries/Query.php";
-
-            if(verificarsession()){
-                $SelectE = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1";
-
-                $query = QueryAndGetData("SELECT `HorarioID`, 
-                    `Horario`, 
-                    `empresa`.`Nombre` 
-                    FROM `horario` 
-                    INNER JOIN
-                        `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`;");
-            }
-            else{
-                echo "
-                        <script>
-                            Swal.fire({
-                                title: '¡Oops...!',
-                                text: 'No iniciaste sesion',
-                                icon: 'error',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        </script>";
-            }
-
+            include "querys.php";
         ?>
+
         <header>
             <h1></h1>
             <nav>
@@ -56,10 +35,7 @@
 
                         <select name="Empresa" id="">
                             <?php
-                                $Empresa = QueryAndGetData($SelectE);
-                                while($valor = mysqli_fetch_assoc($Empresa)){
-                                    echo "<option value='".$valor['EmpresaID']."'>".$valor['Nombre']."</option>";
-                                }
+                                options($empresa);
                             ?>
                         </select>
 
@@ -78,43 +54,46 @@
                             <th></th>
                             <th></th>
                         </tr>
-
-                        <?php 
-                            while($tabla = mysqli_fetch_assoc($query)){
-                                echo " <tr> <td>".$tabla['Horario']."</td>
-                                    <td>".$tabla['Nombre']."</td>
-                                    <td><a href='eliminarfila.php?tabla=horario&id=".$tabla['HorarioID']."&campo=HorarioID'>Eliminar</a></td>
-                                    <td>modificar</td>
-                                </tr>";
-                            }
-                        ?>
                         
+                        <?php  
+                            filas($select_horario,2);
+                        ?>
+
                     </table>
                     
                 </article>
-                <article>
-                    <form action="" method="">
+                
+                <!-- Modificar -->
+                <?php
+                        if(isset($_GET['id'])){
+                            $id =$_GET['id'];
+                            $query = QueryAndGetData("SELECT 
+                                `HorarioID`, 
+                                `Horario`, 
+                                `empresa`.`Nombre` 
+                                FROM `horario`
+                                INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID` 
+                                WHERE `HorarioID` = $id;");
+                            $datos = mysqli_fetch_assoc($query);
 
-                        <h2>Horarios</h2>
+                            echo '
+                            <article>
+                                <form action="" method="POST">
 
-                        <label for="Empresa">Empresa</label>
+                                    <h2>Empresa</h2>
 
-                        <select name="Empresa" id="">
-                            <?php
-                                $Empresa = QueryAndGetData($SelectE);
-                                while($valor = mysqli_fetch_assoc($Empresa)){
-                                    echo "<option value='".$valor['EmpresaID']."'>".$valor['Nombre']."</option>";
-                                }
-                            ?>
-                        </select>
+                                    <label for="Nombre">Nombre de la Empresa</label>
+                                    <input type="text" id="" name="Nombre" value="'.$value['Nombre'].'" required>
 
-                        <label for="Horario">Horario</label>
-
-                        <input type="date" id="" name="Horario" required>
-
-                        <input type="button" id="" name="">
-                    </form>
-                </article>
+                                    <input type="button" id="" name="">
+                                    
+                                </form>
+                            </article>  
+                            ';
+                        }
+                    
+                ?>
+                
             </section>
         </main>
         <footer>

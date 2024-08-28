@@ -11,7 +11,7 @@
     <?php
         if(isset($_POST)){
             
-            include "../libraries/Query.php";
+            include "../libraries/functions.php";
 
             $contrasena = $_POST['contrasena'];
             $usuario = $_POST['usuario'];

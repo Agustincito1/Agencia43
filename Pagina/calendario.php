@@ -1,11 +1,5 @@
-<?php
-    $query = "SELECT `HorarioID`, 
-    `Horario`, 
-    `horario`.`EmpresaID`, 
-    `empresa`.`Nombre`
-    FROM `horario`
-    INNER JOIN empresa ON `horario`.`EmpresaID` = `empresa`.`EmpresaID`;";
-
+<<?php 
+    include "querys.php";
 ?>
 
 <!DOCTYPE html>

@@ -1,18 +1,6 @@
-<?php
-
-    include "../libraries/Query.php";
-
-
-    $queryTipo = "SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1";
-    $queryEmpresas = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1";
-    $queryBoletosLista = "";
-
+<?php 
+    include "querys.php";
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,10 +46,7 @@
                         <label for="tipo">Tipo de boleto</label>
                         <select name="tipo" id="">
                             <?php
-                                    $Tipo = QueryAndGetData($queryTipo);
-                                    while($valor = mysqli_fetch_assoc($Tipo)){
-                                        echo "<option value='".$valor['TipoBoletoID']."'>".$valor['Tipo']."</option>";
-                                    }
+                                options($select_tipoboleto);
                             ?>
                         </select>
                         <label for="inicio">Lugar de partida</label>

@@ -10,22 +10,7 @@
 </head>
     <body>
         <?php
-            include "../libraries/Query.php";
-
-            if(verificarsession()){
-                $query = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1");
-            }
-            else{
-                echo "
-                        <script>
-                            Swal.fire({
-                                title: '¡Oops...!',
-                                text: 'No iniciaste sesion',
-                                icon: 'error',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        </script>";
-            }
+            include "querys.php";
         ?>
 
         <header>
@@ -58,20 +43,17 @@
                             <th></th>
                             <th></th>
                         </tr>
+                        
                         <?php 
-                            while($tabla = mysqli_fetch_assoc($query)){
-                                echo " <tr> 
-                                    <td>".$tabla['Tipo']."</td>
-                                    <td><a href='eliminarfila.php?tabla=tipoboleto&id=".$tabla['TipoBoletoID']."&campo=TipoBoletoID'>Eliminar</a></td>
-                                    <td><a href='Tipoboleto.php?id=".$tabla['TipoBoletoID']."'>modificar</td>
-                                </tr>";
-                            }
+                            filas($select_tipoboleto,1);
                         ?>
                         
                     </table>
                     
                 </article>
+
                 <?php
+
                     if(isset($_GET['id'])){
                         $id =$_GET['id'];
                         $Act = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE TipoBoletoID =  $id");

@@ -10,7 +10,7 @@
 <body>
     
     <?php
-        include "../libraries/Query.php";
+        include "../libraries/functions.php";
 
         if(verificarsession()){
             if(isset($_GET['tabla'])){
@@ -36,17 +36,6 @@
                 
         
             }
-        }
-        else{
-            echo "
-                    <script>
-                        Swal.fire({
-                            title: '¡Oops...!',
-                            text: 'No iniciaste sesion',
-                            icon: 'error',
-                            confirmButtonText: 'Aceptar'
-                        });
-                    </script>";
         }
         
     ?>

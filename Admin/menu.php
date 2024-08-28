@@ -10,22 +10,7 @@
 </head>
     <body>
         <?php
-            include "../libraries/Query.php";
-
-            if(verificarsession()){
-                
-            }
-            else{
-                echo "
-                        <script>
-                            Swal.fire({
-                                title: '¡Oops...!',
-                                text: 'No iniciaste sesion',
-                                icon: 'error',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        </script>";
-            }
+            include "querys.php";
         ?>
 
 

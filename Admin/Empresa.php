@@ -11,24 +11,9 @@
     <body>
 
         <?php
-            include "../libraries/Query.php";
-
-            if(verificarsession()){
-                $query = QueryAndGetData("SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1");
-            }
-            else{
-                echo "
-                        <script>
-                            Swal.fire({
-                                title: '¡Oops...!',
-                                text: 'No iniciaste sesion',
-                                icon: 'error',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        </script>";
-            }
-
+            include "querys.php";
         ?>
+        
         <header>
             <h1></h1>
             <nav>
@@ -61,30 +46,39 @@
                         </tr>
 
                         <?php 
-                            while($tabla = mysqli_fetch_assoc($query)){
-                                echo " <tr> <td>".$tabla['Nombre']."</td>
-                                    <td><a href='eliminarfila.php?tabla=empresa&id=".$tabla['EmpresaID']."&campo=EmpresaID'>Eliminar</a></td>
-                                    <td>modificar</td>
-                                </tr>";
-                            }
+                            filas($empresa,1);
                         ?>
                         
                     </table>
                     
                 </article>
-                <article>
+                
                     <!-- Modificar -->
-                    <form action="" method="POST">
+                    <?php
+                        if(isset($_GET['id'])){
+                            $id =$_GET['id'];
+                            $query = QueryAndGetData("SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE EmpresaID =  $id");
+                            $datos = mysqli_fetch_assoc($query);
 
-                        <h2>Empresa</h2>
+                            echo '
+                            <article>
+                                <form action="" method="POST">
 
-                        <label for="Nombre">Nombre de la Empresa</label>
-                        <input type="text" id="" name="Nombre" required>
+                                    <h2>Empresa</h2>
 
-                        <input type="button" id="" name="">
-                        
-                    </form>
-                </article>  
+                                    <label for="Nombre">Nombre de la Empresa</label>
+                                    <input type="text" id="" name="Nombre" value="'.$value['Nombre'].'" required>
+
+                                    <input type="button" id="" name="">
+                                    
+                                </form>
+                            </article>  
+                            ';
+                        }
+                    
+                    ?>
+                    
+                
             </section>
         </main>
         <footer>
