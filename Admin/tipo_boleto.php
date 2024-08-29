@@ -25,14 +25,14 @@
         <main>
             <section>
                 <article>
-                    <form action="" method="">
+                    <form action="add.php" method="POST">
 
                         <h2>Tipo de boleto</h2>
                         
                         <label for="Tipo">Nombre del Tipo</label>
                         <input type="text" id="" name="Tipo" required>
                         
-                        <input type="button" id="" name="">
+                        <input type="button" id="" name="AñadirTipo">
 
                     </form>
                 </article>

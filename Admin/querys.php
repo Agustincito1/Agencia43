@@ -21,12 +21,12 @@
                 `InicioDestino`, 
                 `Precio`, 
                 `tipoboleto`.`Tipo`, 
-                `empresa`.`Nombre`, 
+                `horario`.`Horario`, 
                 `CantidadPersonas`,
                 `IdaYvuelta` 
-                FROM   `boleto` 
+                FROM  `boleto` 
                 INNER JOIN 
-                    `empresa` ON `empresa`.`EmpresaID` = `boleto`.`EmpresaID`
+                    horario ON `horario`.`HorarioID` = `boleto`.`HorarioID`
                 INNER JOIN 
                     `tipoboleto` ON `tipoboleto`.`TipoBoletoID` = `boleto`.`TipoBoletoID`";
 

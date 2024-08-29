@@ -27,7 +27,7 @@
         <main>
             <section>
                 <article>
-                    <form action="" method="">
+                    <form action="add.php" method="POST">
                         <h2>Lugar destino</h2>
                     
                         <label for="Nombre">Nombre del Lugar</label>
@@ -47,7 +47,7 @@
                             ?>  
                         </select>
                         
-                        <input type="button" id="" name="">
+                        <input type="button" id="" name="AñadirLugar">
                     </form>
                 </article>
                 <article>

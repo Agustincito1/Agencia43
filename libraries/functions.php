@@ -66,12 +66,9 @@
         else{
             echo "
                 <script>
-                    Swal.fire({
-                        title: '¡Oops...!',
-                        text: 'No iniciaste sesion',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    });
+                    
+                    window.location.href = '../Admin/login.php';
+                    
                 </script>";
                 
             return false;
@@ -98,7 +95,7 @@
 
     //funcion para crear filas desde la bd
 
-    function filas($query, $cantidad_columnas){
+    function filas($query, $cantidad_columnas, $nametable, $campo){
 
         if($data = QueryAndGetData($query)){
             while($row = mysqli_fetch_assoc($data)){
@@ -107,8 +104,8 @@
                 for($n = 1; $n <= $cantidad_columnas; $n++){
                     echo "<td>".$values[$n]."</td>";
                 }
-                echo "<td>Eliminar</td>";
-                echo "<td>Modificar</td>";
+                echo "<td><a href='delete.php?tabla=$nametable&id=".$values[0]."&campo=".$campo."'>Eliminar</a></td>";
+                echo "<td><a href='boleto.php?id=".$values[0]."'>Modificar</a></td>";
                 echo "</tr>";
             }
         }

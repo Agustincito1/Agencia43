@@ -27,7 +27,7 @@
         <main>
             <section>
                 <article>
-                    <form action="" method="">
+                    <form action="add.php" method="POST">
 
                         <h2>Horarios</h2>
 
@@ -43,7 +43,7 @@
 
                         <input type="date" id="" name="Horario" required>
 
-                        <input type="button" id="" name="">
+                        <input type="button" id="" name="AñadirHorario">
                     </form>
                 </article>
                 <article>

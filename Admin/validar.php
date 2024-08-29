@@ -24,8 +24,19 @@
                         session_start();
                         $data = $datos['AdminID'];
                         $_SESSION["ID"] = $data;
-                        header("Location: menu.php");
-                        exit();
+                                echo "
+                            <script>
+                                Swal.fire({
+                                    title: '¡Inicio de sesion exitoso!',
+                                    icon: 'success',
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        
+                                        window.location.href = 'menu.php';
+                                    }
+                                });
+                            </script>";
                     }
 
                 }else{
@@ -36,6 +47,11 @@
                             text: 'No existe este usuario admin',
                             icon: 'error',
                             confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                
+                                history.go(-1);
+                            }
                         });
                     </script>";
                 }
@@ -48,8 +64,13 @@
                         text: 'No existe este usuario admin',
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
-                    });
-                </script>";
+                    }).then((result) => {
+                            if (result.isConfirmed) {
+                                
+                                history.go(-1);
+                            }
+                        });
+                    </script>";
             }
         }
     ?>

@@ -7,10 +7,12 @@
         `empresa`.`Nombre`
         FROM `horario`
         INNER JOIN empresa ON `horario`.`EmpresaID` = `empresa`.`EmpresaID` AND `horario`.`EmpresaID` = `$id`";
-    
     }
-    
+    else{
+        
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

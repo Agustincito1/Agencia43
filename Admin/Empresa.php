@@ -26,14 +26,14 @@
         <main>
             <section>
                 <article>
-                    <form action="" method="">
+                    <form action="add.php" method="POST">
 
                         <h2>Empresa</h2>
 
                         <label for="Nombre">Nombre de la Empresa</label>
                         <input type="text" id="" name="Nombre" required>
 
-                        <input type="button" id="" name="">
+                        <input type="button" id="" name="AñadirEmpresa">
 
                     </form>
                 </article>
