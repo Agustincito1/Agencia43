@@ -32,7 +32,7 @@
                         <label for="Tipo">Nombre del Tipo</label>
                         <input type="text" id="" name="Tipo" required>
                         
-                        <input type="button" id="" name="AñadirTipo">
+                        <input type="submit" id="" name="AnadirTipo">
 
                     </form>
                 </article>
@@ -45,7 +45,7 @@
                         </tr>
                         
                         <?php 
-                            filas($select_tipoboleto,1);
+                            filas($select_tipoboleto,1, "tipoboleto", "TipoBoletoID");
                         ?>
                         
                     </table>
@@ -59,14 +59,14 @@
                         $Act = QueryAndGetData("SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE TipoBoletoID =  $id");
                         $datos = mysqli_fetch_assoc($Act);
                         echo ' <article>
-                            <form action="" method="">
-
+                            <form action="update.php" method="POST">
+                                <input type="hidden" name="id" value='.$id.'>
                                 <h2>Actualizar tipo de boleto</h2>
                                 
                                 <label for="Tipo">Nombre del Tipo</label>
                                 <input type="text" id="" name="Tipo" value = "'.$datos['Tipo'].'"required>
                                 
-                                <input type="button" id="" name="">
+                                <input type="submit" id="" name="AnadirTipo">
 
                             </form>
                         </article>';

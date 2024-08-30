@@ -33,7 +33,7 @@
                         <label for="Nombre">Nombre de la Empresa</label>
                         <input type="text" id="" name="Nombre" required>
 
-                        <input type="button" id="" name="AñadirEmpresa">
+                        <input type="submit" id="" name="AnadirEmpresa">
 
                     </form>
                 </article>
@@ -46,7 +46,7 @@
                         </tr>
 
                         <?php 
-                            filas($empresa,1);
+                            filas($empresa,1,"empresa","EmpresaID");
                         ?>
                         
                     </table>
@@ -62,14 +62,15 @@
 
                             echo '
                             <article>
-                                <form action="" method="POST">
+                                <form action="update.php" method="POST">
+                                    <input type="hidden" name="id" value='.$id.'>
 
                                     <h2>Empresa</h2>
 
                                     <label for="Nombre">Nombre de la Empresa</label>
-                                    <input type="text" id="" name="Nombre" value="'.$value['Nombre'].'" required>
+                                    <input type="text" id="" name="Nombre" value="'.$datos['Nombre'].'" required>
 
-                                    <input type="button" id="" name="">
+                                    <input type="submit" id="" name="AnadirEmpresa">
                                     
                                 </form>
                             </article>  

@@ -44,20 +44,95 @@
         }
         else{
             if(isset($_POST['AnadirEmpresa'])){
-        
+                $nombre = $_POST['Nombre'];
+    
+                $add = "INSERT INTO `empresa`(`Nombre`) VALUES ('$nombre')";
+    
+                if(Query($add)){
+                    echo "
+                    <script>
+                        Swal.fire({
+                            title: 'Empresa creada correctamente!',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                
+                                window.location.href = 'empresa.php';
+                            }
+                        });
+                    </script>";
+                }
             }
             else{
-                if(isset($_POST['AnadirEmpresa'])){
+                if(isset($_POST['AnadirHorario'])){
+                    $empresa = $_POST['Empresa'];
+                    $horario = $_POST['Horario'];
+                    
+                    $add = "INSERT INTO `horario`(`Horario`, `EmpresaID`) VALUES ('$horario','$empresa')";
         
+                    if(Query($add)){
+                        echo "
+                        <script>
+                            Swal.fire({
+                                title: 'Horario creado correctamente!',
+                                icon: 'success',
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    
+                                    window.location.href = 'horario.php';
+                                }
+                            });
+                        </script>";
+                    }
                 }
                 else{
                     if(isset($_POST['AnadirLugar'])){
-        
+                        $nombre = $_POST['Nombre'];
+                        $localidad = $_POST['Localidad'];
+                        $bolet  = $_POST['Boleto'];
+    
+                        $add = "INSERT INTO `destino`( `Nombre`, `LocalidadID`, `BoletoID`) VALUES ('$nombre','$localidad','$bolet')";
+            
+                        if(Query($add)){
+                            echo "
+                            <script>
+                                Swal.fire({
+                                    title: '¡Lugar creado correctamente!',
+                                    icon: 'success',
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        
+                                        window.location.href = 'lugar_destino.php';
+                                    }
+                                });
+                            </script>";
+                        }
                     }
                     else{
                         if(isset($_POST['AnadirTipo'])){
 
-
+                            $nombre = $_POST['Tipo'];
+        
+                            $add = "INSERT INTO `tipoboleto`(`Tipo`) VALUES ('$nombre')";
+                
+                            if(Query($add)){
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: '¡Tipo de boleto creado correctamente!',
+                                        icon: 'success',
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            
+                                            window.location.href = 'tipo_boleto.php';
+                                        }
+                                    });
+                                </script>";
+                            }
         
                         }
                     }

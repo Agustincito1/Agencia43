@@ -29,7 +29,7 @@
                     <h2></h2>
                     <a href="Boleto.php">Gestionar boletos</a>
                     <a href="Empresa.php">Gestionar empresas</a>
-                    <a href="Horario.php">Gestionar imagenes de empresas</a>
+                    <a href="Horario.php">Gestionar Horarios</a>
                 </article>
             </section>
         </main>

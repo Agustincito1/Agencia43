@@ -41,9 +41,9 @@
 
                         <label for="Horario">Horario</label>
 
-                        <input type="date" id="" name="Horario" required>
+                        <input type="time" id="" name="Horario" value="00:00" required>
 
-                        <input type="button" id="" name="AñadirHorario">
+                        <input type="Submit" id="" name="AnadirHorario">
                     </form>
                 </article>
                 <article>
@@ -56,7 +56,7 @@
                         </tr>
                         
                         <?php  
-                            filas($select_horario,2);
+                            filas($select_horario,2, "horario", "HorarioID");
                         ?>
 
                     </table>
@@ -70,23 +70,32 @@
                             $query = QueryAndGetData("SELECT 
                                 `HorarioID`, 
                                 `Horario`, 
-                                `empresa`.`Nombre` 
+                                `empresa`.`Nombre`,
+                                `empresa`.`EmpresaID`
                                 FROM `horario`
                                 INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID` 
-                                WHERE `HorarioID` = $id;");
+                                WHERE `HorarioID` = $id");
                             $datos = mysqli_fetch_assoc($query);
 
                             echo '
                             <article>
-                                <form action="" method="POST">
+                                <form action="update.php" method="POST">
+                                    <input type="hidden" name="id" value='.$id.'>
+                                    <h2>Horarios</h2>
 
-                                    <h2>Empresa</h2>
+                                    <label for="Empresa">Empresa</label>
 
-                                    <label for="Nombre">Nombre de la Empresa</label>
-                                    <input type="text" id="" name="Nombre" value="'.$value['Nombre'].'" required>
+                                    <select name="Empresa" id="">';
+                                        
+                                    options_selectionado($empresa, $datos['EmpresaID']);
+                            echo '
+                                    </select>
 
-                                    <input type="button" id="" name="">
-                                    
+                                    <label for="Horario">Horario</label>
+
+                                    <input type="time" id="" value="'.$datos['Horario'].'" name="Horario" required>
+
+                                    <input type="Submit" id="" name="AnadirHorario">
                                 </form>
                             </article>  
                             ';

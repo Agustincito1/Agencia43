@@ -47,7 +47,7 @@
                             ?>  
                         </select>
                         
-                        <input type="button" id="" name="AñadirLugar">
+                        <input type="submit" id="" name="AnadirLugar">
                     </form>
                 </article>
                 <article>
@@ -61,7 +61,7 @@
                         </tr>
                         
                         <?php 
-                            filas($destino,3);
+                            filas($destino,3, "destino", "DestinoID");
                         ?>
                         
                     </table>
@@ -70,7 +70,7 @@
                 <!-- Modificar -->
                 <?php
                         if(isset($_GET['id'])){
-                            $id =$_GET['id'];
+                            $id = $_GET['id'];
                             $query = QueryAndGetData("SELECT `DestinoID`, 
                                 `Nombre`, 
                                 `localidad`.`Localidad`, 
@@ -88,7 +88,8 @@
 
                             echo '
                             <article>
-                                <form action="" method="POST">
+                                <form action="update.php" method="POST">
+                                    <input type="hidden" name="id" value='.$id.'>
                                     <h2>Lugar destino</h2>
                     
                                     <label for="Nombre">Nombre del Lugar</label>
@@ -109,7 +110,7 @@
                                 echo'
                                     </select>
                                     
-                                    <input type="button" id="" name="">
+                                    <input type="submit" id="" name="AnadirLugar">
                                                 
                                 </form>
                             </article>  

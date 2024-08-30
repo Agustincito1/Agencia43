@@ -105,7 +105,7 @@
                     echo "<td>".$values[$n]."</td>";
                 }
                 echo "<td><a href='delete.php?tabla=$nametable&id=".$values[0]."&campo=".$campo."'>Eliminar</a></td>";
-                echo "<td><a href='boleto.php?id=".$values[0]."'>Modificar</a></td>";
+                echo "<td><a href='?id=".$values[0]."'>Modificar</a></td>";
                 echo "</tr>";
             }
         }
