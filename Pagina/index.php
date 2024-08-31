@@ -89,6 +89,10 @@
                     <h2>Empresas que vendemos</h2>
                     <div>
                         <!-- php -->
+                        <?php
+                            imagen_empresas($empresa);
+                        ?>
+                        
                     </div>
                 </article>
             </section>

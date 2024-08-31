@@ -136,4 +136,27 @@
         }
 
     }
+
+
+    function imagen_empresas($query){
+        $datos = QueryAndGetData($query);
+        if(mysqli_num_rows($datos)>1){
+            while($datos = mysqli_fetch_assoc($datos)){
+
+                echo "<div> ".$datos['Nombre']."
+                    <img src='' alt=''>
+                </div>";
+    
+            }
+        }
+        else{
+            $datos = mysqli_fetch_assoc($datos);
+            echo "<div> ".$datos['Nombre']."
+            <img src='' alt=''>
+            </div>";
+        }
+
+    }
+
+
 ?>
