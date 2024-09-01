@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para cargar las opciones desde el servidor
     function loadOptions() {
-        fetch('datosdestinos.php')
+        fetch('datos_destinos.php')
             .then(response => response.json())
             .then(data => {
                 createOptions(data);

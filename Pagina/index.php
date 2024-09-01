@@ -32,16 +32,16 @@
         <main>
             <section>
                 <article>
-                    <form action="" method="">
+                    <form action="boletos.php" method="POST">
                         <h2>AGENCIAS 42-43</h2>
                         <h3>Posadas Misiones</h3>
 
                         <p>Busca el lugar donde quieras ir</p>
 
-                        <input type="radio" name="option2" id="">
-                        <label for="option2">Solo ida</label>
-                        <input type="radio" name="option1" id="">
-                        <label for="option1">Ida y vuelta</label>
+                        <input type="radio" name="option2" value="Ida" id="">
+                        <label for="option2" >Solo ida</label>
+                        <input type="radio" name="option1"  value="IdaYvuelta" id="">
+                        <label for="option1" >Ida y vuelta</label>
                         
                         <label for="tipo">Tipo de boleto</label>
                         <select name="tipo" id="">
@@ -58,9 +58,9 @@
                             <!-- Las opciones se llenarán con JavaScript -->
                         </div>
 
-
-                        <label for="fecha">Fecha de viaje</label>
-                        <input type="text" id="" name="fecha" required>
+                        
+                        <label for="fecha">fecha de viaje</label>
+                        <input type="date" id="" name="fecha" required>
 
                         <label for="cantidad">Cant. Pasajeros</label>
                         <select name="cantidad">
@@ -72,7 +72,7 @@
                             <option value="6">6</option>
                         </select>
 
-                        <input type="button" id="" name="buscar">
+                        <input type="submit" id="" name="buscar">
                     </form>
                 </article>
                 <article>

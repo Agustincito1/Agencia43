@@ -1,6 +1,6 @@
 <?php
     header('Content-Type: application/json');
-    include "../libraries/Query.php";
+    include "../libraries/functions.php";
 
     $query = QueryAndGetData("SELECT `DestinoID`, `Nombre`, `LocalidadID`, `BoletoID` FROM `destino` WHERE 1");
     $date = [];
