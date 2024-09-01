@@ -1,4 +1,5 @@
 <?php 
+include "../libraries/functions.php";
     include "querys.php";
 ?>
 <!DOCTYPE html>

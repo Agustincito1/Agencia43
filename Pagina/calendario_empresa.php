@@ -1,5 +1,6 @@
 <?php
     if(isset($_GET['Empresa'])){
+        include "../libraries/functions.php";
         $id = $_GET['Empresa'];
         $query = "SELECT `HorarioID`, 
         `Horario`, 
