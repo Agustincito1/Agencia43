@@ -2,6 +2,9 @@
 
     require ("../libraries/functions.php");
 
+        $imagenes_local = "SELECT `FotoI`, `FotoII`, `FotoIII` FROM `local` WHERE 1;";
+        $imagenes_todas = QueryAndGetData($imagenes_local);
+
         
         $select_local = "SELECT `LocalID`, `Nombre` FROM `local` WHERE 1";
         $select_tipoboleto = "SELECT `TipoBoletoID`, `Tipo` FROM `tipoboleto` WHERE 1";

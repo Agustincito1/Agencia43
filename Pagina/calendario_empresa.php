@@ -2,12 +2,15 @@
     if(isset($_GET['Empresa'])){
         include "../libraries/functions.php";
         $id = $_GET['Empresa'];
+
         $query = "SELECT `HorarioID`, 
         `Horario`, 
         `horario`.`EmpresaID`, 
         `empresa`.`Nombre`
         FROM `horario`
         INNER JOIN empresa ON `horario`.`EmpresaID` = `empresa`.`EmpresaID` AND `horario`.`EmpresaID` = `$id`";
+
+        $datos = QueryAndGetData($query);
     }
     else{
         
@@ -20,7 +23,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario empresa</title>
+    <title>Calendario <?php echo $datos['Nombre']; ?></title>
 </head>
     <body>
         <header>
