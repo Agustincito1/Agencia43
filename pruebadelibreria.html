@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sweegt</title>
-    <link rel="stylesheet" href="libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
-    <script src="libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+    
 </head>
 <body>
-    <button id="miBoton">Mostrar Alerta</button>
     
-    <script>
-        document.getElementById('miBoton').addEventListener('click', function() {
-            Swal.fire({
-                title: '¡Hola!',
-                text: 'Esto es una alerta de SweetAlert2.',
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-            });
-        });
-    </script>
+    <footer id="footer">
+        <section class="footer__section">
+            <article class="f-s__article">
+                <div class="f-s-a__div">
+                    <picture class="f-s-a-d__picture">
+                        <img src="Pagina/imgs/iconoEmpresa.png" alt="" />
+                    </picture>
+                </div>
+                <div class="f-s-a__div">
+                    <h1>AGENCIAS 42 y 43</h1>
+                    <h3>Posadas Misiones</h3>
+                </div>
+            </article>
+            <nav class="f-s__nav">
+                <li><a href="">Principal</a></li>
+                <li><a href="">Calendario</a></li>
+                <li><a href="">Nosotros</a></li>
+                <li><a href="">Contactanos</a></li>
+            </nav>
+        </section>
+        <address class="footer__address"><a href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
+    </footer>
 </body>
 </html>
