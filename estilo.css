@@ -31,7 +31,7 @@ body{
     position: relative;
     max-height: 180px;
     display: grid;
-    grid-template-rows: 80% 10%;
+    grid-template-rows: 80% 20%;
 }
 
 .h-s-article{
@@ -76,6 +76,38 @@ body{
     margin-top: 45px;
     box-sizing: content-box;
     font-size: 25px;
+}
+
+.h-s-a__nav{
+    background-color: #494848;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1%;
+    height: 100%;
+    list-style: none;
+    justify-items: center;
+    padding: 0.5rem;
+    padding-top: 0.3rem;
+}
+
+.h-s-a-n-l__a{
+    text-decoration: none;
+    display: block;
+    padding-top: 0.2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    background-color: #989898;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+}
+
+.h-s-a-n-li{
+    max-width: 12rem;
+    width: 100%;
+
+    margin-top: 0.3rem;
 }
 
 
