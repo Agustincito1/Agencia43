@@ -1,0 +1,241 @@
+body{
+    background-color: #2e2e2e;
+    display: grid;
+    grid-template-rows: 10rem 280px; 
+}
+
+*{  
+    
+    margin: 0;
+    padding: 0;
+}
+
+
+/*  Estilo header */
+
+#header{
+    color: #000000;
+    max-height: 140px;
+    min-height: 50px;
+    height: 100%;
+    width: 100%;
+    box-sizing: content-box;
+    justify-items: left;
+    display: grid;
+}
+
+.header-section{
+    background-color: #989898;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    max-height: 140px;
+    display: grid;
+    grid-template-rows: 80% 25%;
+}
+
+.h-s-article{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 9em 1fr;
+    justify-items: left;
+    padding-top: 0.4em;
+    padding-left: 4rem;
+}
+
+.h-s-a__div{
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+.h-s-a__div:first-child{
+    background-color: #494848;
+    border-radius: 100%;
+    height: 100%;
+    min-height: 50px;
+    max-width: 100px;
+    min-width: 50px;
+    max-height: 100px;
+    position: relative;
+}
+.h-s-a-d__img{
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    z-index: 100;
+    margin-top: -0.5em;
+    margin-left: -0.7em;
+}
+
+.h-s-a-d__h3{
+    color: #FFFF00;
+    font-size: 20px;
+    margin: 0;
+}
+
+.h-s-a-d__h1{
+    margin-top: 25px;
+    box-sizing: content-box;
+    font-size: 25px;
+}
+
+.h-s-a__nav{
+    background-color: #494848;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0rem;
+    height: 110%;
+    width: 100%;
+    box-sizing: border-box;
+    list-style: none;
+    justify-items: center;
+    padding: 0.5rem;
+    padding-top: 0.1rem;
+}
+
+.h-s-a-n-l__a{
+    text-decoration: none;
+    display: block;
+    padding-top: 0.1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    background-color: #989898;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+}
+
+.h-s-a-n-li{
+    max-width: 20rem;
+    width: 100%;
+    margin-top: 0.3rem;
+}
+
+
+/*  Estilo footer */
+
+#footer{
+    background-color: #989898;
+    color: #000000;
+    max-height: 280px;
+    min-height: 50px;
+    height: 100%;
+    width: 100%;
+    box-sizing: content-box;
+    justify-items: center;
+    display: grid;
+    grid-template-rows: 85% 15%;
+    
+}
+
+.f-s__article{
+
+    display: grid;
+    margin-top: 10%;
+    height: 65%;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 100% 10%;
+    gap: 5%;
+    justify-content: center;
+
+}
+
+.f-s-a__div{
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+
+.footer__section{
+    background-color: #989898;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+.footer__address{
+    
+    box-sizing: border-box;
+    background-color: #494848;
+    height: 100%;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-left: 0.5%;
+    justify-self: left;
+}
+
+.f-s-a__div:first-child{
+    border-radius: 100%;
+    height: 90%;
+    margin-top: 15%;
+    background-color: #494848;
+}
+
+.f-s-a-d__img{
+    width: 150px;
+    margin-top: -1rem;
+    margin-left: -1.5rem;
+    height: 150px;
+    position: absolute;
+    z-index: 100;
+}
+
+.f_a__a{
+    color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.f-s__nav{
+    list-style: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.f-s-n-l__a{
+    color: #000000;
+    text-decoration: none;
+}
+.f-s-a-d__h3{
+    color: #FFFF00;
+    font-size: 20px;
+    margin: 0;
+}
+
+.f-s-a-d__h1{
+    box-sizing: content-box;
+    margin-top: 18%;
+    font-size: 25px;
+}
+
+
+
+#bodyB{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 9.5rem 100rem 280px; 
+}
+
+#mainB{
+    height: 100%;
+    
+}
+
+.main__section{
+    display: grid;
+    grid-template-rows: 50rem 1fr 1fr;
+    gap: 10rem;
+    padding-top: 6rem;
+    
+}
+.m-s__article-formcontent{
+    background-color:#989898;
+    border: 0.3rem solid #DEDE38;
+    width: 60%;
+    max-width: 60rem;
+    min-width: 28rem;
+    border-radius: 0.5rem;
+}
+
