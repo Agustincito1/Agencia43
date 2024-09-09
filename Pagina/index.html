@@ -37,47 +37,58 @@ include "../libraries/functions.php";
         <main id="mainB">
             <section class="main__section">
                 <article class="m-s__article-formcontent">
-                    <form action="boletos.php" method="POST">
-                        <h1 class="h-s-a-d__h1">AGENCIAS 42 y 43</h1>
-                        <h3 class="h-s-a-d__h3">Posadas Misiones</h3>
-
-                        <p>Busca el lugar donde quieras ir</p>
-
-                        <input type="radio" name="option2" value="Ida" id="">
-                        <label for="option2" >Solo ida</label>
-                        <input type="radio" name="option1"  value="IdaYvuelta" id="">
-                        <label for="option1" >Ida y vuelta</label>
-                        
-                        <label for="tipo">Tipo de boleto</label>
-                        <select name="tipo" id="">
-                            <?php
-                                options($select_tipoboleto);
-                            ?>
-                        </select>
-                        <label for="inicio">Lugar de partida</label>
-                        <p name="inicio"></p>
-
-                        <label for="destino">Lugar de destino</label>
-                        <input type="text" name="destino" id="filtro">
-                        <div id="opciones">
-                            <!-- Las opciones se llenarán con JavaScript -->
+                    <form class="m-s-a_form" action="boletos.php" method="POST">
+                        <div>
+                            <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
+                            <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+    
                         </div>
-
                         
-                        <label for="fecha">fecha de viaje</label>
-                        <input type="date" id="" name="fecha" required>
+                        <p class="m-s-a-f__p">Busca el lugar donde quieras ir</p>
+                        <div class="m-s-a-f__div">
+                            <label for="option2" ><p>Solo ida</p>
+                                <input class="m-s-a-f-d__inputOption" type="radio" name="option2" value="Ida" id="">
+                            </label>
+                            
+                            <label for="option1" ><p>Ida y vuelta</p>
+                                <input " type="radio" name="option1"  value="IdaYvuelta" id="">
+                            </label>
+                            
+                            <label  for="tipo"><p>Tipo de boleto</p>
+                                <select name="tipo" id="">
+                                    <?php
+                                        options($select_tipoboleto);
+                                    ?>
+                                </select>
+                            </label>
 
-                        <label for="cantidad">Cant. Pasajeros</label>
-                        <select name="cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
+                            <label for="inicio"><p>Lugar de partida</p>
+                                <p name="inicio"></p>
+                            </label>
 
-                        <input type="submit" id="" name="buscar">
+                            <label for="destino"><p>Lugar de destino</p>
+                                <input type="text" name="destino" id="filtro">
+                                <div id="opciones">
+                                    <!-- Las opciones se llenarán con JavaScript -->
+                                </div>
+                            </label>
+                            
+                            <label for="fecha"><p>fecha de viaje</p>
+                                <input  type="date" id="" name="fecha" required>
+                            </label>
+                            
+                            <label for="cantidad"><p>Cant. Pasajeros</p>
+                                <select name="cantidad">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </label>
+                            <input type="submit" id="" name="buscar">
+                        </div>
                     </form>
                 </article>
 

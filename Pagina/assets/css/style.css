@@ -2,6 +2,7 @@ body{
     background-color: #2e2e2e;
     display: grid;
     grid-template-rows: 10rem 280px; 
+    
 }
 
 *{  
@@ -212,6 +213,16 @@ body{
 
 
 
+
+
+
+
+
+
+
+
+
+
 #bodyB{
     display: grid;
     height: 100%;
@@ -225,17 +236,66 @@ body{
 
 .main__section{
     display: grid;
-    grid-template-rows: 50rem 1fr 1fr;
+    grid-template-rows: 40rem 1fr 1fr;
     gap: 10rem;
-    padding-top: 6rem;
-    
+    padding-top: 2rem;
 }
+
+
 .m-s__article-formcontent{
     background-color:#989898;
     border: 0.3rem solid #DEDE38;
-    width: 60%;
-    max-width: 60rem;
+    width: 50%;
+    max-width: 45rem;
     min-width: 28rem;
     border-radius: 0.5rem;
+    display: grid;
+    justify-self: center;
 }
 
+.m-s-a-f__inputOption{
+    color: #2e2e2e;
+    border-color: #2e2e2e;
+    background-color: #2e2e2e;
+}
+
+.m-s-a-f__select{
+    background-color: #DEDE38;
+}
+
+.m-s-a_form{
+    height: 100%;
+    display: grid;
+    box-sizing:border-box;
+    grid-template-rows: 0.1fr 0.1fr 1fr;
+    justify-items: center;
+    padding-top: 5%;
+}
+
+.m-s-a-f__div{
+    display: grid;
+    border: 1px solid red;
+    height: 100%;
+}
+
+.m-s-a-f__p{
+    text-align: left;
+    margin: auto;
+    width: 70%;
+}
+
+.m-s-a-f__h3{
+    color: #FFFF00;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    margin-top: -0.4rem;
+}
+
+.m-s-a-f__h1{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-size: 35px;
+    
+}
