@@ -8,6 +8,7 @@ include "../libraries/functions.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <title>Agencias 42-43</title>
 </head>
     <body id="bodyB">
@@ -15,7 +16,7 @@ include "../libraries/functions.php";
             <section class="header-section">
                 <article class="h-s-article">
                     <div class="h-s-a__div">
-                        <img class="h-s-a-d__img"src="Pagina/imgs/iconoEmpresa.png" alt="" />
+                        <img class="h-s-a-d__img"src="imgs/iconoEmpresa.png" alt="" />
                         
                     </div>
                     <div class="h-s-a__div">
@@ -41,20 +42,19 @@ include "../libraries/functions.php";
                         <div>
                             <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
                             <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
-    
                         </div>
                         
                         <p class="m-s-a-f__p">Busca el lugar donde quieras ir</p>
                         <div class="m-s-a-f__div">
-                            <label for="option2" ><p>Solo ida</p>
-                                <input class="m-s-a-f-d__inputOption" type="radio" name="option2" value="Ida" id="">
+                            <label for="option2" class="m-s-a-f-d__item">
+                                <input class="m-s-a-f-d__inputOption" type="radio" name="option2" value="Ida" id=""><p>Solo ida</p>
                             </label>
                             
-                            <label for="option1" ><p>Ida y vuelta</p>
-                                <input " type="radio" name="option1"  value="IdaYvuelta" id="">
+                            <label for="option1" class="m-s-a-f-d__item">
+                                <input " type="radio" name="option1"  value="IdaYvuelta" id=""><p>Ida y vuelta</p>
                             </label>
                             
-                            <label  for="tipo"><p>Tipo de boleto</p>
+                            <label  for="tipo" class="m-s-a-f-d__item"><p>Tipo de boleto</p>
                                 <select name="tipo" id="">
                                     <?php
                                         options($select_tipoboleto);
@@ -62,22 +62,24 @@ include "../libraries/functions.php";
                                 </select>
                             </label>
 
-                            <label for="inicio"><p>Lugar de partida</p>
-                                <p name="inicio"></p>
+                            <label for="inicio" class="m-s-a-f-d__item"><p>Lugar de partida</p>
+                                <div class="m-s-a-f-d-it__Div">
+                                    Deste la Terminal de Posadas Misiones
+                                </div>
                             </label>
 
-                            <label for="destino"><p>Lugar de destino</p>
+                            <label for="destino" class="m-s-a-f-d__item"><p>Lugar de destino</p>
                                 <input type="text" name="destino" id="filtro">
                                 <div id="opciones">
                                     <!-- Las opciones se llenarán con JavaScript -->
                                 </div>
                             </label>
                             
-                            <label for="fecha"><p>fecha de viaje</p>
+                            <label for="fecha" class="m-s-a-f-d__item"><p>fecha de viaje</p>
                                 <input  type="date" id="" name="fecha" required>
                             </label>
                             
-                            <label for="cantidad"><p>Cant. Pasajeros</p>
+                            <label for="cantidad" class="m-s-a-f-d__item"><p>Cant. Pasajeros</p>
                                 <select name="cantidad">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -87,7 +89,7 @@ include "../libraries/functions.php";
                                     <option value="6">6</option>
                                 </select>
                             </label>
-                            <input type="submit" id="" name="buscar">
+                            <input type="submit" id="" name="buscar" class="m-s-a-f-d__item">
                         </div>
                     </form>
                 </article>
@@ -120,7 +122,7 @@ include "../libraries/functions.php";
                 <article class="f-s__article">
                     <div class="f-s-a__div">
                         
-                        <img class="f-s-a-d__img"src="Pagina/imgs/iconoEmpresa.png" alt="" />
+                        <img class="f-s-a-d__img" src="imgs/iconoEmpresa.png" alt="" />
                         
                     </div>
                     <div class="f-s-a__div">
