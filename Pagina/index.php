@@ -1,5 +1,4 @@
 <?php 
-include "../libraries/functions.php";
     include "querys.php";
 ?>
 <!DOCTYPE html>
@@ -9,6 +8,7 @@ include "../libraries/functions.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../libraries/Pikaday-master/css/pikaday.css">
     <title>Agencias 42-43</title>
 </head>
     <body id="bodyB">
@@ -26,10 +26,10 @@ include "../libraries/functions.php";
                 </article>
                 <article >
                     <nav class="h-s-a__nav">
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Calendario</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Nosotros</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Empresa</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Viajar</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Empresa">Empresa</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#viaje">Viajar</a></li>
                     </nav>
                 </article>
             </section>
@@ -38,7 +38,7 @@ include "../libraries/functions.php";
         <main id="mainB">
             <section class="main__section">
                 <article class="m-s__article-formcontent">
-                    <form class="m-s-a_form" action="boletos.php" method="POST">
+                    <form class="m-s-a_form" action="boletos.php" method="POST" id="viaje">
                         <div>
                             <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
                             <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
@@ -69,14 +69,17 @@ include "../libraries/functions.php";
                             </label>
 
                             <label for="destino" class="m-s-a-f-d__item"><p>Lugar de destino</p>
-                                <input type="text" name="destino" id="filtro">
+                                <input type="text" name="destino" id="filtro" placeholder="Seleccione el destino">
                                 <div id="opciones">
                                     <!-- Las opciones se llenarán con JavaScript -->
                                 </div>
                             </label>
                             
                             <label for="fecha" class="m-s-a-f-d__item"><p>fecha de viaje</p>
-                                <input  type="date" id="" name="fecha" required>
+
+                                <input type="text" id="datepicker" placeholder="Selecciona una fecha" required>
+                                <input type="date" id="hidden-date-input" name="fecha" style="display: none;">
+
                             </label>
                             
                             <label for="cantidad" class="m-s-a-f-d__item"><p>Cant. Pasajeros</p>
@@ -97,14 +100,15 @@ include "../libraries/functions.php";
                 <article class="m-s__article-comollegar">
                     <h2>¿Como llegar?</h2>
                     <p><span>Ubicacion:</span> Avenida Quaranta y Avenida Santa Catalina, Ciudad de Posadas.</p>
+                    <p><span>Telefono:</span> 3754 5433435</p>
                     <div>
                         <img src="" alt="">
                         <img src="" alt="">
                         <img src="" alt="">
                     </div>
-                    <p><span>Telefono:</span> 3754 5433435</p>
+                    
                 </article>
-                <article class="m-s__article-empresas">
+                <article id="Empresa" class="m-s__article-empresas">
                     <h2>Empresas que vendemos</h2>
                     <div>
                         <!-- php -->
@@ -141,4 +145,17 @@ include "../libraries/functions.php";
         </footer>
     </body>
     <script src="assets/js/filtro.js"></script>
+    <script src="../libraries/Pikaday-master/pikaday.js"></script>
+    <script>
+
+        var picker = new Pikaday({
+            field: document.getElementById('datepicker'),
+            format: 'YYYY-MM-DD',
+            onSelect: function(date) {
+                // Copia la fecha seleccionada al input tipo date oculto
+                document.getElementById('hidden-date-input').value = date.toISOString().split('T')[0];
+            }
+        });
+
+    </script>
 </html>

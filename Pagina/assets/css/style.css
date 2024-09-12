@@ -84,7 +84,7 @@ body{
     background-color: #494848;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0rem;
+    gap: 0.5rem;
     height: 110%;
     width: 100%;
     box-sizing: border-box;
@@ -223,10 +223,43 @@ body{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #bodyB{
     display: grid;
     height: 100%;
-    grid-template-rows: 9.5rem 100rem 280px; 
+    grid-template-rows: 9.5rem 120rem 280px; 
 }
 
 #mainB{
@@ -236,7 +269,7 @@ body{
 
 .main__section{
     display: grid;
-    grid-template-rows: 40rem 1fr 1fr;
+    grid-template-rows: 50rem 1fr 1fr;
     gap: 10rem;
     padding-top: 5rem;
 }
@@ -253,11 +286,6 @@ body{
     justify-self: center;
 }
 
-.m-s-a-f__inputOption{
-    color: #2e2e2e;
-    border-color: #2e2e2e;
-    background-color: #2e2e2e;
-}
 
 .m-s-a-f__select{
     background-color: #DEDE38;
@@ -323,31 +351,54 @@ body{
     grid-column: 1/3;
 }
 
+.m-s-a-f-d__item:nth-child(6){
+    width: 80%;
+}
+.m-s-a-f-d__item:nth-child(7){
+    width: 80%;
+    justify-self: end;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
 .m-s-a-f-d__item:nth-child(8){
     text-align: left;
     margin: auto;
     width: 100%;
     grid-column: 1/3;
     text-align: center;
-    height: 2.5rem;
+    border-radius: 0.2rem;
+    height: 3rem;
     background-color: #DEDE38;
 }
 
 .m-s-a-f-d-it__Div{
     width: 100%;
-    height: 2.5rem;
+    height: 3rem;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    border-radius: 0.2rem;
     background-color: #DEDE38;
 }
 .m-s-a-f-d__item>input{
     width: 100%;
-    height: 2.5rem;
+    height: 3rem;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    color: #000000;
+    border-radius: 0.2rem;
     background-color: #DEDE38;
+}
+.m-s-a-f-d__item>input::placeholder{
+    color: #000000;
 }
 
 .m-s-a-f-d__item>select{
     width: 100%;
+    height: 3rem;
+    padding: 0.8rem;
+    border-radius: 0.2rem;
     background-color: #DEDE38;
-    height: 2.5rem;
 }
 
 .m-s-a-f__h3{
@@ -364,4 +415,34 @@ body{
     box-sizing: content-box;
     font-size: 35px;
     
+}
+
+.m-s-a-f__inputOption{
+    color: #2e2e2e;
+    border-color: #2e2e2e;
+    background-color: #2e2e2e;
+}
+
+.m-s__article-comollegar{
+    padding: 3rem;
+}
+.m-s__article-comollegar h2{
+    font-weight: bold;
+}
+
+.m-s__article-comollegar p span{
+    font-weight: bold;
+}
+.m-s__article-comollegar p{
+    margin-top: 3rem;
+    
+}
+
+.m-s__article-comollegar p{
+    margin-top: 1rem;
+    
+}
+
+.m-s__article-empresas{
+    padding: 3rem;
 }
