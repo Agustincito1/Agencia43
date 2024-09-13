@@ -254,6 +254,7 @@ body{
 
 
 
+/* boletos */
 
 
 #bodyB{
@@ -445,4 +446,68 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .m-s__article-empresas{
     padding: 3rem;
+}
+
+
+
+
+
+
+
+
+
+/* calendario */
+
+
+#bodyC{
+    display: grid;
+    grid-template-rows: 10rem 60rem 15rem;
+}
+
+#calendar-container {
+   
+    margin: auto;
+    margin-top: 3rem;
+    width: 50%;
+    max-width: 50rem;
+    border: 0.1rem solid #2e2e2e;
+    border-radius: 0.5rem;
+    height: 30rem;
+    overflow: hidden;
+}
+
+#calendar-header {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#calendar-body {
+    display: flex;
+    flex-direction: column;
+}
+
+#weekdays, #days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#weekdays {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+#days {
+    border-top: 1px solid #ddd;
+}
+
+.day {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.day:hover {
+    background-color: #ddd;
 }
