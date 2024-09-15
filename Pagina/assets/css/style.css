@@ -465,27 +465,35 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 #calendar-container {
-   
     margin: auto;
     margin-top: 3rem;
     width: 50%;
     max-width: 50rem;
     border: 0.1rem solid #2e2e2e;
     border-radius: 0.5rem;
-    height: 30rem;
+    height: 40rem;
     overflow: hidden;
+    background-color: #D9D9D9;
+    gap: 1rem;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 20fr;
+    
 }
 
 #calendar-header {
-    background-color: #f4f4f4;
+    background-color: #989898;
     text-align: center;
-    padding: 10px;
+    padding: 1rem;
     font-weight: bold;
+    height: 5rem;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.2fr;
 }
 
 #calendar-body {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 #weekdays, #days {
@@ -494,20 +502,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 #weekdays {
-    background-color: #f4f4f4;
+    text-align: center;
+    background-color: #D9D9D9;
     font-weight: bold;
 }
 
 #days {
     border-top: 1px solid #ddd;
+    background-color: #D9D9D9;
+    height: 90%;
+    margin: auto;
+    padding:0.5rem;
+    box-sizing: border-box;
+    width: 95%;
 }
 
 .day {
-    text-align: center;
-    padding: 10px;
+    text-align: end;
+    padding: 1rem;
     cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 0.2rem;
 }
 
 .day:hover {
-    background-color: #ddd;
+    background-color: #494848;
+    color: #D9D9D9;
+}
+
+#month-year{
+
+    font-size: 30px;
+  
 }

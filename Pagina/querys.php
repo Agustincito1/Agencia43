@@ -45,5 +45,41 @@
                 `localidad` ON `localidad`.`LocalidadID` = `destino`.`LocalidadID`
             INNER JOIN 
                 `boleto` ON `boleto`.`BoletoID` = `destino`.`BoletoID`;";
+
+        $lunes = "SELECT `Horario`, empresa.Nombre 
+            FROM `horario` 
+            INNER JOIN empresa ON empresa.EmpresaID = horario.EmpresaID
+            WHERE `Dia` = 'Lunes'";
+
+        $martes = "SELECT `Horario`, empresa.Nombre 
+        FROM `horario` 
+        INNER JOIN empresa ON empresa.EmpresaID = horario.EmpresaID
+        WHERE `Dia` = 'Martes'";
+
+        $miercoles = "SELECT `Horario`, empresa.Nombre 
+        FROM `horario` 
+        INNER JOIN empresa ON empresa.EmpresaID = horario.EmpresaID
+        WHERE `Dia` = 'Miercoles'";
+
+        $jueves = "SELECT `Horario`, empresa.Nombre 
+        FROM `horario` 
+        INNER JOIN empresa ON empresa.EmpresaID = horario.EmpresaID
+        WHERE `Dia` = 'Jueves'";
+
+        $viernes = "SELECT `Horario`, empresa.Nombre 
+        FROM `horario` 
+        INNER JOIN empresa ON empresa.EmpresaID = horario.EmpresaID
+        WHERE `Dia` = 'Viernes'";
+        
+        $sabado = "SELECT `Horario`, empresa.Nombre 
+        FROM `horario` 
+        INNER JOIN empresa ON empresa.EmpresaID = horario.EmpresaID
+        WHERE `Dia` = 'Sabado'";  
+
+        $domingo = "SELECT `Horario`, empresa.Nombre 
+        FROM `horario` 
+        INNER JOIN empresa ON empresa.EmpresaID = horario.EmpresaID
+        WHERE `Dia` = 'Domingo'";
+        
     
 ?>
