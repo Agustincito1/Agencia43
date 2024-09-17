@@ -3,8 +3,6 @@
 
 <?php
     include "querys.php";
-    $lunesdata = QueryAndGetData($lunes);
-    $lunesdata = mysqli_fetch_assoc($lunesdata);
     // Obtener el mes y el año desde los parámetros GET, o usar el mes y año actuales si no están presentes
     $month = isset($_GET['month']) ? intval($_GET['month']) : date('n');
     $year = isset($_GET['year']) ? intval($_GET['year']) : date('Y');
@@ -47,17 +45,97 @@
         }
     }
 
+    $martes = [];
+    for ($i = 1; $i <= $lastDate; $i++) {
+        $currentDay = new DateTime("$year-$month-$i");
+        if ($currentDay->format('N') == 2) { // 1 es lunes
+            $martes[] = $i; // Agregar el día al array de lunes
+        }
+    }
+
+    $miercoles = [];
+    for ($i = 1; $i <= $lastDate; $i++) {
+        $currentDay = new DateTime("$year-$month-$i");
+        if ($currentDay->format('N') == 3) { // 1 es lunes
+            $miercoles[] = $i; // Agregar el día al array de lunes
+        }
+    }
+
+    $jueves = [];
+    for ($i = 1; $i <= $lastDate; $i++) {
+        $currentDay = new DateTime("$year-$month-$i");
+        if ($currentDay->format('N') == 4) { // 1 es lunes
+            $jueves[] = $i; // Agregar el día al array de lunes
+        }
+    }
+
+    $viernes = [];
+    for ($i = 1; $i <= $lastDate; $i++) {
+        $currentDay = new DateTime("$year-$month-$i");
+        if ($currentDay->format('N') == 5) { // 1 es lunes
+            $viernes[] = $i; // Agregar el día al array de lunes
+        }
+    }
+
+    $sabado = [];
+    for ($i = 1; $i <= $lastDate; $i++) {
+        $currentDay = new DateTime("$year-$month-$i");
+        if ($currentDay->format('N') == 6) { // 1 es lunes
+            $sabado[] = $i; // Agregar el día al array de lunes
+        }
+    }
+
+
+    $domingo = [];
+    for ($i = 1; $i <= $lastDate; $i++) {
+        $currentDay = new DateTime("$year-$month-$i");
+        if ($currentDay->format('N') == 7) { // 1 es lunes
+            $domingo[] = $i; // Agregar el día al array de lunes
+        }
+    }
+
+
+
     echo "<div id='days'>";
     for ($i = 1; $i < $firstWeekday; $i++) {
         echo "<div></div>";
     }
     for ($day = 1; $day <= $lastDate; $day++) {
         if (in_array($day, $lunes)) {
-            // El día está en el array de lunes, así que lo resaltamos
-            echo "<div>$day ".$lunesdata['Horario']."</div>";
+            echo "<div class='day'><span onclick='mostrardia($day, 'lunes', $month, $year)'>$day</span></div>";
         } else {
-            // El día no está en el array de lunes, así que lo mostramos normalmente
-            echo "<div class='day'>$day</div>";
+            if(in_array($day, $martes)){
+                echo "<div class='day'><span onclick='mostrardia($day, 'martes', $month, $year)'>$day</span></div>";
+            }
+            else{
+                if(in_array($day, $miercoles)){
+                    echo "<div class='day'><span onclick='mostrardia($day, 'miercoles', $month, $year)'>$day</span></div>";
+                }
+                else{
+                    if(in_array($day, $jueves)){
+                        echo "<div class='day'><span onclick='mostrardia($day, 'jueves', $month, $year)'>$day</span></div>";
+                    }
+                    else{
+                        if(in_array($day, $viernes)){
+                            echo "<div class='day'><span onclick='mostrardia($day, 'viernes', $month, $year)'>$day</span></div>";
+                        }
+                        else{
+                            if(in_array($day, $sabado)){
+                                echo "<div class='day'><span onclick='mostrardia($day, 'sabado', $month, $year)'>$day</span></div>";
+                            }
+                            else{
+                                if(in_array($day, $domingo)){
+                                    echo "<div class='day'><span onclick='mostrardia($day, 'domingo', $month, $year)'>$day</span></div>";
+                                }
+                                else{
+                                    echo "<div class='day'>$day</div>";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     }
     echo "</div>";

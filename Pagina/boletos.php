@@ -37,13 +37,6 @@
 
 
 
-
-
-
-
-
-
-
     <?php 
         include "../libraries/functions.php";
 
