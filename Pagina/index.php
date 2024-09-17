@@ -27,7 +27,7 @@
                 <article >
                     <nav class="h-s-a__nav">
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Nosotros</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Nosotros">Nosotros</a></li>
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Empresa">Empresa</a></li>
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#viaje">Viajar</a></li>
                     </nav>
@@ -47,43 +47,43 @@
                         <p class="m-s-a-f__p">Busca el lugar donde quieras ir</p>
                         <div class="m-s-a-f__div">
                             <label for="option2" class="m-s-a-f-d__item">
-                                <input class="m-s-a-f-d__inputOption" type="radio" name="option2" value="Ida" id=""><p>Solo ida</p>
+                                <input class="m-s-a-f-d__inputOption" type="radio" name="option2" value="Ida" id="option2"><p>Solo ida</p>
                             </label>
                             
                             <label for="option1" class="m-s-a-f-d__item">
-                                <input " type="radio" name="option1"  value="IdaYvuelta" id=""><p>Ida y vuelta</p>
+                                <input " type="radio" name="option1"  value="IdaYvuelta" id="option1"><p>Ida y vuelta</p>
                             </label>
                             
                             <label  for="tipo" class="m-s-a-f-d__item"><p>Tipo de boleto</p>
-                                <select name="tipo" id="">
+                                <select name="tipo" id="tipo">
                                     <?php
                                         options($select_tipoboleto);
                                     ?>
                                 </select>
                             </label>
 
-                            <label for="inicio" class="m-s-a-f-d__item"><p>Lugar de partida</p>
-                                <div class="m-s-a-f-d-it__Div">
+                            <div  class="m-s-a-f-d__item"><p>Lugar de partida</p>
+                                <div class="m-s-a-f-d-it__Div" >
                                     Deste la Terminal de Posadas Misiones
                                 </div>
-                            </label>
+                            </div>
 
-                            <label for="destino" class="m-s-a-f-d__item"><p>Lugar de destino</p>
-                                <input type="text" name="destino" id="filtro" placeholder="Seleccione el destino">
-                                <div id="opciones">
+                            <label for="destino" class="m-s-a-f-d__item"><p >Lugar de destino</p>
+                                <input type="text" name="destino" id="destino" placeholder="Seleccione el destino">
+                                <div id="opciones" >
                                     <!-- Las opciones se llenarán con JavaScript -->
                                 </div>
                             </label>
                             
-                            <label for="fecha" class="m-s-a-f-d__item"><p>fecha de viaje</p>
+                            <label for="fecha" class="m-s-a-f-d__item"><p >fecha de viaje</p>
 
-                                <input type="text" id="datepicker" placeholder="Selecciona una fecha" required>
+                                <input type="text" id="fecha" placeholder="Selecciona una fecha" required>
                                 <input type="date" id="hidden-date-input" name="fecha" style="display: none;">
 
                             </label>
                             
                             <label for="cantidad" class="m-s-a-f-d__item"><p>Cant. Pasajeros</p>
-                                <select name="cantidad">
+                                <select name="cantidad" id="cantidad">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -97,7 +97,7 @@
                     </form>
                 </article>
 
-                <article class="m-s__article-comollegar">
+                <article id="Nosotros" class="m-s__article-comollegar">
                     <h2>¿Como llegar?</h2>
                     <p><span>Ubicacion:</span> Avenida Quaranta y Avenida Santa Catalina, Ciudad de Posadas.</p>
                     <p><span>Telefono:</span> 3754 5433435</p>
@@ -149,7 +149,7 @@
     <script>
 
         var picker = new Pikaday({
-            field: document.getElementById('datepicker'),
+            field: document.getElementById('fecha'),
             format: 'YYYY-MM-DD',
             onSelect: function(date) {
                 // Copia la fecha seleccionada al input tipo date oculto
@@ -158,4 +158,26 @@
         });
 
     </script>
+    <script>
+    
+        const linksWithIds = document.querySelectorAll('a[id]');
+
+        linksWithIds.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita el comportamiento por defecto del enlace
+                
+                // Obtén el id del enlace
+                const linkId = this.id;
+                
+                // Busca la sección con el id que coincide con el enlace
+                const targetSection = document.querySelector(`#${linkId.replace('scrollTo', 'section')}`);
+
+                if (targetSection) {
+                    // Realiza el scroll suavemente
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
 </html>

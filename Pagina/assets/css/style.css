@@ -217,44 +217,7 @@ body{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* boletos */
+/* index*/
 
 
 #bodyB{
@@ -453,9 +416,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 
-
-
-
 /* calendario */
 
 
@@ -531,7 +491,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 #month-year{
-
     font-size: 30px;
-  
+}
+
+
+
+/* boletos */
+
+
+#bodyBo{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 9.5rem 120rem 280px; 
 }

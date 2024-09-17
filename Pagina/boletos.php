@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Boletos</title>
 </head>
-<body>
+
+<body id="bodyBo">
     <header id="header">
                 <section class="header-section">
                     <article class="h-s-article">
@@ -22,130 +30,161 @@
                             <h3 class="h-s-a-d__h3">Posadas Misiones</h3>
                         </div>
                     </article>
-                    <article >
-                        <nav class="h-s-a__nav">
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Nosotros</a></li>
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Empresa">Empresa</a></li>
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php">Viajar</a></li>
-                        </nav>
-                    </article>
-                </section>
-            </header>
+                <article >
+                    <nav class="h-s-a__nav">
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Nosotros">Nosotros</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Empresa">Empresa</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php">Viajar</a></li>
+                    </nav>
+                </article>
+            </section>
+    </header>
 
+    <main id="mainBo">
+        <?php 
+            include "../libraries/functions.php";
 
+            if(isset($_POST['buscar'])){
 
-
-
-    <?php 
-        include "../libraries/functions.php";
-
-        if(isset($_POST['buscar'])){
-
-            if(isset($_POST['option2'])){
-                $option = $_POST['option2'];
-            }
-            else{
-                if(isset($_POST['option1'])){
-                    $option = $_POST['option1'];
+                if(isset($_POST['option2'])){
+                    $option = $_POST['option2'];
+                    $tipo = $_POST['tipo'];
                 }
-                echo "
-                <script>
-                    Swal.fire({
-                        title: '¡Debes elegir una opción!',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            
-                            history.go(-1);
-                        }
-                    });
-                </script>";
-            }
-
-            $tipo = $_POST['tipo'];
-
-            
-            if(isset($_POST['destino'])){
+                else{
+                    if(isset($_POST['option1'])){
+                        $option = $_POST['option1'];
+                    }
+                    echo "
+                    <script>
+                        Swal.fire({
+                            title: '¡Debes elegir una opción!',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                
+                                history.go(-1);
+                            }
+                        });
+                    </script>";
+                }
                 $destino = $_POST['destino'];
-            }
-            else{
-                echo "
-                <script>
-                    Swal.fire({
-                        title: '¡Debes elegir un destino!',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
+                if(empty($destino)){
+                    echo "
+                    <script>
+                        Swal.fire({
+                            title: '¡Debes elegir un destino!',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                
+                                history.go(-1);
+                            }
+                        });
+                    </script>";
+                    
+        
+                }
+                else{
+                    if(isset($_POST['fecha'])){
+                        $fecha = $_POST['fecha'];
+                        if(isset($_POST['cantidad'])){
+                            $pasajeros = $_POST['cantidad'];
+                            function obtenerNombreDiaEnEspanol($fecha) {
+                                // Convertir la fecha a un timestamp
+                                $timestamp = strtotime($fecha);
+                
+                                // Obtener el nombre del día en inglés
+                                $nombre_dia_ingles = date('l', $timestamp);
+                
+                                // Array de días en inglés a español
+                                $dias_espaniol = array(
+                                    'Sunday' => 'Domingo',
+                                    'Monday' => 'Lunes',
+                                    'Tuesday' => 'Martes',
+                                    'Wednesday' => 'Miercoles',
+                                    'Thursday' => 'Jueves',
+                                    'Friday' => 'Viernes',
+                                    'Saturday' => 'Sabado'
+                                );
+                
+                                // Retornar el nombre del día en español
+                                return $dias_espaniol[$nombre_dia_ingles];
+                            }
+        
+                            $day = obtenerNombreDiaEnEspanol($fecha);
+                            $query = "SELECT 
+                                destino.Nombre, 
+                                destino.LocalidadID, 
+                                destino.BoletoID, 
+                                horario.Horario, 
+                                empresa.Nombre
+                            FROM 
+                                destino
+                            INNER JOIN 
+                                boleto ON destino.BoletoID = boleto.BoletoID  
+                            INNER JOIN 
+                                horario ON boleto.HorarioID = horario.HorarioID and horario.Dia = '$day'
+                            INNER JOIN 
+                                empresa ON empresa.EmpresaID = horario.EmpresaID
+                            WHERE 
+                                destino.Nombre = '$destino'
+                                AND boleto.TipoboletoID = $tipo
+                                AND boleto.CantidadPersonas = $pasajeros
+                                AND boleto.IdaYvuelta = '$option';";
+                
+                            if($data = QueryAndGetData($query)){
+                
+                                // if(mysqli_num_rows($data)>1){
+                                //     while($data = mysqli_fetch_assoc($data)){
+                                //         echo $data['Horario'];
+                                //     }
+                                // }
+                                // else{
+                                //     $data = mysqli_fetch_assoc($data);
+                                //     echo $data['Horario'];
+                                // }
                             
-                            history.go(-1);
+                            }
+                            else{
+                                echo "
+                                    <script>
+                                        Swal.fire({
+                                            title: '¡No se encontro el boleto!',
+                                            icon: 'error',
+                                            confirmButtonText: 'Aceptar'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                
+                                                hostory.go(-1);
+                                            }
+                                        });
+                                    </script>";
+                            }
                         }
-                    });
-                </script>";
-            }
-
-            if(isset($_POST['fecha'])){
-                $fecha = $_POST['fecha'];
-            }
-            else{
-                echo "
-                <script>
-                    Swal.fire({
-                        title: '¡Debes elegir una fecha!',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            
-                            history.go(-1);
-                        }
-                    });
-                </script>";
-            }
-
-            if(isset($_POST['cantidad'])){
-                $pasajeros = $_POST['cantidad'];
-            }
-            else{
-                echo "
-                <script>
-                    Swal.fire({
-                        title: '¡Debes elegir una cantidad de personas!',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            
-                            history.go(-1);
-                        }
-                    });
-                </script>";
-            }
-
-            $query = "SELECT	`destino`.`Nombre`, 
-            `destino`.`LocalidadID`, 
-            `destino`.`BoletoID` 
-            FROM `destino`, `horario`, `boleto` 
-            WHERE  `destino`.`Nombre` = '$destino' AND `horario`.`Horario` = $fecha AND `boleto`.`TipoboletoID` = $tipo AND `boleto`.`CantidadPersonas` = $pasajeros AND`boleto`.`IdaYvuelta` = '$option';";
-            if($data = QueryAndGetData($query)){
-
-                    if(mysqli_num_rows($data)>1){
-                        while($data = mysqli_fetch_assoc($data)){
-                            echo $data['Nombre'];
+                        else{
+                            echo "
+                            <script>
+                                Swal.fire({
+                                    title: '¡Debes elegir una cantidad de personas!',
+                                    icon: 'error',
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        
+                                        history.go(-1);
+                                    }
+                                });
+                            </script>";
                         }
                     }
                     else{
-                        $data = mysqli_fetch_assoc($data);
-                        echo $data['Nombre'];
-                    }
-                }
-                else{
-                    echo "
+                        echo "
                         <script>
                             Swal.fire({
-                                title: '¡No se encontro el boleto!',
+                                title: '¡Debes elegir una fecha!',
                                 icon: 'error',
                                 confirmButtonText: 'Aceptar'
                             }).then((result) => {
@@ -155,30 +194,30 @@
                                 }
                             });
                         </script>";
+                    }
                 }
-                
-        
+            }
 
-            
-        }
-        else{
-            echo "
-                <script>
-                    Swal.fire({
-                        title: '¡No se encontro el boleto!',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            
-                            hostory.go(-1);
-                        }
-                    });
-                </script>";
-        }
+        ?>
 
-    ?>
 
+        <section>
+            <article>
+                <div>
+                    <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
+                    <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                </div>
+                <div>
+                    <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                </div>
+                <div>
+                        <!-- boletos -->
+                    </div>
+            </article>
+
+        </section>
+
+    </main>
 
     <footer id="footer">
                 <section class="footer__section">
@@ -202,6 +241,8 @@
                 </section>
                 <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
         </footer>
+        
+
 </body>
 </html>
 

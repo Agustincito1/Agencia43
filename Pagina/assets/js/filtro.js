@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('filtro');
+    const input = document.getElementById('destino');
     const optionsContainer = document.getElementById('opciones');
 
     // Función para cargar las opciones desde el servidor
