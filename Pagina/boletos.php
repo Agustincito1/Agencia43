@@ -208,11 +208,21 @@
                     <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
                 </div>
                 <div>
-                    <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                    <h3>acá tenes los boletos</h3>
+                        <?php
+
+                            if(mysqli_num_rows($data)>1){
+                                while($data = mysqli_fetch_assoc($data)){
+                                    echo $data['Horario'];
+                                }
+                            }
+                            else{
+                                $data = mysqli_fetch_assoc($data);
+                                echo $data['Horario'];
+                            }
+                            
+                        ?>
                 </div>
-                <div>
-                        <!-- boletos -->
-                    </div>
             </article>
 
         </section>
@@ -231,6 +241,7 @@
                             <h1 class="f-s-a-d__h1">AGENCIAS 42 y 43</h1>
                             <h3 class="f-s-a-d__h3">Posadas Misiones</h3>
                         </div>
+                        
                     </article>
                     <nav class="f-s__nav">
                         <li><a class="f-s-n-l__a" href="">Principal</a></li>
