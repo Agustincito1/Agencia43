@@ -7,31 +7,40 @@
     <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
-    <link rel="stylesheet" href="lñkl-ñ.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Agencias 42-43</title>
 </head>
-    <body>
+    <body id="bodyM">
         <?php
             include "querys.php";
         ?>
 
-
-        <header>
-            <h1>Bienvenidos al apartado del administrador</h1>
-            <nav>
-                <ul>
-                    <li><a href="">cerrar session</a></li> 
-                    <li><a href="">ir a la pagina principal</a></li> 
-                </ul>
-            </nav>
+        <header id="header">
+            <section class="header-section">
+                <article class="h-s-article">
+                    <div class="h-s-a__div">
+                        <img class="h-s-a-d__img"src="imgs/iconoEmpresa.png" alt="" />
+                        
+                    </div>
+                    <div class="h-s-a__div">
+                        <h1 class="h-s-a-d__h1">AGENCIAS 42 y 43 ¡Bienvenidos al apartado del administrador!</h1>
+                        <h3 class="h-s-a-d__h3">Posadas Misiones</h3>
+                    </div>
+                </article>
+                <article >
+                    <nav class="h-s-a__nav">
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">cerrar session</a></li>
+                    </nav>
+                </article>
+            </section>
         </header>
-        <main>
-            <section>
-                <article>
-                    <h2></h2>
-                    <a href="Boleto.php">Gestionar boletos</a>
-                    <a href="Empresa.php">Gestionar empresas</a>
-                    <a href="Horario.php">Gestionar Horarios</a>
+        <main id="mainM">
+            <section class="m_section">
+                <article class="m-s__article">
+                    <h2 class="m-s__h2">Funciones</h2>
+                    <a class="m-s__A" href="Boleto.php">Gestionar boletos</a>
+                    <a class="m-s__A" href="Empresa.php">Gestionar empresas</a>
+                    <a class="m-s__A" href="Horario.php">Gestionar Horarios</a>
                 </article>
             </section>
         </main>
