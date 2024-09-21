@@ -106,8 +106,8 @@
                 }
                 echo "<td>
                     <a href='delete.php?tabla=$nametable&id=".$values[0]."&campo=".$campo."'>Eliminar</a>
-                </td>";
-                echo "<td>
+                ";
+                echo "
                     <a href='?id=".$values[0]."'>Modificar</a>
                 </td>";
                 echo "</tr>";

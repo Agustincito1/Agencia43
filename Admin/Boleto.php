@@ -5,51 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Boleto</title>
 </head>
-    <body>
+    <body id="bodyB">
         
         <?php
             include "querys.php";
         ?>
 
-        <header>
-            <h1></h1>
-            <nav>
-                <ul>
-                    <li><a href=""></a></li>
-                </ul>
-            </nav>
+        <header id="header">
+            <section class="header-section">
+                <article class="h-s-article">
+                    <div class="h-s-a__div">
+                        <img class="h-s-a-d__img"src="imgs/iconoEmpresa.png" alt="" />
+                        
+                    </div>
+                    <div class="h-s-a__div">
+                        <h1 class="h-s-a-d__h1">AGENCIAS 42 y 43 ¡Crea, modifica o elimina un boleto!</h1>
+                        <h3 class="h-s-a-d__h3">Posadas Misiones</h3>
+                    </div>
+                </article>
+                <article >
+                    <nav class="h-s-a__nav">
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">cerrar session</a></li>
+                    </nav>
+                </article>
+            </section>
         </header>
-        <main>
-            <section>
-                <article>
+        <main id="mainB">
+            <section class="mb_section">
+                <article class="mb-s__article">
                     
                     <!-- Insert -->
-                    <form action="add.php" method="POST">
-                        <h2>Crea un boleto</h2>
+                    <form  class="mb-s-a__form"action="add.php" method="POST">
+                        <h2 class="mb-s-a-f__h2">Crea un boleto</h2>
 
-                        <label for="Nombre">Nombre</label>
-                        <input type="text" id="" name="Nombre" required>
+                        <label for="Nombre" >Nombre</label>
+
+                        <input type="text" id="" placeholder="Nombre del boleto" name="Nombre" required>
 
                         <label for="Tipo">Tipo de Boleto</label>
+
                         <select name="Tipo" id="">
                             <?php
                                 options($select_tipoboleto);
                             ?>
                         </select>
 
-                        <label for="Horario">Horario</lbel>
+                        <label for="Horario">Horario</label>
+
                         <select name="Horario" id="">
                             <?php
                                 options($select_horario);
                             ?>
                         </select>
 
-                        <label for="Precio">Precio</label>
-                        <input type="text" id="" name="Precio" required>
+                        <label for="Precio" >Precio</label>
+
+                        <input type="text" id="" name="Precio" placeholder="00" required>
 
                         <label for="Cantidad">Cantidad Pasajeros</label>
+
                         <select name="Cantidad" id="">
                             <option value='1'>1</option>
                             <option value='2'>2</option>
@@ -61,39 +79,20 @@
 
                         
                         <label for="IdaYvuelta">Ida y vuelta</label>
+
                         <select name="IdaYvuelta" id="">
                             <option value='Ida'>Solo ida</option>
                             <option value='IdaYvuelta'>Ida y vuelta</option>
                         </select>
+
                         <input type="submit" id="" name="AnadirBoleto">
                     </form>
                 </article>
 
-                <article>
-                    <!-- tabla -->
-                    <table>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Inicio Destino</th>
-                            <th>Precio</th>
-                            <th>Tipo de boleto</th>
-                            <th>Horario</th>
-                            <th>Cantidad personas</th>
-                            <th>Ida y vuelta</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        
-                        <?php 
-                            filas($boleto,7,"boleto", "BoletoID");
-                        ?>
-                        
-                    </table>
-                    
-                </article>
-
+                
 
                 <?php
+
                     if(isset($_GET['id'])){
                         $id =$_GET['id'];
                         $query = QueryAndGetData("SELECT `BoletoID`, `NombreBoleto`, `InicioDestino`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `localID`, `IdaYvuelta` FROM `boleto` WHERE BoletoID =  $id");
@@ -156,9 +155,33 @@
                             </form>
                         </article>';
                     }
+                    else{
+                        echo "<article>Apartado modificar</article>";
+                    }
 
                 ?>
-                
+                <article class="mb-s__article">
+                    <!-- tabla -->
+                    <table>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>In. destino</th>
+                            <th>Precio</th>
+                            <th>Tipo de boleto</th>
+                            <th>Horario</th>
+                            <th>Cant. personas</th>
+                            <th>Ida y vuelta</th>
+                            <th>Accion</th>
+                            
+                        </tr>
+                        
+                        <?php 
+                            filas($boleto,7,"boleto", "BoletoID");
+                        ?>
+                        
+                    </table>
+                    
+                </article>
             </section>
         </main>
         <footer>

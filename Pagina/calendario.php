@@ -27,7 +27,7 @@
                 <article >
                     <nav class="h-s-a__nav">
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Nosotros</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Nosotros">Nosotros</a></li>
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Empresa">Empresa</a></li>
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php">Viajar</a></li>
                     </nav>
