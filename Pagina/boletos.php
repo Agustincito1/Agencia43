@@ -54,20 +54,24 @@
                 else{
                     if(isset($_POST['option1'])){
                         $option = $_POST['option1'];
+                        $tipo = $_POST['tipo'];
                     }
-                    echo "
-                    <script>
-                        Swal.fire({
-                            title: '¡Debes elegir una opción!',
-                            icon: 'error',
-                            confirmButtonText: 'Aceptar'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                
-                                history.go(-1);
-                            }
-                        });
-                    </script>";
+                    else{
+                        echo "
+                        <script>
+                            Swal.fire({
+                                title: '¡Debes elegir una opción!',
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    
+                                    history.go(-1);
+                                }
+                            });
+                        </script>";
+                    }
+                   
                 }
                 $destino = $_POST['destino'];
                 if(empty($destino)){
@@ -146,7 +150,7 @@
                                 //     $data = mysqli_fetch_assoc($data);
                                 //     echo $data['Horario'];
                                 // }
-                            
+                                
                             }
                             else{
                                 echo "
@@ -162,6 +166,7 @@
                                             }
                                         });
                                     </script>";
+                                
                             }
                         }
                         else{
@@ -217,8 +222,15 @@
                                 }
                             }
                             else{
-                                $data = mysqli_fetch_assoc($data);
-                                echo $data['Horario'];
+                            
+                                if(mysqli_num_rows($data)){
+                                    $data = mysqli_fetch_assoc($data);
+                                    echo $data['Horario'];
+                                }
+                                else{
+                                    echo "no hay nada";
+                                }
+
                             }
                             
                         ?>

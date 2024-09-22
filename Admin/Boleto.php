@@ -29,7 +29,7 @@
                 <article >
                     <nav class="h-s-a__nav">
                         <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">cerrar session</a></li>
+                        
                     </nav>
                 </article>
             </section>
@@ -85,7 +85,7 @@
                             <option value='IdaYvuelta'>Ida y vuelta</option>
                         </select>
 
-                        <input type="submit" id="" name="AnadirBoleto">
+                        <input type="submit" id="" class="submit"  name="AnadirBoleto">
                     </form>
                 </article>
 
@@ -98,9 +98,9 @@
                         $query = QueryAndGetData("SELECT `BoletoID`, `NombreBoleto`, `InicioDestino`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `localID`, `IdaYvuelta` FROM `boleto` WHERE BoletoID =  $id");
                         $datos = mysqli_fetch_assoc($query);
                         $id =$_GET['id'];
-                        echo '<article>
+                        echo '<article class="mb-s__article" >
                                     
-                                    <form action="update.php" method="POST">
+                                    <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Actualizar un boleto</h2>
                                     <label for="Nombre">Nombre</label>
@@ -140,7 +140,7 @@
                                 echo '<label for="IdaYvuelta">Ida y vuelta</label>
                                     <select name="IdaYvuelta" id="">';
 
-                                if($datos['IdaYvuelta'] === 1){
+                                if($datos['IdaYvuelta'] === "IdaYvuelta"){
                                     echo "<option value='IdaYvuelta' selected>Ida y vuelta</option>";
                                     echo "<option value='Ida' >Solo ida</option>";
                                 }
@@ -151,7 +151,7 @@
 
                             echo '</select>'; 
 
-                            echo '<input type="submit" id="" name="AnadirBoleto">
+                            echo '<input type="submit" class="submit" id="" name="AnadirBoleto">
                             </form>
                         </article>';
                     }

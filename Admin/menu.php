@@ -29,7 +29,7 @@
                 </article>
                 <article >
                     <nav class="h-s-a__nav">
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">cerrar session</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="cy.php?c=1">cerrar session</a></li>
                     </nav>
                 </article>
             </section>

@@ -8,27 +8,40 @@
     <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Horario</title>
 </head>
-    <body>
+    <body id="bodyH">
         
         <?php
             include "querys.php";
         ?>
 
-        <header>
-            <h1></h1>
-            <nav>
-                <ul>
-                    <li><a href=""></a></li>
 
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section>
-                <article>
-                    <form action="add.php" method="POST">
+        <header id="header">
+            <section class="header-section">
+                <article class="h-s-article">
+                    <div class="h-s-a__div">
+                        <img class="h-s-a-d__img"src="imgs/iconoEmpresa.png" alt="" />
+                        
+                    </div>
+                    <div class="h-s-a__div">
+                        <h1 class="h-s-a-d__h1">AGENCIAS 42 y 43 ¡Crea, modifica o elimina un horario!</h1>
+                        <h3 class="h-s-a-d__h3">Posadas Misiones</h3>
+                    </div>
+                </article>
+                <article >
+                    <nav class="h-s-a__nav">
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li>
+                        
+                    </nav>
+                </article>
+            </section>
+        </header>   
+        <main id="mainH">
+            <section class="mb_section">
+                <article class="mb-s__article">
+                    <form class="mb-s-a__form" action="add.php" method="POST">
 
                         <h2>Horarios</h2>
 
@@ -44,26 +57,10 @@
 
                         <input type="time" id="" name="Horario" value="00:00" required>
 
-                        <input type="Submit" id="" name="AnadirHorario">
+                        <input type="Submit" id=""  class="submit" name="AnadirHorario">
                     </form>
                 </article>
-                <article>
-                    <table>
-                        <tr>
-                            <th>Horario</th>
-                            <th>Empresa</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        
-                        <?php  
-                            filas($select_horario,2, "horario", "HorarioID");
-                        ?>
-
-                    </table>
-                    
-                </article>
-                
+            
                 <!-- Modificar -->
                 <?php
                         if(isset($_GET['id'])){
@@ -79,8 +76,8 @@
                             $datos = mysqli_fetch_assoc($query);
 
                             echo '
-                            <article>
-                                <form action="update.php" method="POST">
+                            <article class="mb-s__article" >
+                                <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Horarios</h2>
 
@@ -96,14 +93,31 @@
 
                                     <input type="time" id="" value="'.$datos['Horario'].'" name="Horario" required>
 
-                                    <input type="Submit" id="" name="AnadirHorario">
+                                    <input type="Submit" id="" class="submit" name="AnadirHorario">
                                 </form>
                             </article>  
                             ';
                         }
-                    
+                        else{
+                            echo "<article></article>";
+                        }
                 ?>
-                
+                <article class="mb-s__article">
+                    <table>
+                        <tr>
+                            <th>Horario</th>
+                            <th>Empresa</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        <?php  
+                            filas($select_horario,2, "horario", "HorarioID");
+                        ?>
+
+                    </table>
+                    
+                </article>
             </section>
         </main>
         <footer>

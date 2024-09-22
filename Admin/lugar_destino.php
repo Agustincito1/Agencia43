@@ -16,14 +16,26 @@
             include "querys.php";
         ?>
         
-        <header>
-            <h1></h1>
-            <nav>
-                <ul>
-                    <li><a href=""></a></li>
-
-                </ul>
-            </nav>
+        
+        <header id="header">
+            <section class="header-section">
+                <article class="h-s-article">
+                    <div class="h-s-a__div">
+                        <img class="h-s-a-d__img"src="imgs/iconoEmpresa.png" alt="" />
+                        
+                    </div>
+                    <div class="h-s-a__div">
+                        <h1 class="h-s-a-d__h1">AGENCIAS 42 y 43 ¡Crea, modifica o elimina un boleto!</h1>
+                        <h3 class="h-s-a-d__h3">Posadas Misiones</h3>
+                    </div>
+                </article>
+                <article >
+                    <nav class="h-s-a__nav">
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li>
+                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">cerrar session</a></li>
+                    </nav>
+                </article>
+            </section>
         </header>
         <main>
             <section>
