@@ -51,7 +51,8 @@
 .mb-s__article:nth-child(3){
     grid-column: 1/3;
     width: 100%;
-    
+    background-color: #989898;
+    border: 0.15rem solid #494848;
 }
 .mb-s-a__form{
     height: 100%;
@@ -134,20 +135,30 @@
     width: 100%;
     height: 100%;
     display: grid;
+
 }
+
 .mb-s__article table tr:first-child{
+    border: 0.2rem solid #494848;
     width: 100%;
-    background-color: red;
     height: 5rem;
     text-align: left;
+    background-color: #D9D9D9;
 
 }
 
-.mb-s__article table tr:nth-child(2){
-    width: 100%;
-    background-color: red;
+.mb-s__article table tr th{
+    width: 10%; 
+    color: #000000;
+    border-bottom: 0.2rem solid #494848;
     height: 5rem;
-    text-align: left;
+    text-align: center;
+}
+.mb-s__article table tr{
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    background-color: #D9D9D9;
 
 }
 
