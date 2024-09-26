@@ -19,9 +19,11 @@
 #bodyB, #bodyE, #bodyH {
     display: grid;
     grid-template-rows: 12rem 65rem 20rem; 
-    
 }
-
+#bodyE{
+    display: grid;
+    grid-template-rows: 12rem 80rem 20rem; 
+}
 #mainM, #mainB, #mainE,#mainH{
     height: 100%;
     width: 100%;
@@ -48,11 +50,11 @@
 
 
 #mainE .mb_section{
-    grid-template-rows: 20rem;
+    grid-template-rows: 45rem;
 }
 
 #mainE .mb-s__article .mb-s-a__form{
-    gap: 5%;
+    gap: 3%;
 }
 
 #mainE .mb-s__article .mb-s-a__form .submit{

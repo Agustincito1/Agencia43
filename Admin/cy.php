@@ -15,8 +15,9 @@
         
 
     <?php
+    include "querys.php";
         if(isset($_GET['c'])){
-            session_start();
+        
             if(session_destroy()){
                 echo "
                 <script>
