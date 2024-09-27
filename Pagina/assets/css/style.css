@@ -225,6 +225,23 @@ body{
 
 /* index*/
 
+#Empresa{
+    display: grid;
+    grid-template-rows: 5rem 1fr;
+}
+.empresaimg_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 8rem));
+    height: 10rem;
+    gap: 2%;
+}
+
+.empresaimg{
+    background-color: #2e2e2e;
+    height: 8rem;
+    min-height: 5rem;
+    border:0.2rem solid #DEDE38;
+}
 
 #bodyB{
     display: grid;
@@ -239,7 +256,7 @@ body{
 
 .main__section{
     display: grid;
-    grid-template-rows: 50rem 1fr 1fr;
+    grid-template-rows: 50rem 1fr 25rem;
     gap: 10rem;
     padding-top: 5rem;
 }

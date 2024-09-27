@@ -111,7 +111,7 @@
                 </article>
                 <article id="Empresa" class="m-s__article-empresas">
                     <h2>Empresas que vendemos</h2>
-                    <div>
+                    <div class="empresaimg_container">
                         <!-- php -->
                         <?php
                             imagen_empresas($empresa);

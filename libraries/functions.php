@@ -147,7 +147,7 @@
         if(mysqli_num_rows($datos)>1){
             while($dato = mysqli_fetch_assoc($datos)){
 
-                echo "<div> ".$dato['Nombre']."
+                echo "<div class='empresaimg'> ".$dato['Nombre']."
                     <img src='' alt=''>
                 </div>";
     
@@ -155,7 +155,7 @@
         }
         else{
             $datos = mysqli_fetch_assoc($datos);
-            echo "<div> ".$datos['Nombre']."
+            echo "<div class='empresaimg'> ".$datos['Nombre']."
             <img src='' alt=''>
             </div>";
         }

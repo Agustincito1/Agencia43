@@ -72,7 +72,7 @@
                             });
                         </script>";
                     }
-                   
+
                 }
                 $destino = $_POST['destino'];
                 if(empty($destino)){

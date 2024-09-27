@@ -15,7 +15,7 @@
         
 
     <?php
-    include "querys.php";
+        include "querys.php";
         if(isset($_GET['c'])){
         
             if(session_destroy()){
