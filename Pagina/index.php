@@ -102,10 +102,10 @@
                     <h2>¿Como llegar?</h2>
                     <p><span>Ubicacion:</span> Avenida Quaranta y Avenida Santa Catalina, Ciudad de Posadas.</p>
                     <p><span>Telefono:</span> 3754 5433435</p>
-                    <div>
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
+                    <div class="agenciaimg_container"> 
+                        <img class="agenciaimg" src="imgs/agencia1.png" alt="foto de la agencia">
+                        <img class="agenciaimg" src="" alt="">
+                        <img class="agenciaimg" src="" alt="">
                     </div>
                     
                 </article>
