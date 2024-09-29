@@ -41,6 +41,7 @@
                     <a class="m-s__A" href="Boleto.php">Gestionar boletos</a>
                     <a class="m-s__A" href="Empresa.php">Gestionar empresas</a>
                     <a class="m-s__A" href="Horario.php">Gestionar Horarios</a>
+                    <a class="m-s__A" href="lugar_destino.php">Gestionar Destinos</a>
                 </article>
             </section>
         </main>
