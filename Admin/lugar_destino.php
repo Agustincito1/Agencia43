@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Lugar Destino</title>
 </head>
     <body>
@@ -31,8 +32,10 @@
                 </article>
                 <article >
                     <nav class="h-s-a__nav">
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">cerrar session</a></li>
+                        <ul>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">cerrar session</a></li>
+                        </ul>
                     </nav>
                 </article>
             </section>
@@ -46,11 +49,17 @@
                         <label for="Nombre">Nombre del Lugar</label>
                         <input type="text" id="" name="Nombre" required>
 
-                        <label for="Localidad">Localidad</label>
-                        <select name="Localidad" id="">
+                        <label for="Provincia">Localidad</label>
+                        <select name="Provincia" id="Provincia">
+
                             <?php
                                 options($select_provincia);
                             ?>
+
+                        </select>
+
+                        <select name="Localidad" id="Localidad">
+                            <option value="">Seleccione una Provincia primero</option>
                         </select>
 
                         <label for="Boleto">Boleto</label>
@@ -138,5 +147,6 @@
         <footer>
             
         </footer>
+        <script src="assets/js/selectfiltro.js"></script>
     </body>
 </html>

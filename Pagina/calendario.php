@@ -27,10 +27,12 @@
                 </article>
                 <article >
                     <nav class="h-s-a__nav">
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Nosotros">Nosotros</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Empresa">Empresa</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php">Viajar</a></li>
+                        <ul>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Nosotros">Nosotros</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Empresa">Empresa</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php">Viajar</a></li>
+                        </ul>
                     </nav>
                 </article>
             </section>
@@ -74,10 +76,12 @@
                     </div>
                 </article>
                 <nav class="f-s__nav">
-                    <li><a class="f-s-n-l__a" href="">Principal</a></li>
-                    <li><a class="f-s-n-l__a" href="">Calendario</a></li>
-                    <li><a class="f-s-n-l__a" href="">Nosotros</a></li>
-                    <li><a class="f-s-n-l__a" href="">Contactanos</a></li>
+                    <ul>
+                        <li><a class="f-s-n-l__a" href="">Principal</a></li>
+                        <li><a class="f-s-n-l__a" href="">Calendario</a></li>
+                        <li><a class="f-s-n-l__a" href="">Nosotros</a></li>
+                        <li><a class="f-s-n-l__a" href="">Contactanos</a></li>
+                    </ul>
                 </nav>
             </section>
             <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>

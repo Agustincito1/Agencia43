@@ -1,15 +1,17 @@
 <?php 
+    header('Content-Type: text/html; charset=utf-8');
+
+
     include "querys.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="canonical" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../libraries/Pikaday-master/css/pikaday.css">
+    <link rel="stylesheet" type="text/css" href="../libraries/Pikaday-master/css/pikaday.css">
     <title>Agencias 42-43</title>
 </head>
     <body id="bodyB">
@@ -27,10 +29,12 @@
                 </article>
                 <article >
                     <nav class="h-s-a__nav">
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Nosotros">Nosotros</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Empresa">Empresas</a></li>
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#viaje">Viajar</a></li>
+                        <ul>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Nosotros">Nosotros</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Empresa">Empresas</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#viaje">Viajar</a></li>
+                        </ul>
                     </nav>
                 </article>
             </section>
@@ -79,7 +83,7 @@
                             <label for="fecha" class="m-s-a-f-d__item"><p >fecha de viaje</p>
 
                                 <input type="text" id="fecha" placeholder="Selecciona una fecha" required>
-                                <input type="date" id="hidden-date-input" name="fecha" style="display: none;">
+                                <input type="date" id="hidden-date-input" name="fecha">
 
                             </label>
                             
@@ -136,17 +140,19 @@
                     </div>
                 </article>
                 <nav class="f-s__nav">
-                    <li><a class="f-s-n-l__a" href="">Principal</a></li>
-                    <li><a class="f-s-n-l__a" href="">Calendario</a></li>
-                    <li><a class="f-s-n-l__a" href="">Nosotros</a></li>
-                    <li><a class="f-s-n-l__a" href="">Contactanos</a></li>
+                    <ul>
+                        <li><a class="f-s-n-l__a" href="">Principal</a></li>
+                        <li><a class="f-s-n-l__a" href="">Calendario</a></li>
+                        <li><a class="f-s-n-l__a" href="">Nosotros</a></li>
+                        <li><a class="f-s-n-l__a" href="">Contactanos</a></li>
+                    </ul>
                 </nav>
             </section>
             <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
         </footer>
     </body>
-    <script src="assets/js/filtro.js"></script>
-    <script src="../libraries/Pikaday-master/pikaday.js"></script>
+    <script type="text/javascript" src="assets/js/filtro.js"></script>
+    <script type="text/javascript" src="../libraries/Pikaday-master/pikaday.js"></script>
     <script>
 
         var picker = new Pikaday({

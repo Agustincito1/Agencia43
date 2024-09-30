@@ -28,7 +28,7 @@
                 </article>
                 <article >
                     <nav class="h-s-a__nav">
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li>
+                        <ul><li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="menu.php">volver</a></li> </ul>
                         
                     </nav>
                 </article>

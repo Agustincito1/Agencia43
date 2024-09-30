@@ -29,7 +29,9 @@
                 </article>
                 <article >
                     <nav class="h-s-a__nav">
-                        <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="cy.php?c=1">cerrar session</a></li>
+                        <ul>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="cy.php?c=1">cerrar session</a></li>
+                        </ul>
                     </nav>
                 </article>
             </section>

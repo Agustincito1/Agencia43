@@ -3,6 +3,9 @@
     src: url('../../../libraries/fontlato/Lato-Regular.ttf') format('truetype'); /* Asegúrate de usar la ruta correcta */
 }
 
+#hidden-date-input{
+    display: none;
+}
 
 body{
     background-color: rgba(209, 209, 209, 0.388);
