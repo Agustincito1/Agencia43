@@ -78,7 +78,7 @@ body{
     font-size: 25px;
 }
 
-.h-s-a__nav{
+.h-s-a__nav ul{
     background-color: #494848;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -188,7 +188,7 @@ body{
     text-decoration: none;
 }
 
-.f-s__nav{
+.f-s__nav ul{
     list-style: none;
     width: 100%;
     display: grid;

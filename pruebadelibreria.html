@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <!-- <header id="header">
+    <header id="header">
         <section class="header-section">
             <article class="h-s-article">
                 <div class="h-s-a__div">
@@ -23,53 +23,20 @@
             </article>
             <article >
                 <nav class="h-s-a__nav">
+                    <ul>
                     <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Calendario</a></li>
                     <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Nosotros</a></li>
                     <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Empresa</a></li>
                     <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="">Viajar</a></li>
+                </ul>
                 </nav>
             </article>
         </section>
-    </header> -->
+    </header>
     <main>
         
         
-            <label for="categoria">Categoría:</label>
-            <select id="categoria">
-                <option value="">Seleccione una categoría</option>
-                <option value="frutas">Frutas</option>
-                <option value="verduras">Verduras</option>
-            </select>
         
-            <label for="opciones">Opciones:</label>
-            <select id="opciones">
-                <option value="">Seleccione una opción</option>
-                <option value="manzana">Manzana</option>
-                <option value="naranja">Naranja</option>
-                <option value="zanahoria">Zanahoria</option>
-                <option value="lechuga">Lechuga</option>
-            </select>
-        
-            <script>
-                const categoriaSelect = document.getElementById('categoria');
-                const opcionesSelect = document.getElementById('opciones');
-        
-                categoriaSelect.addEventListener('change', function() {
-                    const selectedValue = this.value;
-        
-                    // Mostrar solo las opciones correspondientes
-                    for (const option of opcionesSelect.options) {
-                        if (option.classList.contains(selectedValue)) {
-                            option.style.display = 'block';
-                        } else {
-                            option.style.display = 'none';
-                        }
-                    }
-        
-                    // Restablecer la selección del segundo select
-                    opcionesSelect.value = '';
-                });
-            </script>
         
         
         
@@ -88,10 +55,12 @@
                 </div>
             </article>
             <nav class="f-s__nav">
+                <ul>
                 <li><a class="f-s-n-l__a" href="">Principal</a></li>
                 <li><a class="f-s-n-l__a" href="">Calendario</a></li>
                 <li><a class="f-s-n-l__a" href="">Nosotros</a></li>
                 <li><a class="f-s-n-l__a" href="">Contactanos</a></li>
+            </ul>
             </nav>
         </section>
         <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
