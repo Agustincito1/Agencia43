@@ -52,11 +52,11 @@
                         <p class="m-s-a-f__p">Busca el lugar donde quieras ir</p>
                         <div class="m-s-a-f__div">
                             <label for="option2" class="m-s-a-f-d__item">
-                                <input class="m-s-a-f-d__inputOption" type="radio" name="option2" value="Ida" id="option2"><p>Solo ida</p>
+                                <input class="m-s-a-f-d__inputOption" type="radio" name="option" value="Ida" id="option2" ><p>Solo ida</p>
                             </label>
                             
                             <label for="option1" class="m-s-a-f-d__item">
-                                <input " type="radio" name="option1"  value="IdaYvuelta" id="option1"><p>Ida y vuelta</p>
+                                <input " type="radio" name="option"  value="IdaYvuelta" id="option1""><p>Ida y vuelta</p>
                             </label>
                             
                             <label  for="tipo" class="m-s-a-f-d__item"><p>Tipo de boleto</p>
@@ -165,6 +165,11 @@
         });
 
     </script>
+
+
+
+
+
     <script>
     
         const linksWithIds = document.querySelectorAll('a[id]');
@@ -186,5 +191,6 @@
             });
         });
     </script>
+
 
 </html>
