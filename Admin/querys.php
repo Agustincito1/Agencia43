@@ -33,6 +33,7 @@
         $empresa = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1";
 
         $select_provincia = "SELECT `ProvinciaID`, `Provincia` FROM `provincia` WHERE 1";
+        $select_localidad = "SELECT `LocalidadID`, `Localidad` FROM `localidad` WHERE 1";
 
         $select_boleto = "SELECT `BoletoID`, `NombreBoleto` FROM `boleto` WHERE 1";
 

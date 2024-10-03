@@ -9,9 +9,12 @@
     <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Lugar Destino</title>
+
+    
 </head>
-    <body>
+    <body  id="bodyE">
 
         <?php
             include "querys.php";
@@ -40,16 +43,18 @@
                 </article>
             </section>
         </header>
-        <main>
-            <section>
-                <article>
-                    <form action="add.php" method="POST">
+        <main id="mainE">
+            <section class="mb_section">
+                <h2 id="addh2">Añadir destinos</h2>
+                <article class="mb-s__article" id="add">
+                    
+                    <form action="add.php"  class="mb-s-a__form" method="POST">
                         <h2>Lugar destino</h2>
                     
                         <label for="Nombre">Nombre del Lugar</label>
-                        <input type="text" id="" name="Nombre" required>
+                        <input type="text" id="" name="Nombre" placeholder="Nombre del lugar" required>
 
-                        <label for="Provincia">Localidad</label>
+                        <label for="Provincia">Provincia</label>
                         <select name="Provincia" id="Provincia">
 
                             <?php
@@ -57,7 +62,7 @@
                             ?>
 
                         </select>
-
+                        <label for="Localidad">Localidad</label>
                         <select name="Localidad" id="Localidad">
                             <option value="">Seleccione una Provincia primero</option>
                         </select>
@@ -72,22 +77,7 @@
                         <input type="submit" id="" name="AnadirLugar">
                     </form>
                 </article>
-                <article>
-                    <table>
-                        <tr>
-                            <th>Destino</th>
-                            <th>Localidad</th>
-                            <th>Nombre boleto</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        
-                        <?php 
-                            filas($destino,3, "destino", "DestinoID");
-                        ?>
-                        
-                    </table>
-                </article>
+                
 
                 <!-- Modificar -->
                 <?php
@@ -109,7 +99,9 @@
                             $datos = mysqli_fetch_assoc($query);
 
                             echo '
-                            <article>
+                                <h2>Modificar destinos</h2>
+                            <article id="up" >
+                                
                                 <form action="update.php" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Lugar destino</h2>
@@ -118,12 +110,21 @@
                                     <input type="text" id="" name="Nombre" value="'.$datos['Nombre'].'" required>
 
 
-                                    <label for="Localidad">Localidad</label>
-                                    <select name="Localidad" id="">';
+                                    <label for="ProvinciaII">Provincia</label>
+                                    <select name="ProvinciaII" id="ProvinciaII">';
 
-                                    options_selectionado($select_provincia,$datos['LocalidadID']);
-                                        
-                                echo '
+                                        options_selectionado($select_provincia,$datos['LocalidadID']);
+                                            
+                                        echo '
+                                    </select>
+
+
+
+                                    <label for="LocalidadII">Localidad</label>
+                                    <select name="LocalidadII" id="LocalidadII">';
+                                        options_selectionado($select_localidad,$datos['LocalidadID']);
+                                            
+                                        echo '
                                     </select>
 
                                     <label for="Boleto">Boleto</label>
@@ -138,15 +139,34 @@
                             </article>  
                             ';
                         }
+                        else{
+                            
+                        }
                     
                     ?>
-                    
-                
+                <h2>Tabla destinos</h2>
+                <article class="mb-s__article">
+                    <table>
+                        <tr>
+                            <th>Destino</th>
+                            <th>Localidad</th>
+                            <th>Nombre boleto</th>
+                            <th></th>
+                            
+                        </tr>
+                        
+                        <?php 
+                            filas($destino,3, "destino", "DestinoID");
+                        ?>
+                        
+                    </table>
+                </article>
             </section>
         </main>
         <footer>
             
         </footer>
+        <script src="assets/js/mostrarcaja.js"></script>
         <script src="assets/js/selectfiltro.js"></script>
     </body>
 </html>

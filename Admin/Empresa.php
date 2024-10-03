@@ -38,7 +38,8 @@
         </header>
         <main id="mainE">
             <section class="mb_section">
-                <article class="mb-s__article">
+                <h2 id="addh2">Crea una empresa</h2>
+                <article id="add" class="mb-s__article">
                     <form class="mb-s-a__form" action="add.php" method="POST">
 
                         <h2>Crear una empresa</h2>
@@ -65,8 +66,8 @@
                             $query = QueryAndGetData("SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE EmpresaID =  $id");
                             $datos = mysqli_fetch_assoc($query);
 
-                            echo '
-                            <article  class="mb-s__article">
+                            echo '<h2>Modificar empresa</h2>
+                            <article  class="mb-s__article" id="up">
                                 <form class="mb-s-a__form" action="update.php" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Modificar empresa</h2>
@@ -88,10 +89,11 @@
                             ';
                         }
                         else{
-                            echo "<article></article>";
+                        
                         }
                     
                     ?>
+                    <h2>Tabla de empresas</h2>
                     <article class="mb-s__article">
                     <table>
                         <tr >
@@ -114,4 +116,5 @@
             
         </footer>
     </body>
+    <script src="assets/js/mostrarcaja.js"></script>
 </html>

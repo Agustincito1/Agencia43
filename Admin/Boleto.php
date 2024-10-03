@@ -36,7 +36,8 @@
         </header>
         <main id="mainB">
             <section class="mb_section">
-                <article class="mb-s__article">
+                <h2 id="addh2">Añadir boleto</h2>
+                <article id="add" class="mb-s__article">
                     
                     <!-- Insert -->
                     <form  class="mb-s-a__form"action="add.php" method="POST">
@@ -98,8 +99,9 @@
                         $query = QueryAndGetData("SELECT `BoletoID`, `NombreBoleto`, `InicioDestino`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `localID`, `IdaYvuelta` FROM `boleto` WHERE BoletoID =  $id");
                         $datos = mysqli_fetch_assoc($query);
                         $id =$_GET['id'];
-                        echo '<article class="mb-s__article" >
-                                    
+                        
+                        echo ' <h2 >Modificar boleto</h2>
+                        <article class="mb-s__article up" id="up">
                                     <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Actualizar un boleto</h2>
@@ -156,10 +158,11 @@
                         </article>';
                     }
                     else{
-                        echo "<article>Apartado modificar</article>";
+                        
                     }
 
                 ?>
+                <h2 >Tabla de boletos</h2>
                 <article class="mb-s__article">
                     <!-- tabla -->
                     <table>
@@ -187,5 +190,7 @@
         <footer>
             
         </footer>
+        
     </body>
+    <script src="assets/js/mostrarcaja.js"></script>
 </html>

@@ -39,8 +39,10 @@
             </section>
         </header>   
         <main id="mainH">
+            
             <section class="mb_section">
-                <article class="mb-s__article">
+                <h2 id="addh2">Añadir horario</h2>
+                <article id="add" class="mb-s__article">
                     <form class="mb-s-a__form" action="add.php" method="POST">
 
                         <h2>Horarios</h2>
@@ -76,7 +78,8 @@
                             $datos = mysqli_fetch_assoc($query);
 
                             echo '
-                            <article class="mb-s__article" >
+                            <h2>Modificar Horario</h2>
+                            <article class="mb-s__article" id="up">
                                 <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Horarios</h2>
@@ -102,6 +105,7 @@
                             echo "<article></article>";
                         }
                 ?>
+                <h2>Tabla de horarios</h2>
                 <article class="mb-s__article">
                     <table>
                         <tr>
@@ -124,4 +128,5 @@
             
         </footer>
     </body>
+    <script src="assets/js/mostrarcaja.js"></script>
 </html>
