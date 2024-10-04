@@ -78,6 +78,7 @@
                             $datos = mysqli_fetch_assoc($query);
 
                             echo '
+                            <a href="horario.php">Añadir Horario</a>
                             <h2>Modificar Horario</h2>
                             <article class="mb-s__article" id="up">
                                 <form action="update.php" class="mb-s-a__form" method="POST">

@@ -100,7 +100,7 @@
                         $datos = mysqli_fetch_assoc($query);
                         $id =$_GET['id'];
                         
-                        echo ' <h2 >Modificar boleto</h2>
+                        echo '  <a href="boleto.php">Añadir boleto</a><h2 >Modificar boleto</h2>
                         <article class="mb-s__article up" id="up">
                                     <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
