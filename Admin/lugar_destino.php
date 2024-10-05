@@ -98,7 +98,7 @@
 
                             $datos = mysqli_fetch_assoc($query);
 
-                            echo ' <a href="lugar_destino.php">Añadir Destino</a>
+                            echo ' <a href="lugar_destino.php" class="anadir">Añadir Destino</a>
                                 <h2>Modificar destinos</h2>
                             <article id="up" >
                                 

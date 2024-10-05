@@ -57,6 +57,19 @@ body{
     max-height: 120px;
     position: relative;
 }
+
+.anadir{
+    color: #FFFF00;
+    border-radius: 0.2rem;
+    background-color: #989898;
+    height: 2rem;
+    width: 5rem;
+    border: 0.1rem solid #000000;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
 .h-s-a-d__img{
     width: 150px;
     height: 150px;
