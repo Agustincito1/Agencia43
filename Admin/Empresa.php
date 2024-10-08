@@ -66,7 +66,7 @@
                             $query = QueryAndGetData("SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE EmpresaID =  $id");
                             $datos = mysqli_fetch_assoc($query);
 
-                            echo ' <a href="empresa.php" class="anadir">Añadir Empresa</a><h2>Modificar empresa</h2>
+                            echo '<h2> <a href="empresa.php" class="anadir">Añadir Empresa</a>Modificar empresa</h2>
                             <article  class="mb-s__article" id="up">
                                 <form class="mb-s-a__form" action="update.php" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>

@@ -98,11 +98,11 @@
 
                             $datos = mysqli_fetch_assoc($query);
 
-                            echo ' <a href="lugar_destino.php" class="anadir">Añadir Destino</a>
-                                <h2>Modificar destinos</h2>
-                            <article id="up" >
+                            echo ' 
+                                <h2> <a href="lugar_destino.php" class="anadir">Añadir Destino</a> Modificar destinos</h2>
+                            <article id="up" class="mb-s__article up">
                                 
-                                <form action="update.php" method="POST">
+                                <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Lugar destino</h2>
                     
