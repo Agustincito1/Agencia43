@@ -108,8 +108,8 @@
                     <p><span>Telefono:</span> 3754 5433435</p>
                     <div class="agenciaimg_container"> 
                         <img class="agenciaimg" src="imgs/agencia1.png" alt="foto de la agencia">
-                        <img class="agenciaimg" src="imgs/agencia2.png" alt="">
-                        <img class="agenciaimg" src="imgs/agencia3.png" alt="">
+                        <img class="agenciaimg" src="imgs/agencia2.png" alt="foto de la agencia">
+                        <img class="agenciaimg" src="imgs/agencia3.png" alt="foto de la agencia">
                     </div>
                     
                 </article>
