@@ -29,17 +29,17 @@
 
 #bodyM{
     display: grid;
-    grid-template-rows: 12rem 35rem 20rem; 
+    grid-template-rows: 13rem 35rem 20rem; 
     
 }
 
 #bodyB, #bodyE, #bodyH {
     display: grid;
-    grid-template-rows: 12rem 80rem 20rem; 
+    grid-template-rows: 13rem 80rem 20rem; 
 }
 #bodyE{
     display: grid;
-    grid-template-rows: 12rem 90rem 20rem; 
+    grid-template-rows: 13rem 90rem 20rem; 
 }
 #mainM, #mainB, #mainE,#mainH{
     height: 100%;
@@ -69,7 +69,11 @@
     grid-template-rows: 1rem 40rem 2rem 38rem;
 }
 #mainE .mb_section{
-    grid-template-rows: 1rem 38rem 2rem 38rem;
+    grid-template-rows: 1rem 45rem 2rem 38rem;
+}
+
+#mainH .mb_section{
+    grid-template-rows: 1rem 32rem 2rem 38rem;
 }
 
 #mainE .mb-s__article .mb-s-a__form{

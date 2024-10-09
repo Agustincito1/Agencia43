@@ -103,7 +103,7 @@
                             ';
                         }
                         else{
-                            echo "<article></article>";
+                            
                         }
                 ?>
                 <h2>Tabla de horarios</h2>

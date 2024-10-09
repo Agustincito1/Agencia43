@@ -8,7 +8,7 @@
     <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Agencias 42-43</title>
+    <title>Menu Agencias 42-43</title>
 </head>
     <body id="bodyM">
         <?php

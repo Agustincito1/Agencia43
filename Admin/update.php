@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
-    <title>Actualizar Dato</title>
+    <title>Actualizar Datos</title>
 </head>
 <body>
     
