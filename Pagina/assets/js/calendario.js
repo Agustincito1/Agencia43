@@ -1,9 +1,20 @@
-  // Función para cargar el calendario
+// Función para cargar el calendario
 function loadCalendar(month, year) {
     fetch(`calender.php?month=${month}&year=${year}`)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el calendario');
+            }
+            return response.text();
+        })
         .then(data => {
-            document.getElementById('calendar-container').innerHTML = data;
+            const container = document.getElementById('calendar-container');
+            container.innerHTML = data;
+          
+        })
+        .catch(error => {
+            console.error(error);
+            document.getElementById('calendar-container').innerHTML = '<p>Error al cargar el calendario.</p>';
         });
 }
 

@@ -102,30 +102,37 @@
     }
     for ($day = 1; $day <= $lastDate; $day++) {
         if (in_array($day, $lunes)) {
-            echo "<div class='day'><span onclick='mostrardia($day, 'lunes', $month, $year)'>$day</span></div>";
+            $dia = 'lunes';
+            echo "<div class='day'><span class='di' data-info='$day-$dia-$month-$year'>$day</span></div>";
         } else {
             if(in_array($day, $martes)){
-                echo "<div class='day'><span onclick='mostrardia($day, 'martes', $month, $year)'>$day</span></div>";
+                $dia = 'martes';
+                echo "<div class='day'><span class='di' data-info='$day-$dia-$month-$year'>$day</span></div>";
             }
             else{
                 if(in_array($day, $miercoles)){
-                    echo "<div class='day'><span onclick='mostrardia($day, 'miercoles', $month, $year)'>$day</span></div>";
+                    $dia = 'miercoles';
+                    echo "<div class='day'><span class='di' data-info='$day-$dia-$month-$year'>$day</span></div>";
                 }
                 else{
                     if(in_array($day, $jueves)){
-                        echo "<div class='day'><span onclick='mostrardia($day, 'jueves', $month, $year)'>$day</span></div>";
+                        $dia = 'jueves';
+                        echo "<div class='day'><span class='di' data-info='$day-$dia-$month-$year'>$day</span></div>";
                     }
                     else{
                         if(in_array($day, $viernes)){
-                            echo "<div class='day'><span onclick='mostrardia($day, 'viernes', $month, $year)'>$day</span></div>";
+                            $dia = 'viernes';
+                            echo "<div class='day'><span class='di' data-info='$day-$dia-$month-$year'>$day</span></div>";
                         }
                         else{
                             if(in_array($day, $sabado)){
-                                echo "<div class='day'><span onclick='mostrardia($day, 'sabado', $month, $year)'>$day</span></div>";
+                                $dia = 'sabado';
+                                echo "<div class='day'><span class='di' data-info='$day-$dia-$month-$year'>$day</span></div>";
                             }
                             else{
                                 if(in_array($day, $domingo)){
-                                    echo "<div class='day'><span onclick='mostrardia($day, 'domingo', $month, $year)'>$day</span></div>";
+                                    $dia = 'domingo';
+                                    echo "<div class='day'><span class='di' data-info='$day-$dia-$month-$year'>$day</span></div>";
                                 }
                                 else{
                                     echo "<div class='day'>$day</div>";

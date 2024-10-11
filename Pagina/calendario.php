@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <title>Calendario</title>
 </head>
     <body id="bodyC">
@@ -89,4 +90,15 @@
     </body>
 
     <script src="assets/js/calendario.js"></script>
+    <script>
+            const container = document.getElementById('calendar-container');
+            container.addEventListener('click', (event) => {
+                const div = event.target.closest('.di');
+                if (div) {
+                    console.log(div.dataset.info);
+                }
+            });
+    </script>
+
+
 </html>
