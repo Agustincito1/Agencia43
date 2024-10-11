@@ -10,7 +10,6 @@ function loadCalendar(month, year) {
         .then(data => {
             const container = document.getElementById('calendar-container');
             container.innerHTML = data;
-          
         })
         .catch(error => {
             console.error(error);
