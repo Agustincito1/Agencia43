@@ -90,15 +90,7 @@
     </body>
 
     <script src="assets/js/calendario.js"></script>
-    <script>
-            const container = document.getElementById('calendar-container');
-            container.addEventListener('click', (event) => {
-                const div = event.target.closest('.di');
-                if (div) {
-                    console.log(div.dataset.info);
-                }
-            });
-    </script>
+    <script src="assets/js/mostrar.js"></script>
 
 
 </html>
