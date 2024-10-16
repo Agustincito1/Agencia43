@@ -13,12 +13,17 @@ container.addEventListener('click', (event) => {
             elanio: anio
         };
 
+
+
         $.ajax({
             url: 'calendariodata.php', // Ruta al archivo PHP
             type: 'POST',
             data: data, // Envía los datos como un objeto
             success: function(response) {
                 console.log(response);  // Muestra la respuesta del servidor
+                var div = document.getElementById('div-onclick');
+                div.style.display = "block";
+                document.getElementById('div-onclick').textContent = response;
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText); // Muestra errores en la consola

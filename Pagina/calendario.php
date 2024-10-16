@@ -45,7 +45,11 @@
 
             <div id="calendar-container">
             <!-- El contenido del calendario se cargará aquí -->
-        </div>
+            </div>
+
+            <div id="div-onclick"> 
+                <div id="dataonclick"></div>
+            </div>
             <!-- <section>
                 <article>
                     <h2></h2>
