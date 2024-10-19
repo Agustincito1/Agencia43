@@ -47,13 +47,26 @@
                         <label for="Nombre">Nombre de la Empresa</label>
                         <input type="text" id="" name="Nombre" required>
                         <label for="Imgp">Imagen principal de la empresa</label>
-                        <input type="file" id="" name="Imgp" required>
+                        <div class="imgcont">
+                            <input  class="file" type="file" id="" name="Imgp" required>
+                            <div></div>
+                        </div>
                         <label for="Img1">Primer imagen </label>
-                        <input type="file" id="" name="Img1" required>
+                        <div class="imgcont">
+                            <input  class="file" type="file" id="" name="Img1" required>
+                            <div></div>
+                        </div>
                         <label for="Img2">Segunda imagen</label>
-                        <input type="file" id="" name="Img2" required>
+                        <div class="imgcont">
+                            <input class="file" type="file" id=""  name="Img2" required>
+                            <div></div>
+                        </div >
+                        
                         <label for="Img3">tercer imagen</label>
-                        <input type="file" id="" name="Img3" required>
+                        <div class="imgcont">
+                            <input class="file" type="file" id="" name="Img3" required>
+                            <div></div>
+                        </div>
                         <input type="submit" id="" class="submit" name="AnadirEmpresa">
 
                     </form>
