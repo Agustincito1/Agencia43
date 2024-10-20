@@ -48,24 +48,24 @@
                         <input type="text" id="" name="Nombre" required>
                         <label for="Imgp">Imagen principal de la empresa</label>
                         <div class="imgcont">
-                            <input  class="file" type="file" id="" name="Imgp" required>
-                            <div></div>
+                            <input  class="file" type="file" id="Imgp" name="Imgp" required onchange="showImage('Imgp', 'Imgp-Preview')">
+                            <img id="Imgp-Preview" alt="Image Preview" style="display:none;">
                         </div>
                         <label for="Img1">Primer imagen </label>
                         <div class="imgcont">
-                            <input  class="file" type="file" id="" name="Img1" required>
-                            <div></div>
+                            <input  class="file" type="file" id="Img1" name="Img1" required onchange="showImage('Img1', 'Img1-Preview')">
+                            <img id="Img1-Preview" alt="Image Preview" style="display:none;">
                         </div>
                         <label for="Img2">Segunda imagen</label>
                         <div class="imgcont">
-                            <input class="file" type="file" id=""  name="Img2" required>
-                            <div></div>
+                            <input class="file" type="file" id="Img2"  name="Img2" required onchange="showImage('Img2', 'Img2-Preview')">
+                            <img id="Img2-Preview" alt="Image Preview" style="display:none;">
                         </div >
                         
                         <label for="Img3">tercer imagen</label>
                         <div class="imgcont">
-                            <input class="file" type="file" id="" name="Img3" required>
-                            <div></div>
+                            <input class="file" type="file" id="Img3" name="Img3" required onchange="showImage('Img3', 'Img3-Preview')">
+                            <img id="Img3-Preview" alt="Image Preview" style="display:none;" >
                         </div>
                         <input type="submit" id="" class="submit" name="AnadirEmpresa">
 
@@ -130,4 +130,33 @@
         </footer>
     </body>
     <script src="assets/js/mostrarcaja.js"></script>
+    <script>
+        function showImage(inputId, imgId) {
+            const fileInput = document.getElementById(inputId);
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(imgId);
+                    img.src = e.target.result; // Establece la fuente de la imagen
+                    img.style.display = 'block'; // Muestra la imagen
+
+                    // Muestra el botón de descarga
+                    document.getElementById('downloadBtn').style.display = 'block';
+                };
+                reader.readAsDataURL(file); // Lee el archivo como URL de datos
+            }
+        }
+
+    function downloadImage(imgId) {
+        const img = document.getElementById(imgId);
+        const link = document.createElement('a');
+        link.href = img.src; // Usa la fuente de la imagen
+        link.download = 'imagen.png'; // Nombre del archivo
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    </script>
 </html>
