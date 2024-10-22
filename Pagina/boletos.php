@@ -1,18 +1,17 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ES">
 <head>
     <meta charset="UTF-8">
-    <link rel="canonical" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
-    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="canonical" href="">
     <title>Boletos</title>
 </head>
-
 <body id="bodyBo">
+    <!-- header -->
     <header id="header">
                 <section class="header-section">
                     <article class="h-s-article">
@@ -37,7 +36,7 @@
                 </article>
             </section>
     </header>
-
+    <!-- main -->
     <main id="mainBo">
         <?php 
             include "../libraries/functions.php";
@@ -209,84 +208,78 @@
 
         ?>
 
-
         <section class="mB__section">
-
-                    <?php
-                        if($var === 1){
-                            if(mysqli_num_rows($data)>1){
-                                echo '<article  class="mB-s__a">
-                                <h3>¡¡Acá tenes los boletos!!</h3>
-                                <div class="mB-s-a__div">
-                                    <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
-                                    <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
-                                </div>
-                                <div class="mB-s-a__div">';
-                                while($data = mysqli_fetch_assoc($data)){
-                                    echo '<div class="boletocontainer">';
-                                    echo '<p class="boletocontainer__nombre">'.$data['Nombre'].'</p>';
-                                    echo '<p class="boletocontainer__inicio"> Terminal de Posadas Misiones</p>';
-                                    echo '<p class="boletocontainer__precio">'.$data['Precio'].'</p>';
-                                    echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
-                                    echo '<p class="boletocontainer__cantidadp">'.$data['Cantidad'].'</p>';
-                                    echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
-                                    echo '<p class="boletocontainer__destino">'.$data['Destino'].'</p>';
-                                    echo '<p class="boletocontainer__empresa">'.$data['NombreEmpresa'].'</p>';
-                                    echo "</div>";
-                                }
-                                echo "</div>";
-                            }
-                            else{
-    
-                                if(mysqli_num_rows($data)){
-                                    $data = mysqli_fetch_assoc($data);
-                                    echo '<article  class="mB-s__a">
-                                    <h3>¡¡Acá tenes tu boleto!!</h3>
-                                    <div class="mB-s-a__div">
-                                        <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
-                                        <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
-                                    </div>
-                                    <div class="mB-s-a__div">';
-                                    echo '<div class="boletocontainer">';
-                                    echo '<p class="boletocontainer__nombre">'.$data['Nombre'].'</p>';
-                                    echo '<p class="boletocontainer__inicio"> Terminal de Posadas Misiones</p>';
-                                    echo '<p class="boletocontainer__precio">'.$data['Precio'].'</p>';
-                                    echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
-                                    echo '<p class="boletocontainer__cantidadp">'.$data['Cantidad'].'</p>';
-                                    echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
-                                    echo '<p class="boletocontainer__destino">'.$data['Destino'].'</p>';
-                                    echo '<p class="boletocontainer__empresa">'.$data['NombreEmpresa'].'</p>';
-                                    echo "</div>";
-                                    echo "</div>";
-                                }
-                                else{
-                                    echo '<article  class="mB-s__a">
-                                    <h3>¡¡No tienes un boleto!!</h3>
-                                    <div class="mB-s-a__div">
-                                        <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
-                                        <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
-                                    </div>
-                                    <div class="mB-s-a__div">
-    
-                                        <p>No hay boletos disponibles</p>
-    
-                                    </div>';
-                                
-                                }
-    
-                            }
-    
+            <?php
+                if($var === 1){
+                    if(mysqli_num_rows($data)>1){
+                        echo '<article  class="mB-s__a">
+                        <h3>¡¡Acá tenes los boletos!!</h3>
+                        <div class="mB-s-a__div">
+                            <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
+                            <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                        </div>
+                        <div class="mB-s-a__div">';
+                        while($data = mysqli_fetch_assoc($data)){
+                            echo '<div class="boletocontainer">';
+                            echo '<p class="boletocontainer__nombre">'.$data['Nombre'].'</p>';
+                            echo '<p class="boletocontainer__inicio"> Terminal de Posadas Misiones</p>';
+                            echo '<p class="boletocontainer__precio">'.$data['Precio'].'</p>';
+                            echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
+                            echo '<p class="boletocontainer__cantidadp">'.$data['Cantidad'].'</p>';
+                            echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
+                            echo '<p class="boletocontainer__destino">'.$data['Destino'].'</p>';
+                            echo '<p class="boletocontainer__empresa">'.$data['NombreEmpresa'].'</p>';
+                            echo "</div>";
                         }
-                        ?>
-                    </div>
+                        echo "</div>";
+                        echo "</article>";
+                    }
+                    else{
     
-                </div>
-            </article>
-
+                        if(mysqli_num_rows($data)){
+                            $data = mysqli_fetch_assoc($data);
+                            echo '<article  class="mB-s__a">
+                            <h3>¡¡Acá tenes tu boleto!!</h3>
+                            <div class="mB-s-a__div">
+                            <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
+                            <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                            </div>
+                            <div class="mB-s-a__div">';
+                            echo '<div class="boletocontainer">';
+                            echo '<p class="boletocontainer__nombre">'.$data['Nombre'].'</p>';
+                            echo '<p class="boletocontainer__inicio"> Terminal de Posadas Misiones</p>';
+                            echo '<p class="boletocontainer__precio">'.$data['Precio'].'</p>';
+                            echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
+                            echo '<p class="boletocontainer__cantidadp">'.$data['Cantidad'].'</p>';
+                            echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
+                            echo '<p class="boletocontainer__destino">'.$data['Destino'].'</p>';
+                            echo '<p class="boletocontainer__empresa">'.$data['NombreEmpresa'].'</p>';
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</article>";
+                        }
+                        else{
+                            echo '<article  class="mB-s__a">
+                            <h3>¡¡No tienes un boleto!!</h3>
+                            <div class="mB-s-a__div">
+                            <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
+                            <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                            </div>
+                            <div class="mB-s-a__div">
+    
+                            <p>No hay boletos disponibles</p>
+    
+                            </div>';
+                                
+                        }
+    
+                    }
+    
+                }
+            ?>
         </section>
-
     </main>
-
+    <!-- footer -->
     <footer id="footer">
                 <section class="footer__section">
                     <article class="f-s__article">
@@ -313,8 +306,8 @@
                 </section>
                 <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
         </footer>
-        
-
 </body>
+<script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+
 </html>
 

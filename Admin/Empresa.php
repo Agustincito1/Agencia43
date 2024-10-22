@@ -1,13 +1,11 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ES">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
-    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Empresa</title>
 </head>
     <body id="bodyE">
@@ -15,7 +13,7 @@
         <?php
             include "querys.php";
         ?>
-        
+        <!-- header -->
         <header id="header">
             <section class="header-section">
                 <article class="h-s-article">
@@ -36,6 +34,8 @@
                 </article>
             </section>
         </header>
+        
+        <!-- main -->
         <main id="mainE">
             <section class="mb_section">
                 <h2 id="addh2">Crea una empresa</h2>
@@ -45,7 +45,7 @@
                         <h2>Crear una empresa</h2>
 
                         <label for="Nombre">Nombre de la Empresa</label>
-                        <input type="text" id="" name="Nombre" required>
+                        <input type="text" id="Nombre" name="Nombre" required>
                         <label for="Imgp">Imagen principal de la empresa</label>
                         <div class="imgcont">
                             <input  class="file" type="file" id="Imgp" name="Imgp" required onchange="showImage('Imgp', 'Imgp-Preview')">
@@ -85,17 +85,17 @@
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Modificar empresa</h2>
 
-                                    <label for="Nombre">Nombre de la Empresa</label>
-                                    <input type="text" id="" name="Nombre" value="'.$datos['Nombre'].'" required>
-                                    <label for="Imgp">Imagen principal de la empresa</label>
-                                    <input type="file" id="" name="Imgp" required>
-                                    <label for="Img1">Primer imagen </label>
-                                    <input type="file" id="" name="Img1" required>
-                                    <label for="Img2">Segunda imagen</label>
-                                    <input type="file" id="" name="Img2" required>
-                                    <label for="Img3">tercer imagen</label>
-                                    <input type="file" id="" name="Img3" required>
-                                    <input type="submit" id="" class="submit" name="AnadirEmpresa">
+                                    <label for="NombreU">Nombre de la Empresa</label>
+                                    <input type="text" id="NombreU" name="NombreU" value="'.$datos['Nombre'].'" required>
+                                    <label for="ImgpU">Imagen principal de la empresa</label>
+                                    <input type="file" id="ImgpU" name="ImgpU" >
+                                    <label for="Img1U">Primer imagen </label>
+                                    <input type="file" id="Img1U" name="Img1U" >
+                                    <label for="Img2U">Segunda imagen</label>
+                                    <input type="file" id="Img2U" name="Img2U" >
+                                    <label for="Img3U">tercer imagen</label>
+                                    <input type="file" id="Img3U" name="Img3U" >
+                                    <input type="submit" id="" class="submit" name="updateEmpresa">
                                     
                                 </form>
                             </article>  
@@ -129,34 +129,6 @@
             
         </footer>
     </body>
-    <script src="assets/js/mostrarcaja.js"></script>
-    <script>
-        function showImage(inputId, imgId) {
-            const fileInput = document.getElementById(inputId);
-            const file = fileInput.files[0];
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById(imgId);
-                    img.src = e.target.result; // Establece la fuente de la imagen
-                    img.style.display = 'block'; // Muestra la imagen
-
-                    // Muestra el botón de descarga
-                    document.getElementById('downloadBtn').style.display = 'block';
-                };
-                reader.readAsDataURL(file); // Lee el archivo como URL de datos
-            }
-        }
-
-    function downloadImage(imgId) {
-        const img = document.getElementById(imgId);
-        const link = document.createElement('a');
-        link.href = img.src; // Usa la fuente de la imagen
-        link.download = 'imagen.png'; // Nombre del archivo
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-    </script>
+    <script type="text/javascript" src="assets/js/mostrarcaja.js"></script>
+    <script type="text/javascript" src="assets/js/functions.js"></script>
 </html>

@@ -1,4 +1,6 @@
 <?php
+    header('Content-Type: text/html; charset=utf-8');
+    header('X-Content-Type-Options: nosniff');
     include "../libraries/functions.php";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -1,11 +1,12 @@
 <?php 
     header('Content-Type: text/html; charset=utf-8');
-
-
+    header('X-Content-Type-Options: nosniff');
     include "querys.php";
 ?>
+
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ES">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,8 @@
     <title>Agencias 42-43</title>
 </head>
     <body id="bodyB">
+
+        <!-- header -->
         <header id="header">
             <section class="header-section">
                 <article class="h-s-article">
@@ -39,10 +42,12 @@
                 </article>
             </section>
         </header>
-
+        
+        <!-- main -->
         <main id="mainB">
             <section class="main__section">
                 <article class="m-s__article-formcontent">
+                    <!-- formulario -->
                     <form class="m-s-a_form" action="boletos.php" method="POST" id="viaje">
                         <div>
                             <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
@@ -62,6 +67,7 @@
                             <label  for="tipo" class="m-s-a-f-d__item"><p>Tipo de boleto</p>
                                 <select name="tipo" id="tipo">
                                     <?php
+                                        //generacion de options 
                                         options($select_tipoboleto);
                                     ?>
                                 </select>
@@ -116,8 +122,9 @@
                 <article id="Empresa" class="m-s__article-empresas">
                     <h2>Empresas que vendemos</h2>
                     <div class="empresaimg_container">
-                        <!-- php -->
+                        
                         <?php
+                            //generacion de imagenes para la empresa 
                             imagen_empresas($empresa);
                         ?>
                         
@@ -126,6 +133,7 @@
             </section>
         </main>
 
+        <!-- footer -->
         <footer id="footer">
             <section class="footer__section">
                 <article class="f-s__article">
@@ -151,46 +159,10 @@
             <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
         </footer>
     </body>
+
     <script type="text/javascript" src="assets/js/filtro.js"></script>
     <script type="text/javascript" src="../libraries/Pikaday-master/pikaday.js"></script>
-    <script>
-
-        var picker = new Pikaday({
-            field: document.getElementById('fecha'),
-            format: 'YYYY-MM-DD',
-            onSelect: function(date) {
-                // Copia la fecha seleccionada al input tipo date oculto
-                document.getElementById('hidden-date-input').value = date.toISOString().split('T')[0];
-            }
-        });
-
-    </script>
-
-
-
-
-
-    <script>
-    
-        const linksWithIds = document.querySelectorAll('a[id]');
-
-        linksWithIds.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault(); // Evita el comportamiento por defecto del enlace
-                
-                // Obtén el id del enlace
-                const linkId = this.id;
-                
-                // Busca la sección con el id que coincide con el enlace
-                const targetSection = document.querySelector(`#${linkId.replace('scrollTo', 'section')}`);
-
-                if (targetSection) {
-                    // Realiza el scroll suavemente
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
-
+    <script type="text/javascript" src="assets/js/pika.js"></script>
+    <script type="text/javascript" src="assets/js/links.js"></script>
 
 </html>

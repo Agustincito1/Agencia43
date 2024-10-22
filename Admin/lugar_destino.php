@@ -1,26 +1,21 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ES">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
-    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Lugar Destino</title>
 
-    
+    <title>Lugar Destino</title>
 </head>
     <body  id="bodyE">
-
         <?php
             include "querys.php";
         ?>
-        
-        
+        <!-- header -->
         <header id="header">
             <section class="header-section">
                 <article class="h-s-article">
@@ -42,6 +37,7 @@
                 </article>
             </section>
         </header>
+        <!-- main -->
         <main id="mainE">
             <section class="mb_section">
                 <h2 id="addh2">Añadir destinos</h2>
@@ -51,23 +47,22 @@
                         <h2>Lugar destino</h2>
                     
                         <label for="Nombre">Nombre del Lugar</label>
-                        <input type="text" id="" name="Nombre" placeholder="Nombre del lugar" required>
+                        <input type="text" id="Nombre" name="Nombre" placeholder="Nombre del lugar" required>
 
                         <label for="Provincia">Provincia</label>
-                        <select name="Provincia" id="Provincia">
-
+                        <select name="Provincia" id="Provincia" required>
                             <?php
                                 options($select_provincia);
                             ?>
-
                         </select>
+                        
                         <label for="Localidad">Localidad</label>
-                        <select name="Localidad" id="Localidad">
+                        <select name="Localidad" id="Localidad" required>
                             <option value="">Seleccione una Provincia primero</option>
                         </select>
 
                         <label for="Boleto">Boleto</label>
-                        <select name="Boleto" id="">
+                        <select name="Boleto" id="Boleto">
                             <?php
                                 options($boleto);
                             ?>  
@@ -96,7 +91,7 @@
                                 WHERE `DestinoID` = $id");
 
                             $datos = mysqli_fetch_assoc($query);
-
+                            $id = $_GET['id'];
                             echo ' 
                                 <h2> <a href="lugar_destino.php" class="anadir">Añadir Destino</a> Modificar destinos</h2>
                             <article id="up" class="mb-s__article up">
@@ -105,8 +100,8 @@
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Lugar destino</h2>
                     
-                                    <label for="Nombre">Nombre del Lugar</label>
-                                    <input type="text" id="" name="Nombre" value="'.$datos['Nombre'].'" required>
+                                    <label for="NombreU">Nombre del Lugar</label>
+                                    <input type="text" id="NombreU" name="NombreU" value="'.$datos['Nombre'].'" required>
 
 
                                     <label for="ProvinciaII">Provincia</label>
@@ -126,13 +121,13 @@
                                         echo '
                                     </select>
 
-                                    <label for="Boleto">Boleto</label>
-                                    <select name="Boleto" id="">';
+                                    <label for="BoletoU">Boleto</label>
+                                    <select name="BoletoU" id="BoletoU">';
                                     options_selectionado($boleto,$datos['BoletoID']);
                                 echo'
                                     </select>
                                     
-                                    <input type="submit" id="" name="AnadirLugar">
+                                    <input type="submit"  name="updateLugar">
                                                 
                                 </form>
                             </article>  
@@ -167,5 +162,6 @@
         </footer>
         <script src="assets/js/mostrarcaja.js"></script>
         <script src="assets/js/selectfiltro.js"></script>
+       
     </body>
 </html>

@@ -14,15 +14,15 @@
 
         include "querys.php";
 
-        if(isset($_POST['AnadirBoleto'])){
+        if(isset($_POST['uptdateBoleto'])){
             
             $id = $_POST['id'];
-            $nombre = $_POST['Nombre'];
-            $tipo = $_POST['Tipo'];
-            $horario = $_POST['Horario'];
-            $precio = $_POST['Precio'];
-            $cantidad = $_POST['Cantidad'];
-            $ida = $_POST['IdaYvuelta'];
+            $nombre = $_POST['NombreU'];
+            $tipo = $_POST['TipoU'];
+            $horario = $_POST['HorarioU'];
+            $precio = $_POST['PrecioU'];
+            $cantidad = $_POST['CantidadU'];
+            $ida = $_POST['IdaYvueltaU'];
             $add = "UPDATE `boleto` SET `NombreBoleto`='$nombre',`Precio`='$precio',`TipoboletoID`='$tipo',`HorarioID`='$horario',`CantidadPersonas`='$cantidad',`IdaYvuelta`='$ida' WHERE BoletoID = $id";
 
             if(Query($add)){
@@ -43,9 +43,9 @@
 
         }
         else{
-            if(isset($_POST['AnadirEmpresa'])){
+            if(isset($_POST['updateEmpresa'])){
                 $id = $_POST['id'];
-                $nombre = $_POST['Nombre'];
+                $nombre = $_POST['NombreU'];
 
                 $add = "UPDATE `empresa` SET `Nombre`='$nombre' WHERE `EmpresaID` = $id";
     
@@ -66,10 +66,10 @@
                 }
             }
             else{
-                if(isset($_POST['AnadirHorario'])){
+                if(isset($_POST['updateHorario'])){
                     $id = $_POST['id'];
-                    $empresa = $_POST['Empresa'];
-                    $horario = $_POST['Horario'];
+                    $empresa = $_POST['EmpresaU'];
+                    $horario = $_POST['HorarioU'];
                     
                     $add = "UPDATE `horario` SET `Horario`='$horario',`EmpresaID`='$empresa' WHERE HorarioID = $id";
         
@@ -90,14 +90,15 @@
                     }
                 }
                 else{
-                    if(isset($_POST['AnadirLugar'])){
+                    if(isset($_POST['updateLugar'])){
+                        
                         $id = $_POST['id'];
-                        $nombre = $_POST['Nombre'];
-                        $localidad = $_POST['Localidad'];
-                        $bolet  = $_POST['Boleto'];
+                        $nombre = $_POST['NombreU'];
+                        $localidad = $_POST['LocalidadII'];
+                        $bolet  = $_POST['BoletoU'];
     
-                        $add = "UPDATE `destino` SET `Nombre`='$nombre',`LocalidadID`='$localidad',`BoletoID`='$bolet' WHERE DestinoID = $bolet";
-            
+                        $add = "UPDATE `destino` SET `Nombre`='$nombre',`LocalidadID`='$localidad',`BoletoID`='$bolet' WHERE DestinoID = $id";
+
                         if(Query($add)){
                             echo "
                             <script>

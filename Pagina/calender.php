@@ -2,6 +2,8 @@
 
 
 <?php
+    header('Content-Type: text/html; charset=utf-8');
+    header('X-Content-Type-Options: nosniff');
     include "querys.php";
     // Obtener el mes y el año desde los parámetros GET, o usar el mes y año actuales si no están presentes
     $month = isset($_GET['month']) ? intval($_GET['month']) : date('n');
@@ -23,9 +25,9 @@
 
     // Imprimir el encabezado con el mes y el año
     echo "<div id='calendar-header'>";
-    echo "<button onclick='prevMonth()'>&#10094;</button>";
+    echo "<button type='button' onclick='prevMonth()'>&#10094;</button>";
     echo "<span id='month-year'>{$monthNames[$month - 1]} $year</span>";
-    echo "<button onclick='nextMonth()'>&#10095;</button>";
+    echo "<button type='button' onclick='nextMonth()'>&#10095;</button>";
     echo "</div>";
 
     // Imprimir los días de la semana

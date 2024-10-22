@@ -1,14 +1,12 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ES">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
-    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css "href="assets/css/style.css">
     <title>Horario</title>
 </head>
     <body id="bodyH">
@@ -16,8 +14,7 @@
         <?php
             include "querys.php";
         ?>
-
-
+        <!-- header -->
         <header id="header">
             <section class="header-section">
                 <article class="h-s-article">
@@ -38,6 +35,7 @@
                 </article>
             </section>
         </header>   
+        <!-- main -->
         <main id="mainH">
             
             <section class="mb_section">
@@ -49,7 +47,7 @@
 
                         <label for="Empresa">Empresa</label>
 
-                        <select name="Empresa" id="">
+                        <select name="Empresa" id="Empresa">
                             <?php
                                 options($empresa);
                             ?>
@@ -57,9 +55,9 @@
 
                         <label for="Horario">Horario</label>
 
-                        <input type="time" id="" name="Horario" value="00:00" required>
+                        <input type="time" id="Horario" name="Horario" value="00:00" required>
 
-                        <input type="Submit" id=""  class="submit" name="AnadirHorario">
+                        <input type="Submit" class="submit" name="AnadirHorario">
                     </form>
                 </article>
             
@@ -85,19 +83,19 @@
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Horarios</h2>
 
-                                    <label for="Empresa">Empresa</label>
+                                    <label for="EmpresaU">Empresa</label>
 
-                                    <select name="Empresa" id="">';
+                                    <select name="EmpresaU" id="EmpresaU">';
                                         
                                     options_selectionado($empresa, $datos['EmpresaID']);
                             echo '
                                     </select>
 
-                                    <label for="Horario">Horario</label>
+                                    <label for="HorarioU">Horario</label>
 
-                                    <input type="time" id="" value="'.$datos['Horario'].'" name="Horario" required>
+                                    <input type="time" id="HorarioU" value="'.$datos['Horario'].'" name="HorarioU" required>
 
-                                    <input type="Submit" id="" class="submit" name="AnadirHorario">
+                                    <input type="Submit" class="submit" name="updateHorario">
                                 </form>
                             </article>  
                             ';
@@ -125,9 +123,6 @@
                 </article>
             </section>
         </main>
-        <footer>
-            
-        </footer>
     </body>
     <script src="assets/js/mostrarcaja.js"></script>
 </html>

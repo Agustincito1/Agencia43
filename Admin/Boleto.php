@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ES">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
-    <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Boleto</title>
 </head>
     <body id="bodyB">
@@ -13,7 +11,7 @@
         <?php
             include "querys.php";
         ?>
-
+        <!-- header -->
         <header id="header">
             <section class="header-section">
                 <article class="h-s-article">
@@ -34,6 +32,7 @@
                 </article>
             </section>
         </header>
+        <!-- main -->
         <main id="mainB">
             <section class="mb_section">
                 <h2 id="addh2">Añadir boleto</h2>
@@ -45,11 +44,11 @@
 
                         <label for="Nombre" >Nombre</label>
 
-                        <input type="text" id="" placeholder="Nombre del boleto" name="Nombre" required>
+                        <input type="text" id="Nombre" placeholder="Nombre del boleto" name="Nombre" required>
 
                         <label for="Tipo">Tipo de Boleto</label>
 
-                        <select name="Tipo" id="">
+                        <select name="Tipo" id="Tipo">
                             <?php
                                 options($select_tipoboleto);
                             ?>
@@ -57,7 +56,7 @@
 
                         <label for="Horario">Horario</label>
 
-                        <select name="Horario" id="">
+                        <select name="Horario" id="Horario">
                             <?php
                                 options($select_horario);
                             ?>
@@ -65,11 +64,11 @@
 
                         <label for="Precio" >Precio</label>
 
-                        <input type="text" id="" name="Precio" placeholder="00" required>
+                        <input type="text" id="Precio" name="Precio" placeholder="00" required>
 
-                        <label for="Cantidad">Cantidad Pasajeros</label>
+                        <label for="Cantidad" >Cantidad Pasajeros</label>
 
-                        <select name="Cantidad" id="">
+                        <select name="Cantidad" id="Cantidad">
                             <option value='1'>1</option>
                             <option value='2'>2</option>
                             <option value='3'>3</option>
@@ -81,12 +80,12 @@
                         
                         <label for="IdaYvuelta">Ida y vuelta</label>
 
-                        <select name="IdaYvuelta" id="">
+                        <select name="IdaYvuelta" id="IdaYvuelta">
                             <option value='Ida'>Solo ida</option>
                             <option value='IdaYvuelta'>Ida y vuelta</option>
                         </select>
 
-                        <input type="submit" id="" class="submit"  name="AnadirBoleto">
+                        <input type="submit" class="submit"  name="AnadirBoleto">
                     </form>
                 </article>
 
@@ -105,24 +104,24 @@
                                     <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Actualizar un boleto</h2>
-                                    <label for="Nombre">Nombre</label>
-                                    <input type="text" id="" name="Nombre" value = "'.$datos['NombreBoleto'].'" required>';
+                                    <label for="NombreU">Nombre</label>
+                                    <input type="text" name="NombreU" id="NombreU" value = "'.$datos['NombreBoleto'].'" required>';
 
-                                    echo '<label for="Tipo">Tipo de Boleto</label>
-                                    <select name="Tipo" id="">';
+                                    echo '<label for="TipoU">Tipo de Boleto</label>
+                                        <select name="TipoU" id="TipoU">';
                                         options_selectionado($select_tipoboleto,$datos['TipoboletoID']);
                                     echo '</select>';
 
-                                echo '<label for="Horario">Horario</label>
-                                    <select name="Horario" id="">';
+                                echo '<label for="HorarioU">Horario</label>
+                                    <select name="HorarioU" id="HorarioU">';
                                         options_selectionado($select_horario,$datos['HorarioID']);
                                     echo '</select>';
                         
                             echo '
-                                <label for="Precio">Precio</label>
-                                <input type="text" id="" name="Precio" value="'.$datos['Precio'].'" required>
-                                <label for="Cantidad">Cantidad Pasajeros</label>
-                                <select name="Cantidad" id="">';
+                                <label for="PrecioU">Precio</label>
+                                <input type="text" name="PrecioU" id="PrecioU" value="'.$datos['Precio'].'" required>
+                                <label for="CantidadU" >Cantidad Pasajeros</label>
+                                <select name="CantidadU" id="CantidadU">';
 
                                 for($a = 1; $a<=6 ; $a++){
                                         
@@ -139,8 +138,8 @@
                                     
                                 echo '
                                 </select>';
-                                echo '<label for="IdaYvuelta">Ida y vuelta</label>
-                                    <select name="IdaYvuelta" id="">';
+                                echo '<label for="IdaYvueltaU">Ida y vuelta</label>
+                                    <select name="IdaYvueltaU" id="IdaYvueltaU">';
 
                                 if($datos['IdaYvuelta'] === "IdaYvuelta"){
                                     echo "<option value='IdaYvuelta' selected>Ida y vuelta</option>";
@@ -153,7 +152,7 @@
 
                             echo '</select>'; 
 
-                            echo '<input type="submit" class="submit" id="" name="AnadirBoleto">
+                            echo '<input type="submit" class="submit" name="uptdateBoleto">
                             </form>
                         </article>';
                     }
@@ -187,10 +186,6 @@
                 </article>
             </section>
         </main>
-        <footer>
-            
-        </footer>
-        
     </body>
-    <script src="assets/js/mostrarcaja.js"></script>
+    <script type="text/javascript" src="assets/js/mostrarcaja.js"></script>
 </html>
