@@ -10,9 +10,10 @@
 <body>
     
     <?php
-
+        // Incluir libreria
         include "querys.php";
 
+        // conseguir los datos en metodo post y verificarlos
         if(isset($_POST['AnadirBoleto'])){
 
             $nombre = $_POST['Nombre'];
@@ -22,9 +23,11 @@
             $cantidad = $_POST['Cantidad'];
             $ida = $_POST['IdaYvuelta'];
 
+            // consulta query
             $add = "INSERT INTO `boleto`(`NombreBoleto`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `IdaYvuelta`) 
             VALUES ('$nombre','$precio','$tipo','$horario', '$cantidad','$ida')";
 
+            // desicion si el boleto es creado correctamente
             if(Query($add)){
                 echo "
                 <script>
@@ -43,6 +46,7 @@
 
         }
         else{
+            // lo mismo pero con los datos de la empresa
             if(isset($_POST['AnadirEmpresa'])){
                 $nombre = $_POST['Nombre'];
     
@@ -65,6 +69,7 @@
                 }
             }
             else{
+                // lo mismo pero los horarios
                 if(isset($_POST['AnadirHorario'])){
                     $empresa = $_POST['Empresa'];
                     $horario = $_POST['Horario'];
@@ -88,6 +93,7 @@
                     }
                 }
                 else{
+                    // lo mismo pero el lugar
                     if(isset($_POST['AnadirLugar'])){
                         $nombre = $_POST['Nombre'];
                         $localidad = $_POST['Localidad'];
@@ -112,6 +118,7 @@
                         }
                     }
                     else{
+                        // lo mismo pero el tipo 
                         if(isset($_POST['AnadirTipo'])){
 
                             $nombre = $_POST['Tipo'];

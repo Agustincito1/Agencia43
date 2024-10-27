@@ -4,9 +4,11 @@
     font-family: 'lato';
     src: url('../../../libraries/fontlato/Lato-Regular.ttf') format('truetype'); /* Asegúrate de usar la ruta correcta */
 }
+
 .imgcont img{
     width: 5rem;
 }
+
 .anadir{
     color: #FFFF00;
     border-radius: 0.2rem;

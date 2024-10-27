@@ -33,7 +33,7 @@
             </article>
         </section>
     </header> -->
-    <main>
+    <!-- <main>
         
         
         <a class="anadir">añadir boleto</a>
@@ -64,6 +64,30 @@
             </nav>
         </section>
         <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
-    </footer>
+    </footer> -->
+
+    <div class="inputImgContainer">
+        <input  class="file" type="file" id="Imgp" name="Imgp" required onchange="showImage('Imgp', 'Imgp-Preview')">
+        <img alt="" id="Imgp-Preview" alt="Image Preview" style="display:none;" >
+    </div>
+   
+    <script>
+        function showImage(inputId, imgId) {
+            const fileInput = document.getElementById(inputId);
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(imgId);
+                    img.src = e.target.result; // Establece la fuente de la imagen
+                    img.style.display = 'block'; // Muestra la imagen
+                };
+                reader.readAsDataURL(file); // Lee el archivo como URL de datos
+            }
+        }
+
+    </script>
 </body>
+
 </html>

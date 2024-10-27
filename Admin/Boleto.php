@@ -9,6 +9,7 @@
     <body id="bodyB">
         
         <?php
+            //incluir librerias 
             include "querys.php";
         ?>
         <!-- header -->
@@ -50,6 +51,7 @@
 
                         <select name="Tipo" id="Tipo">
                             <?php
+                                //Llamamos la  funcion de creacion de opciones  
                                 options($select_tipoboleto);
                             ?>
                         </select>
@@ -58,6 +60,7 @@
 
                         <select name="Horario" id="Horario">
                             <?php
+                                //Llamamos la  funcion de creacion de opciones  
                                 options($select_horario);
                             ?>
                         </select>
