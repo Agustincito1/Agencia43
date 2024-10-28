@@ -45,28 +45,25 @@
                         <h2>Crear una empresa</h2>
 
                         <label for="Nombre">Nombre de la Empresa</label>
-                        <input type="text" id="Nombre" name="Nombre" required>
-                        <label for="Imgp">Imagen principal de la empresa</label>
-                        <div class="imgcont">
-                            <input  class="file" type="file" id="Imgp" name="Imgp" required onchange="showImage('Imgp', 'Imgp-Preview')">
-                            <img id="Imgp-Preview" alt="Image Preview" style="display:none;">
-                        </div>
-                        <label for="Img1">Primer imagen </label>
-                        <div class="imgcont">
-                            <input  class="file" type="file" id="Img1" name="Img1" required onchange="showImage('Img1', 'Img1-Preview')">
-                            <img id="Img1-Preview" alt="Image Preview" style="display:none;">
-                        </div>
-                        <label for="Img2">Segunda imagen</label>
-                        <div class="imgcont">
-                            <input class="file" type="file" id="Img2"  name="Img2" required onchange="showImage('Img2', 'Img2-Preview')">
-                            <img id="Img2-Preview" alt="Image Preview" style="display:none;">
-                        </div >
+                        <input type="text" class="input" id="Nombre" name="Nombre" required>
+                        <h3>Imagenes de las empresas</h3>
+
                         
-                        <label for="Img3">tercer imagen</label>
-                        <div class="imgcont">
-                            <input class="file" type="file" id="Img3" name="Img3" required onchange="showImage('Img3', 'Img3-Preview')">
-                            <img id="Img3-Preview" alt="Image Preview" style="display:none;" >
-                        </div>
+                        <ul class="inputImgContainer">
+                            <li  class="inputImgContainer-li">
+                                <input class="in" type="file" id="Img1" name="Img1" required onchange="showImage('Img1', 'Img1-Preview')">
+                                <img id="Img1-Preview" alt="Image Preview" style="display:none;">
+                            </li>
+                            <li class="inputImgContainer-li">
+                                <input class="in" type="file" id="Img2"  name="Img2" required onchange="showImage('Img2', 'Img2-Preview')">
+                                <img id="Img2-Preview" alt="Image Preview" style="display:none;">
+                            </li>
+                            <li class="inputImgContainer-li">
+                                <input class="in" type="file" id="Img3" name="Img3" required onchange="showImage('Img3', 'Img3-Preview')">
+                                <img id="Img3-Preview" alt="Image Preview" style="display:none;" >
+                            </li>
+                        </ul>
+
                         <input type="submit" id="" class="submit" name="AnadirEmpresa">
 
                     </form>
@@ -84,17 +81,27 @@
                                 <form class="mb-s-a__form" action="update.php" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Modificar empresa</h2>
+                                    
+                                    <label for="Nombre">Nombre de la Empresa</label>
+                                    <input type="text" class="input" id="Nombre" name="Nombre" value="'.$datos['Nombre'].'" required>
+                                    <h3>Imagenes de las empresas</h3>
 
-                                    <label for="NombreU">Nombre de la Empresa</label>
-                                    <input type="text" id="NombreU" name="NombreU" value="'.$datos['Nombre'].'" required>
-                                    <label for="ImgpU">Imagen principal de la empresa</label>
-                                    <input type="file" id="ImgpU" name="ImgpU" >
-                                    <label for="Img1U">Primer imagen </label>
-                                    <input type="file" id="Img1U" name="Img1U" >
-                                    <label for="Img2U">Segunda imagen</label>
-                                    <input type="file" id="Img2U" name="Img2U" >
-                                    <label for="Img3U">tercer imagen</label>
-                                    <input type="file" id="Img3U" name="Img3U" >
+                                    
+                                    <ul class="inputImgContainer">
+                                        <li  class="inputImgContainer-li">
+                                            <input class="in" type="file" id="ImgpU" name="ImgpU" required onchange="showImage(ImgpU, ImgpU-Preview)">
+                                            <img id="Img1-Preview" alt="Image Preview" style="display:none;">
+                                        </li>
+                                        <li class="inputImgContainer-li">
+                                            <input class="in" type="file" id="Img1U"  name="Img1U" required onchange="showImage(Img1U, Img1U-Preview)">
+                                            <img id="Img2-Preview" alt="Image Preview" style="display:none;">
+                                        </li>
+                                        <li class="inputImgContainer-li">
+                                            <input class="in" type="file" id="Img2U" name="Img2U" required onchange="showImage(Img2U, Img2U-Preview)">
+                                            <img id="Img3-Preview" alt="Image Preview" style="display:none;" >
+                                        </li>
+                                    </ul>
+
                                     <input type="submit" id="" class="submit" name="updateEmpresa">
                                     
                                 </form>
