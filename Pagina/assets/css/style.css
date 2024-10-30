@@ -557,10 +557,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* calendario */
 
+#mainC{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1%;
+    padding: 1%;
+}
+
+#dataonclick{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1%;
+    padding-top: 3%;
+}
+
+.dataonclick_div{
+    background-color: #494848;
+    height: 80%;
+    width: 100%;
+}
 
 #bodyC{
     display: grid;
-    grid-template-rows: 10rem 60rem 15rem;
+    grid-template-rows: 10rem 80rem 15rem;
 }
 
 #calendar-container {

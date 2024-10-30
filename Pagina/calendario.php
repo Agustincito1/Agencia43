@@ -41,13 +41,14 @@
     </header>
 
     <!-- main -->
-    <main>
+    <main id="mainC">
         <div id="calendar-container">
             <!-- El contenido del calendario se cargará aquí -->
         </div>
 
-        <div id="div-onclick"> 
-            <div id="dataonclick"></div>
+        
+        <div id="dataonclick">
+
         </div>
             
     </main>
