@@ -246,16 +246,15 @@ body{
 .agenciaimg_container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
-    height: 10rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     gap: 5%;
-    height: 100%;
+    overflow-y: auto;
+    height: 80%;
     justify-content: center;
 }
 
 .agenciaimg{
     object-fit: cover; 
-    
     background-color: #2e2e2e;
     height: 20rem;
     width: 20rem;
@@ -269,8 +268,9 @@ body{
 .empresaimg_container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(5rem, 8rem));
-    height: 10rem;
+    height: 80%;
     gap: 2%;
+    overflow-x: auto;
     justify-content: center;
 }
 
@@ -451,7 +451,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .m-s__article-comollegar{
+    
     padding: 3rem;
+    height: 100%;
+    
 }
 .m-s__article-comollegar h2{
     font-weight: bold;
