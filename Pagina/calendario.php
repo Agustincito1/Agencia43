@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script type="text/javascript" src="assets/js/links.js"></script>
+    <script src="../libraries/sheetjs/xlsx/xlsx.js"></script>
     <title>Calendario</title>
 </head>
 <body id="bodyC">

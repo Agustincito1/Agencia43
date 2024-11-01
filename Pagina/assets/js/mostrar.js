@@ -44,9 +44,18 @@ container.addEventListener('click', (event) => {
                         
                         datacont.appendChild(pHorario);
                         datacont.appendChild(pEmpresa);
-
                         contenedor.appendChild(datacont);
                     });
+
+                    const button = document.createElement('button');
+                    button.innerText = 'Descargar Excel';
+                    button.id = 'download';
+
+                    // Guardar el array como atributo del botón (en formato JSON)
+                    button.setAttribute('data-array', JSON.stringify(jsonArray));
+                    contenedor.appendChild(button);
+
+
                 } else {
                     if (jsonArray.length === 1) {
                         jsonArray.forEach(item => {
@@ -63,16 +72,40 @@ container.addEventListener('click', (event) => {
 
                             datacont.appendChild(pHorario);
                             datacont.appendChild(pEmpresa);
-
-                            contenedor.appendChild(datacont);
+                            const button = document.createElement('button');
+                            button.innerText = 'Descargar Excel';
+                            button.id = 'download';
+    
+                            // Guardar el array como atributo del botón (en formato JSON)
+                            button.setAttribute('data-array', JSON.stringify(jsonArray));
                             
+                            contenedor.appendChild(button);
+                            contenedor.appendChild(datacont);
+
                         });
+
+                        
                     } else {
                         contenedor.textContent = 'No hay horarios en este dia.';
                     }
                 }
-                
-                
+
+
+                if(jsonArray.length > 0){
+                    button = document.getElementById("download");
+                    button.addEventListener('click', () => {
+                        // Obtener el array desde el atributo
+                        const arrayData = JSON.parse(button.getAttribute('data-array'));
+                    
+                        const worksheet = XLSX.utils.json_to_sheet(arrayData);
+                        const workbook = XLSX.utils.book_new();
+                        XLSX.utils.book_append_sheet(workbook, worksheet, 'Datos');
+                    
+                        const fileName = 'Lista.xlsx';
+                        XLSX.writeFile(workbook, fileName);
+                    });
+                }
+            
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText); // Muestra errores en la consola
@@ -80,3 +113,6 @@ container.addEventListener('click', (event) => {
         });
     }
 });
+
+
+

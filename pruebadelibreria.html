@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sweegt</title>
+    <script src="libraries/sheetjs/xlsx/xlsx.js"></script>
+
     <link rel="stylesheet" href="estilo.css">
     
 </head>
 <body>
+
+
+    <button id="download">Descargar Excel</button>
+    <script src="script.js"></script>
+
+
     
     <!-- <header id="header">
         <section class="header-section">
@@ -66,11 +74,10 @@
         <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
     </footer> -->
 
-    <div class="inputImgContainer">
+    <!-- <div class="inputImgContainer">
         <input  class="file" type="file" id="Imgp" name="Imgp" required onchange="showImage('Imgp', 'Imgp-Preview')">
         <img alt="" id="Imgp-Preview" alt="Image Preview" style="display:none;" >
     </div>
-   
     <script>
         function showImage(inputId, imgId) {
             const fileInput = document.getElementById(inputId);
@@ -87,7 +94,31 @@
             }
         }
 
+    </script> -->
+
+
+
+    <script>
+        document.getElementById('download').addEventListener('click', () => {
+    // Crear una hoja de datos
+    const data = [
+        { Nombre: "Juan", Edad: 30 },
+        { Nombre: "Ana", Edad: 25 },
+        { Nombre: "Luis", Edad: 35 }
+    ];
+
+    // Convertir los datos a una hoja
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Datos');
+
+    // Generar el archivo Excel
+    const fileName = 'datos.xlsx';
+    XLSX.writeFile(workbook, fileName);
+});
+
     </script>
+    
 </body>
 
 </html>
