@@ -31,17 +31,24 @@ container.addEventListener('click', (event) => {
                 if (jsonArray.length > 1) {
 
                     jsonArray.forEach(item => {
+
+
                         const datacont = document.createElement('div');
                         datacont.className = `dataonclick_div`; // Asignar una clase única
 
+                        const img = document.createElement('img');
+                        img.className = `imagen`; // Asignar una clase única
+                        img.src = 'imgs/agencia1.png'
+
                         const pHorario = document.createElement('p');
                         pHorario.className = `horario`; // Asignar una clase única
-                        pHorario.textContent = `Horario: ${item.Horario}`;
+                        pHorario.textContent = `${item.Horario.slice(0, -3)} HS`;
 
                         const pEmpresa = document.createElement('p');
                         pEmpresa.className = `empresa`; // Asignar una clase única
-                        pEmpresa.textContent = `Empresa: ${item.Empresa}`;
-                        
+                        pEmpresa.textContent = `${item.Empresa}`;
+
+                        datacont.appendChild(img);
                         datacont.appendChild(pHorario);
                         datacont.appendChild(pEmpresa);
                         contenedor.appendChild(datacont);
@@ -59,19 +66,28 @@ container.addEventListener('click', (event) => {
                 } else {
                     if (jsonArray.length === 1) {
                         jsonArray.forEach(item => {
+                            
+
                             const datacont = document.createElement('div');
                             datacont.className = `dataonclick_div`; // Asignar una clase única
+                            
+                            const img = document.createElement('img');
+                            img.className = `imagen`; // Asignar una clase única
+                            img.src = 'imgs/agencia1.png'
 
                             const pHorario = document.createElement('p');
                             pHorario.className = `horario`; // Asignar una clase única
-                            pHorario.textContent = `Horario: ${item.Horario}`;
+                            pHorario.textContent = `${item.Horario.slice(0, -3)} HS`;
     
                             const pEmpresa = document.createElement('p');
                             pEmpresa.className = `empresa`; // Asignar una clase única
-                            pEmpresa.textContent = `Empresa: ${item.Empresa}`;
+                            pEmpresa.textContent = ` ${item.Empresa}`;
 
+                            datacont.appendChild(img);
                             datacont.appendChild(pHorario);
                             datacont.appendChild(pEmpresa);
+                            
+                         
                             const button = document.createElement('button');
                             button.innerText = 'Descargar Excel';
                             button.id = 'download';
@@ -86,7 +102,10 @@ container.addEventListener('click', (event) => {
 
                         
                     } else {
-                        contenedor.textContent = 'No hay horarios en este dia.';
+                        const vacio = document.createElement('p');
+                        vacio.className = `error`; // Asignar una clase única
+                        vacio.textContent = `No hay horarios en este día`;
+                        contenedor.appendChild(vacio);
                     }
                 }
 

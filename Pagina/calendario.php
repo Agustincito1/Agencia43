@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script type="text/javascript" src="assets/js/links.js"></script>
     <script src="../libraries/sheetjs/xlsx/xlsx.js"></script>
     <title>Calendario</title>
+    
 </head>
 <body id="bodyC">
     <!-- header -->
@@ -88,6 +88,9 @@
     <script type="text/javascript" src="assets/js/calendario.js"></script>
     <script type="text/javascript" src="assets/js/mostrar.js"></script>
     <script type="text/javascript" src="../libraries/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/links.js"></script>
    
-
+    <script>
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
 </html>

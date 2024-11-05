@@ -161,8 +161,14 @@
     </body>
 
     <script type="text/javascript" src="assets/js/filtro.js"></script>
+
     <script type="text/javascript" src="../libraries/Pikaday-master/pikaday.js"></script>
     <script type="text/javascript" src="assets/js/pika.js"></script>
     <script type="text/javascript" src="assets/js/links.js"></script>
+    <script type="text/javascript" src="assets/js/links.js"></script>
+   
+    <script>
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
 
 </html>
