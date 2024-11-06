@@ -9,13 +9,18 @@
     <link rel="stylesheet" href="estilo.css">
     
 </head>
-<body>
+<!-- <body>
 
 
     <button id="download">Descargar Excel</button>
-    <script src="script.js"></script>
+    <script src="script.js"></script> -->
 
-
+    <form action="upload_multiple.php" method="POST" enctype="multipart/form-data">
+        <label for="imagenes">Selecciona varias imágenes:</label>
+        <input type="file" name="imagenes[]" id="imagenes" accept="image/*" multiple>
+        <br><br>
+        <button type="submit">Subir Imágenes</button>
+    </form>
     
     <!-- <header id="header">
         <section class="header-section">

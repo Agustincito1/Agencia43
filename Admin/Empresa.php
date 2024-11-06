@@ -40,7 +40,7 @@
             <section class="mb_section">
                 <h2 id="addh2">Crea una empresa</h2>
                 <article id="add" class="mb-s__article">
-                    <form class="mb-s-a__form" action="add.php" method="POST">
+                    <form class="mb-s-a__form" action="add.php" method="POST" enctype="multipart/form-data">
 
                         <h2>Crear una empresa</h2>
 
@@ -51,15 +51,15 @@
                         
                         <ul class="inputImgContainer">
                             <li  class="inputImgContainer-li">
-                                <input class="in" type="file" id="Img1" name="Img1" required onchange="showImage('Img1', 'Img1-Preview')">
+                                <input class="in" type="file" id="Img1" name="Img1" accept="image/*" required onchange="showImage('Img1', 'Img1-Preview')">
                                 <img id="Img1-Preview" alt="Image Preview" style="display:none;">
                             </li>
                             <li class="inputImgContainer-li">
-                                <input class="in" type="file" id="Img2"  name="Img2" required onchange="showImage('Img2', 'Img2-Preview')">
+                                <input class="in" type="file" id="Img2"  name="Img2" accept="image/*" required onchange="showImage('Img2', 'Img2-Preview')">
                                 <img id="Img2-Preview" alt="Image Preview" style="display:none;">
                             </li>
                             <li class="inputImgContainer-li">
-                                <input class="in" type="file" id="Img3" name="Img3" required onchange="showImage('Img3', 'Img3-Preview')">
+                                <input class="in" type="file" id="Img3" name="Img3" accept="image/*" required onchange="showImage('Img3', 'Img3-Preview')">
                                 <img id="Img3-Preview" alt="Image Preview" style="display:none;" >
                             </li>
                         </ul>
@@ -77,8 +77,8 @@
                             $datos = mysqli_fetch_assoc($query);
 
                             echo '<h2> <a href="empresa.php" class="anadir">Añadir Empresa</a>Modificar empresa</h2>
-                            <article  class="mb-s__article" id="up">
-                                <form class="mb-s-a__form" action="update.php" method="POST">
+                            <article  class="mb-s__article" id="up" >
+                                <form class="mb-s-a__form" action="update.php" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Modificar empresa</h2>
                                     
