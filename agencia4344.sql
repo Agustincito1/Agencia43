@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2024 a las 18:18:33
+-- Tiempo de generación: 08-11-2024 a las 01:36:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -64,7 +64,7 @@ CREATE TABLE `boleto` (
 
 INSERT INTO `boleto` (`BoletoID`, `NombreBoleto`, `InicioDestino`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `localID`, `IdaYvuelta`) VALUES
 (9, 'paragua', 'Terminal de Posadas Misiones', 100, 2, NULL, 6, 1, 'IdaYvuelta'),
-(10, 'paraguay', 'Terminal de Posadas Misiones', 1000, 1, 19, 1, 1, 'Ida');
+(10, 'paraguaya', 'Terminal de Posadas Misiones', 1000, 1, 19, 1, 1, 'IdaYvuelta');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,8 @@ CREATE TABLE `destino` (
 --
 
 INSERT INTO `destino` (`DestinoID`, `Nombre`, `LocalidadID`, `BoletoID`) VALUES
-(5, 'caca', 1, 10);
+(6, 'casajistanasdas', 285, 10),
+(8, 'ASDAS', 1748, 10);
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,20 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`EmpresaID`, `Nombre`, `PaletaID`, `ImagenPrincipal`, `ImagenI`, `ImagenII`, `ImagenIII`, `IconoEmpresa`) VALUES
-(5, 'Rio Urugua', NULL, '', '', '', '', '');
+(5, 'Rio Uruguay', NULL, '', '', '', '', ''),
+(27, 'TALA', NULL, '', '', '', '', ''),
+(28, 'YHSA', NULL, '', '', '', '', ''),
+(29, 'Crucero del norte', NULL, '', '', '', '', ''),
+(30, 'Cometa Bis', NULL, '', '', '', '', ''),
+(31, 'Argentinita', NULL, '', '', '', '', ''),
+(32, 'M. Horianski', NULL, '', '', '', '', ''),
+(33, 'Prox', NULL, '', '', '', '', ''),
+(34, 'Union', NULL, '', '', '', '', ''),
+(35, 'Horianski chito', NULL, '', '', '', '', ''),
+(36, 'Corrientes', NULL, '', '', '', '', ''),
+(37, 'Singer', NULL, '', '', '', '', ''),
+(40, 'agu', NULL, '', '../libraries/imgsPag/black_white_on_trans.png', '../libraries/imgsPag/trans_bg.png', '../libraries/imgsPag/original.png', ''),
+(41, 'agu', NULL, '', '../libraries/imgsPag/trans_bg.png', '../libraries/imgsPag/trans_bg.png', '../libraries/imgsPag/trans_bg.png', '');
 
 -- --------------------------------------------------------
 
@@ -128,10 +142,13 @@ CREATE TABLE `horario` (
 --
 
 INSERT INTO `horario` (`HorarioID`, `Horario`, `EmpresaID`, `Dia`) VALUES
-(12, '00:35:00', 5, 'Lunes'),
+(12, '00:35:00', 28, 'Lunes'),
 (13, '23:31:00', 5, 'Martes'),
-(15, '01:00:00', 5, 'Miercoles'),
-(19, '00:00:00', 5, 'Viernes');
+(15, '01:00:00', 30, 'Miercoles'),
+(19, '00:00:00', 28, 'Viernes'),
+(20, '00:00:00', 5, 'Lunes'),
+(21, '04:06:00', 5, ''),
+(22, '00:00:00', 30, '');
 
 -- --------------------------------------------------------
 
@@ -2406,25 +2423,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT de la tabla `boleto`
 --
 ALTER TABLE `boleto`
-  MODIFY `BoletoID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `BoletoID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `destino`
 --
 ALTER TABLE `destino`
-  MODIFY `DestinoID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `DestinoID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `EmpresaID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `EmpresaID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `HorarioID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `HorarioID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `local`
