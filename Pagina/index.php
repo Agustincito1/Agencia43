@@ -33,10 +33,10 @@
                 <article >
                     <nav class="h-s-a__nav">
                         <ul>
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#viaje">Viajar</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#calendario">Calendario</a></li>
                             <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Nosotros">Nosotros</a></li>
                             <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#Empresa">Empresas</a></li>
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="#viaje">Viajar</a></li>
                         </ul>
                     </nav>
                 </article>
@@ -130,6 +130,21 @@
                         
                     </div>
                 </article>
+                <article id="calendario">
+
+                    <div id="calendar-container">
+                            <!-- El contenido del calendario se cargará aquí -->
+                        </div>
+
+                        <div id="ln">
+
+                        </div>
+                        
+                        <div id="dataonclick">
+
+                    </div>
+
+                </article>
             </section>
         </main>
 
@@ -149,10 +164,10 @@
                 </article>
                 <nav class="f-s__nav">
                     <ul>
-                        <li><a class="f-s-n-l__a" href="">Principal</a></li>
-                        <li><a class="f-s-n-l__a" href="">Calendario</a></li>
-                        <li><a class="f-s-n-l__a" href="">Nosotros</a></li>
-                        <li><a class="f-s-n-l__a" href="">Contactanos</a></li>
+                        <li><a class="f-s-n-l__a" href="#viaje">Principal</a></li>
+                        <li><a class="f-s-n-l__a" href="#calendario">Calendario</a></li>
+                        <li><a class="f-s-n-l__a" href="#Nosotros">Nosotros</a></li>
+                        <li><a class="f-s-n-l__a" href="#">Contactanos</a></li>
                     </ul>
                 </nav>
             </section>
@@ -164,9 +179,10 @@
 
     <script type="text/javascript" src="../libraries/Pikaday-master/pikaday.js"></script>
     <script type="text/javascript" src="assets/js/pika.js"></script>
+    <script type="text/javascript" src="assets/js/calendario.js"></script>
+    <script type="text/javascript" src="assets/js/mostrar.js"></script>
+    <script type="text/javascript" src="../libraries/node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/links.js"></script>
-    <script type="text/javascript" src="assets/js/links.js"></script>
-   
     <script>
         document.documentElement.style.scrollBehavior = 'smooth';
     </script>
