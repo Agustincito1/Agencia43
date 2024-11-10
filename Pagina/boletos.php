@@ -221,14 +221,13 @@
                         <div class="mB-s-a__div">';
                         while($data = mysqli_fetch_assoc($data)){
                             echo '<div class="boletocontainer">';
-                            echo '<p class="boletocontainer__nombre">'.$data['Nombre'].'</p>';
-                            echo '<p class="boletocontainer__inicio"> Terminal de Posadas Misiones</p>';
-                            echo '<p class="boletocontainer__precio">'.$data['Precio'].'</p>';
+
+                            echo '<p class="boletocontainer__inicio">Deste Terminal de Posadas Misiones hacia '.$data['Destino'].'</p>';
+                            echo '<p class="boletocontainer__precio">$ARS'.$data['Precio'].'</p>';
                             echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
-                            echo '<p class="boletocontainer__cantidadp">'.$data['Cantidad'].'</p>';
+                            echo '<p class="boletocontainer__cantidadp">Cantidad de pasajeros '.$data['Cantidad'].'</p>';
                             echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
-                            echo '<p class="boletocontainer__destino">'.$data['Destino'].'</p>';
-                            echo '<p class="boletocontainer__empresa">'.$data['NombreEmpresa'].'</p>';
+                            echo '<p class="boletocontainer__empresa">Empresa '.$data['NombreEmpresa'].'</p>';
                             echo "</div>";
                         }
                         echo "</div>";
@@ -246,14 +245,13 @@
                             </div>
                             <div class="mB-s-a__div">';
                             echo '<div class="boletocontainer">';
-                            echo '<p class="boletocontainer__nombre">'.$data['Nombre'].'</p>';
-                            echo '<p class="boletocontainer__inicio"> Terminal de Posadas Misiones</p>';
-                            echo '<p class="boletocontainer__precio">'.$data['Precio'].'</p>';
+
+                            echo '<p class="boletocontainer__inicio">Deste Terminal de Posadas Misiones hacia '.$data['Destino'].'</p>';
+                            echo '<p class="boletocontainer__precio">$ARS'.$data['Precio'].'</p>';
                             echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
-                            echo '<p class="boletocontainer__cantidadp">'.$data['Cantidad'].'</p>';
+                            echo '<p class="boletocontainer__cantidadp">Cantidad de pasajeros '.$data['Cantidad'].'</p>';
                             echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
-                            echo '<p class="boletocontainer__destino">'.$data['Destino'].'</p>';
-                            echo '<p class="boletocontainer__empresa">'.$data['NombreEmpresa'].'</p>';
+                            echo '<p class="boletocontainer__empresa">Empresa '.$data['NombreEmpresa'].'</p>';
                             echo "</div>";
                             echo "</div>";
                             echo "</article>";
