@@ -27,10 +27,10 @@
                 <article >
                     <nav class="h-s-a__nav">
                         <ul>
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="calendario.php">Calendario</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#calendario">Calendario</a></li>
                             <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Nosotros">Nosotros</a></li>
                             <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#Empresa">Empresa</a></li>
-                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php">Viajar</a></li>
+                            <li class="h-s-a-n-li"><a class="h-s-a-n-l__a" href="index.php#viaje">Viajar</a></li>
                         </ul>
                     </nav>
                 </article>
@@ -213,7 +213,6 @@
                 if($var === 1){
                     if(mysqli_num_rows($data)>1){
                         echo '<article  class="mB-s__a">
-                        <h3>¡¡Acá tenes los boletos!!</h3>
                         <div class="mB-s-a__div">
                             <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
                             <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
@@ -238,7 +237,6 @@
                         if(mysqli_num_rows($data)){
                             $data = mysqli_fetch_assoc($data);
                             echo '<article  class="mB-s__a">
-                            <h3>¡¡Acá tenes tu boleto!!</h3>
                             <div class="mB-s-a__div">
                             <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
                             <h3 class="m-s-a-f__h3">Posadas Misiones</h3>

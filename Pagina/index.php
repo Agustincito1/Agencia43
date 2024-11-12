@@ -103,7 +103,7 @@
                                     <option value="6">6</option>
                                 </select>
                             </label>
-                            <input type="submit" id="" name="buscar" class="m-s-a-f-d__item">
+                            <button type="submit" id="boton-busqueda" name="buscar" class="m-s-a-f-d__item" > <img src="assets/icons/search.png"> <p>buscar</p> </button>
                         </div>
                     </form>
                 </article>
@@ -130,18 +130,18 @@
                         
                     </div>
                 </article>
-                <article id="calendario">
+                <article id="calendario" class="m-s__article">
 
                     <div id="calendar-container">
                             <!-- El contenido del calendario se cargará aquí -->
-                        </div>
+                    </div>
 
-                        <div id="ln">
+                    <div id="ln">
 
-                        </div>
+                    </div>
                         
-                        <div id="dataonclick">
-
+                    <div id="dataonclick">
+                        
                     </div>
 
                 </article>

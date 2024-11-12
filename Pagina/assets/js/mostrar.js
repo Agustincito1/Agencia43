@@ -22,13 +22,18 @@ container.addEventListener('click', (event) => {
             success: function(response) {
 
                 const contenedor = document.getElementById('dataonclick');
+
                 contenedor.innerHTML = ''; 
+               
 
                 const jsonArray = JSON.parse(response);
 
                 // Acceder a los elementos
             
                 if (jsonArray.length > 1) {
+                    
+                    const listdata = document.createElement('div');
+                    listdata.className = `list`; // Asignar una clase única
 
                     jsonArray.forEach(item => {
 
@@ -51,7 +56,8 @@ container.addEventListener('click', (event) => {
                         datacont.appendChild(img);
                         datacont.appendChild(pHorario);
                         datacont.appendChild(pEmpresa);
-                        contenedor.appendChild(datacont);
+                        
+                        listdata.appendChild(datacont);
                     });
 
                     const button = document.createElement('button');
@@ -60,12 +66,18 @@ container.addEventListener('click', (event) => {
 
                     // Guardar el array como atributo del botón (en formato JSON)
                     button.setAttribute('data-array', JSON.stringify(jsonArray));
+                    contenedor.appendChild(listdata);
                     contenedor.appendChild(button);
+                    
 
 
                 } else {
                     if (jsonArray.length === 1) {
+                        const listdata = document.createElement('div');
+                        listdata.className = `list`; // Asignar una clase única
+
                         jsonArray.forEach(item => {
+                            
                             
 
                             const datacont = document.createElement('div');
@@ -86,17 +98,17 @@ container.addEventListener('click', (event) => {
                             datacont.appendChild(img);
                             datacont.appendChild(pHorario);
                             datacont.appendChild(pEmpresa);
-                            
-                         
+
                             const button = document.createElement('button');
                             button.innerText = 'Descargar Excel';
                             button.id = 'download';
     
                             // Guardar el array como atributo del botón (en formato JSON)
                             button.setAttribute('data-array', JSON.stringify(jsonArray));
-                            
+
+                            listdata.appendChild(datacont);
+                            contenedor.appendChild(listdata);
                             contenedor.appendChild(button);
-                            contenedor.appendChild(datacont);
 
                         });
 
