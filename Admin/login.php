@@ -32,8 +32,23 @@
                 </article>
             </section>
         </main>
-        <footer>
-            
+        <footer id="footer">
+                <section class="footer__section">
+                    <article class="f-s__article">
+                        <div class="f-s-a__div">
+                            
+                            <img class="f-s-a-d__img" src="imgs/iconoEmpresa.png" alt="" />
+                            
+                        </div>
+                        <div class="f-s-a__div">
+                            <h1 class="f-s-a-d__h1">AGENCIAS 42 y 43</h1>
+                            <h3 class="f-s-a-d__h3">Posadas Misiones</h3>
+                        </div>
+                        
+                    </article>
+
+                </section>
+                <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
         </footer>
     </body>
 </html>

@@ -206,72 +206,87 @@
                 
             }
 
+            $lista = 0;
+
+            if($var === 1){
+                if(mysqli_num_rows($data)>1){
+                    $lista = 2;
+                }
+            
+            }
+            else{
+    
+                if(mysqli_num_rows($data) === 1){
+                    $lista = 1;
+                }
+
+            }
         ?>
 
+
+
+
+
+
+
+
+
+
+
+
         <section class="mB__section">
+
+
             <?php
-                if($var === 1){
-                    if(mysqli_num_rows($data)>1){
+                
+                if($lista>1){
+                    echo '<article  class="mB-s__a">
+                    <div class="mB-s-a__div">
+                        <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
+                        <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                    </div>
+                    <div class="mB-s-a__div">';
+                    while($data = mysqli_fetch_assoc($data)){
+                        echo '<div class="boletocontainer">';
+
+                        echo '<p class="boletocontainer__inicio">Deste Terminal de Posadas Misiones hacia '.$data['Destino'].'</p>';
+                        echo '<p class="boletocontainer__precio">$ARS'.$data['Precio'].'</p>';
+                        echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
+                        echo '<p class="boletocontainer__cantidadp">Cantidad de pasajeros '.$data['Cantidad'].'</p>';
+                        echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
+                        echo '<p class="boletocontainer__empresa">Empresa '.$data['NombreEmpresa'].'</p>';
+                        echo "</div>";
+                    }
+                    echo "</div>";
+                    echo "</article>";
+                }
+                else{
+
+                    if($lista === 1){
+                        $data = mysqli_fetch_assoc($data);
                         echo '<article  class="mB-s__a">
                         <div class="mB-s-a__div">
-                            <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
-                            <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
+                        <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
+                        <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
                         </div>
                         <div class="mB-s-a__div">';
-                        while($data = mysqli_fetch_assoc($data)){
-                            echo '<div class="boletocontainer">';
+                        echo '<div class="boletocontainer">';
 
-                            echo '<p class="boletocontainer__inicio">Deste Terminal de Posadas Misiones hacia '.$data['Destino'].'</p>';
-                            echo '<p class="boletocontainer__precio">$ARS'.$data['Precio'].'</p>';
-                            echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
-                            echo '<p class="boletocontainer__cantidadp">Cantidad de pasajeros '.$data['Cantidad'].'</p>';
-                            echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
-                            echo '<p class="boletocontainer__empresa">Empresa '.$data['NombreEmpresa'].'</p>';
-                            echo "</div>";
-                        }
+                        echo '<p class="boletocontainer__inicio">Deste Terminal de Posadas Misiones hacia '.$data['Destino'].'</p>';
+                        echo '<p class="boletocontainer__precio">$ARS'.$data['Precio'].'</p>';
+                        echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
+                        echo '<p class="boletocontainer__cantidadp">Cantidad de pasajeros '.$data['Cantidad'].'</p>';
+                        echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
+                        echo '<p class="boletocontainer__empresa">Empresa '.$data['NombreEmpresa'].'</p>';
+                        echo "</div>";
                         echo "</div>";
                         echo "</article>";
                     }
-                    else{
-    
-                        if(mysqli_num_rows($data)){
-                            $data = mysqli_fetch_assoc($data);
-                            echo '<article  class="mB-s__a">
-                            <div class="mB-s-a__div">
-                            <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
-                            <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
-                            </div>
-                            <div class="mB-s-a__div">';
-                            echo '<div class="boletocontainer">';
+                    
 
-                            echo '<p class="boletocontainer__inicio">Deste Terminal de Posadas Misiones hacia '.$data['Destino'].'</p>';
-                            echo '<p class="boletocontainer__precio">$ARS'.$data['Precio'].'</p>';
-                            echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
-                            echo '<p class="boletocontainer__cantidadp">Cantidad de pasajeros '.$data['Cantidad'].'</p>';
-                            echo '<p class="boletocontainer__idayvuelta">'.$data['Ida'].'</p>';
-                            echo '<p class="boletocontainer__empresa">Empresa '.$data['NombreEmpresa'].'</p>';
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</article>";
-                        }
-                        else{
-                            echo '<article  class="mB-s__a">
-                            <h3>¡¡No tienes un boleto!!</h3>
-                            <div class="mB-s-a__div">
-                            <h1 class="m-s-a-f__h1">AGENCIAS 42 y 43</h1>
-                            <h3 class="m-s-a-f__h3">Posadas Misiones</h3>
-                            </div>
-                            <div class="mB-s-a__div">
-    
-                            <p>No hay boletos disponibles</p>
-    
-                            </div>';
-                                
-                        }
-    
-                    }
-    
                 }
+
+                
             ?>
         </section>
     </main>
@@ -304,6 +319,26 @@
         </footer>
 </body>
 <script src="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<?php
+
+if($lista === 1){
+    
+}
+else{
+    echo "<script>
+    Swal.fire({
+            title: '¡No se encontro el boleto!',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                
+                history.go(-1);
+            }
+        });
+    </script>";
+}
+?>
 
 </html>
 
