@@ -47,7 +47,9 @@
                 </article>
             </section>
         </main>
+        
         <footer id="footer">
+            <div class="footer">
                 <section class="footer__section">
                     <article class="f-s__article">
                         <div class="f-s-a__div">
@@ -64,6 +66,7 @@
 
                 </section>
                 <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
+            </div>
         </footer>
     </body>
 </html>

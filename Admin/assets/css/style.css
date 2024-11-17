@@ -6,102 +6,17 @@
 }
 
 
-#footer{
-    background-color: #989898;
-    color: #000000;
-    max-height: 280px;
-    min-height: 50px;
+html{
     height: 100%;
-    width: 100%;
-    box-sizing: content-box;
-    justify-items: center;
-    display: grid;
-    grid-template-rows: 85% 15%;
-    
-}
-
-.f-s__article{
-
-    display: grid;
-    margin-top: 10%;
-    height: 65%;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 100% 10%;
-    gap: 5%;
-    justify-content: center;
-
-}
-
-.f-s-a__div{
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
-}
-
-.footer__section{
-    background-color: #989898;
-    width: 100%;
-    display: grid;
-    justify-content: center;
-}
-
-.footer__address{
-    
-    box-sizing: border-box;
-    background-color: #494848;
-    height: 100%;
-    width: 100%;
-    padding-top: 0.5rem;
-    padding-left: 0.5%;
-    justify-self: left;
-}
-
-.f-s-a__div:first-child{
-    border-radius: 100%;
-    height: 90%;
-    margin-top: 15%;
-    background-color: #494848;
-}
-
-.f-s-a-d__img{
-    width: 150px;
-    margin-top: -1rem;
-    margin-left: -1.5rem;
-    height: 150px;
-    position: absolute;
-    z-index: 100;
-}
-
-.f_a__a{
-    color: #ffffff;
-    width: 100%;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-.f-s__nav ul{
-    list-style: none;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-.f-s-n-l__a{
-    color: #000000;
-    text-decoration: none;
-}
-.f-s-a-d__h3{
-    color: #FFFF00;
-    font-size: 20px;
     margin: 0;
 }
-
-.f-s-a-d__h1{
-    box-sizing: content-box;
-    margin-top: 18%;
-    font-size: 25px;
+body{
+    display: grid;
+    grid-template-rows: 40rem auto;
+    gap: 20%;
+    height: 100%;
+    width: 100%;
 }
-
-
 
 .anadir{
     color: #FFFF00;
@@ -129,7 +44,8 @@
 
 #bodyM{
     display: grid;
-    grid-template-rows: 13rem 35rem 20rem; 
+    height: 100%;
+    grid-template-rows: 13rem 35rem auto; 
     
 }
 
@@ -343,7 +259,9 @@
     display: grid;
     gap: 2rem;
     justify-items: center;
+    
 }
+
 
 .m-s__A{
     background-color: #ffffff;
@@ -356,7 +274,20 @@
     width: 90%;
     font-size: 1.5rem;
     box-sizing: border-box;
+    transition: all 0.4s;
 }
+.m-s__A:hover{
+    border: 0.1rem solid #494848;
+    transform: scale(1.1, 1.1);
+}
+
+.m-s__A:active{
+    border: 0.1rem solid #DEDE38;
+    background-color: #494848;
+    color: #DEDE38;
+    transition: all 0s;
+}
+
 
 .m-s__h2{
     font-size: 3rem;
@@ -428,6 +359,7 @@
     width: 100%;
     margin: auto;
     max-width: 80rem;
+    margin-top: 10vh;
 }
 
 .f__h2{
@@ -583,4 +515,109 @@
     width: 100%;
     margin-top: 0.3rem;
 }
+
+
+
+
+
+.footer{
+    background-color: #989898;
+    color: #000000;
+    height: 240px;
+    width: 100%;
+    box-sizing: content-box;
+    justify-items: center;
+    display: grid;
+    grid-template-rows: 85% 15%;
+}
+#footer{
+    background-color: #494848;
+    height: 100%;
+    width: 100%;
+}
+
+.f-s__article{
+    
+    display: grid;
+    margin-top: 8%;
+    width: 100%;
+    height: 50%;
+    grid-template-columns: 6.6rem 1fr;
+    gap: 5%;
+    justify-content: center;
+
+}
+
+.f-s-a__div{
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+
+.footer__section{
+    background-color: #989898;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+.footer__address{
+    
+    box-sizing: border-box;
+    background-color: #494848;
+    height: 100%;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-left: 0.5%;
+    justify-self: left;
+}
+
+.f-s-a__div:first-child{
+    border-radius: 100%;
+    height: 90%;
+    margin-top: 20%;
+    background-color: #494848;
+}
+
+.f-s-a-d__img{
+    width: 150px;
+    margin-top: -1rem;
+    margin-left: -1.2rem;
+    height: 150px;
+    position: absolute;
+    z-index: 100;
+}
+
+.f_a__a{
+    color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.f-s__nav ul{
+    list-style: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.f-s-n-l__a{
+    color: #000000;
+    text-decoration: none;
+}
+.f-s-a-d__h3{
+    color: #FFFF00;
+    font-size: 20px;
+    margin: 0;
+}
+
+.f-s-a-d__h1{
+    box-sizing: content-box;
+    margin-top: 18%;
+    font-size: 25px;
+}
+
+
+
+
 
