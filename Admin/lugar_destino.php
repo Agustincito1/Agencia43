@@ -24,7 +24,7 @@
                         
                     </div>
                     <div class="h-s-a__div">
-                        <h1 class="h-s-a-d__h1">AGENCIAS 42 y 43 ¡Crea, modifica o elimina un destino!</h1>
+                        <h1 class="h-s-a-d__h1">¡Crea, modifica o elimina un destino!</h1>
                         <h3 class="h-s-a-d__h3">Posadas Misiones</h3>
                     </div>
                 </article>
