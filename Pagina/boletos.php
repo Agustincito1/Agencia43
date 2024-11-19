@@ -131,7 +131,6 @@
                         else{
                             $var = 10;
                         }
-                       
                     }
                 }
                 else{
@@ -220,10 +219,10 @@
                         echo '<div class="boletocontainer">';
 
                         echo '<img class="boletocontainer__imgempresa" src="'.$iconoE.'">';
-                        echo '<p class="boletocontainer__inicio">Desde Terminal hacia '.$data['Destino'].'</p>';
-                        echo '<p class="boletocontainer__precio">Precio: $ARS'.$data['Precio'].'</p>';
-                        echo '<p class="boletocontainer__tipob">Tipo de viaje: '.$data['Tipo'].'</p>';
-                        echo '<p class="boletocontainer__cantidadp">Cantidad de pasajeros: '.$data['Cantidad'].'</p>';
+                        echo '<p class="boletocontainer__inicio">Desde Terminal hacia <span class="amarillo">'.$data['Destino'].'</span></p>';
+                        echo '<p class="boletocontainer__precio"><span class="amarillo">Precio:</span> $ARS'.$data['Precio'].'</p>';
+                        echo '<p class="boletocontainer__tipob"><span class="amarillo">Tipo de viaje:</span> '.$data['Tipo'].'</p>';
+                        echo '<p class="boletocontainer__cantidadp"><span class="amarillo">Cantidad de pasajeros:</span> '.$data['Cantidad'].'</p>';
                         echo '<p class="boletocontainer__idayvuelta">'.$tipo.'</p>';
                         echo '<p class="boletocontainer__empresa">Empresa '.$data['NombreEmpresa'].'</p>';
                         echo "</div>";
