@@ -6,20 +6,44 @@
 }
 
 
+::-webkit-scrollbar {
+    width: 1vh;
+}
+
+::-webkit-scrollbar-track {
+    background: #DEDE38;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2e2e2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #494848;
+}
 html{
     height: 100%;
     margin: 0;
 }
+*{
+    cursor: default;
+}
+select,input,a{
+    cursor: pointer;
+}
+
 body{
     display: grid;
     grid-template-rows: 40rem auto;
-    gap: 10rem;
+    gap: 20%;
     height: 100%;
     width: 100%;
 }
 
 .anadir{
     color: #FFFF00;
+    text-decoration: none;
+    
     border-radius: 0.2rem;
     background-color: #989898;
     height: 2rem;
@@ -36,6 +60,14 @@ body{
 #add{
     justify-self: center;
 }
+#addh2{
+    font-size: 3rem;
+    color:#494848;
+}
+#anadirstyle{
+    font-size: 3rem;
+    color:#494848;
+}
 *{  
     font-family: 'lato', sans-serif;
     margin: 0;
@@ -51,19 +83,26 @@ body{
 
 #bodyB, #bodyE, #bodyH {
     display: grid;
-    grid-template-rows: 20rem 80rem auto; 
+    gap: 20%;
+    grid-template-rows: 20rem 90rem auto; 
 }
+
 #bodyE{
     display: grid;
+    gap: 20%;
     grid-template-rows: 20rem 90rem auto; 
 }
 #mainM, #mainB, #mainE,#mainH{
     height: 100%;
     width: 100%;
+    max-width: 100rem;
+    min-width: 20%;
+    margin: auto;
 }
 
 #mainH .mb_section{
     grid-template-rows: 25rem;
+    
 }
 #mainH .mb-s__article .mb-s-a__form{
     gap: 5%;
@@ -74,22 +113,13 @@ body{
     margin-top: 5%;
 }
 
-#mainH .mb-s__article .mb-s-a__form input{
-    height: 3rem;
-}
-#mainH .mb-s__article .mb-s-a__form select{
+#mainH .mb-s__article .mb-s-a__form input, #mainH .mb-s__article .mb-s-a__form select{
     height: 3rem;
 }
 
-#mainB .mb_section{
-    grid-template-rows: 1rem 40rem 2rem 38rem;
-}
-#mainE .mb_section{
-    grid-template-rows: 1rem 40rem 2rem 38rem;
-}
-
-#mainH .mb_section{
-    grid-template-rows: 1rem 32rem 2rem 38rem;
+#mainB .mb_section, #mainE .mb_section, #mainH .mb_section{
+    grid-template-rows: 4rem 40rem 4rem 38rem;
+    justify-items: center;
 }
 
 #mainE .mb-s__article .mb-s-a__form{
@@ -247,10 +277,11 @@ body{
     border-radius: 0.2rem;
     padding: 1%;
     height: 100%;
+    
     width: 100%;
     margin: auto;
     box-sizing: border-box;
-    max-width: 35rem;
+    max-width: 50rem;
     min-width: 20rem;
 }
 
@@ -287,7 +318,20 @@ body{
     color: #DEDE38;
     transition: all 0s;
 }
+.f__input{
+    transition: all 0.4s;
+}
+.f__input:hover{
+    border: 0.1rem solid #494848;
+    transform: scale(1.1, 1.1);
+}
 
+.f__input:active{
+    border: 0.1rem solid #DEDE38;
+    background-color: #494848;
+    color: #DEDE38;
+    transition: all 0s;
+}
 
 .m-s__h2{
     font-size: 3rem;

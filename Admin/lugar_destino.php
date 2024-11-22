@@ -93,7 +93,7 @@
                             $datos = mysqli_fetch_assoc($query);
                             $id = $_GET['id'];
                             echo ' 
-                                <h2> <a href="lugar_destino.php" class="anadir">Añadir Destino</a> Modificar destinos</h2>
+                                <h2> <a href="lugar_destino.php" class="anadir">volver a añadir </a> Modificar destinos</h2>
                             <article id="up" class="mb-s__article up">
                                 
                                 <form action="update.php" class="mb-s-a__form" method="POST">
@@ -138,7 +138,7 @@
                         }
                     
                     ?>
-                <h2>Tabla destinos</h2>
+                <h2 id="anadirstyle">Tabla de boletos</h2>
                 <article class="mb-s__article">
                     <table>
                         <tr>
@@ -156,7 +156,9 @@
                     </table>
                 </article>
             </section>
+        </main>
             <footer id="footer">
+            <div class="footer">
                 <section class="footer__section">
                     <article class="f-s__article">
                         <div class="f-s-a__div">
@@ -173,6 +175,7 @@
 
                 </section>
                 <address class="footer__address"><a class="f_a__a" href="agustinlazari594@gmail.com">@agustinlazari594@gmail.com</a></address>
+            </div>
         </footer>
         <script src="assets/js/mostrarcaja.js"></script>
         <script src="assets/js/selectfiltro.js"></script>
