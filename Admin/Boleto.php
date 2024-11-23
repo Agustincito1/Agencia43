@@ -88,7 +88,7 @@
                             <option value='IdaYvuelta'>Ida y vuelta</option>
                         </select>
 
-                        <input type="submit" class="submit"  name="AnadirBoleto">
+                        <input type="submit" id="submit"  name="AnadirBoleto">
                     </form>
                 </article>
 
