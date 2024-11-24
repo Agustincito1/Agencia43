@@ -105,10 +105,10 @@
                     echo "<td>".$values[$n]."</td>";
                 }
                 echo "<td>
-                    <a href='delete.php?tabla=$nametable&id=".$values[0]."&campo=".$campo."'>Eliminar</a>
+                    <a href='delete.php?tabla=$nametable&id=".$values[0]."&campo=".$campo."'><img class='img' src='../libraries/Img/bas.png'/></a>
                 ";
                 echo "
-                    <a href='?id=".$values[0]."'>Modificar</a>
+                    <a href='?id=".$values[0]."'><img class='img' src='../libraries/Img/lapiz.png'/></a>
                 </td>";
                 echo "</tr>";
             }
