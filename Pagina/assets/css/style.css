@@ -39,7 +39,7 @@ p{
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 20rem 250rem auto; 
+    grid-template-rows: 20rem 255rem auto; 
 }
 
 #header{
@@ -288,14 +288,49 @@ p{
 .agenciaimg_container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
-    margin-top: 1rem;
+    
     gap: 5%;
     overflow-y: auto;
-    height: 80%;
+    height: 25rem;
+
     justify-content: center;
 }
+.agenciaredes_container{
+    display: grid;
+    grid-template-columns:  repeat(auto-fit, minmax(20rem, 20rem));;
+    width: 80%;
+   
+}
+.agenciaredes_container div{
+    display: grid;
+    height: 20%;
+    min-width: 20rem;
+    width: 80%;
+    grid-template-columns: 0.2fr 1fr;
 
+}
+.agenciaredes_container div p{
+    overflow: hidden;
+    font-size: 2rem;
+    margin-top: 2%;
+    width: 100%;
 
+}
+.agenciaredes_container div a{
+    font-size: 2rem;
+    margin-top: 2%;
+    text-decoration: none;
+    overflow: hidden;
+    width: 100%;
+
+    color: #000000;
+}
+.agenciaredes_container div img{
+    width: 80%;
+}
+.agenciaredes_container p{
+    margin: auto;
+ }
 ::-webkit-scrollbar {
     width: 1vh;
 }
@@ -351,7 +386,7 @@ p{
 
 .main__section{
     display: grid;
-    grid-template-rows: 50rem 40rem 40rem 110rem;
+    grid-template-rows: 50rem 55rem 40rem 100rem ;
     height: 100%;
     gap: 2rem;
     padding-top: 5rem;
@@ -386,7 +421,7 @@ p{
 }
 .m-s-a_form p{
     font-size: 1.4rem;
-    
+    margin-bottom: 1%;
 }
 .m-s-a-f-d__item{
     width: 100%;
@@ -440,13 +475,16 @@ p{
 
 .m-s-a-f-d__item:nth-child(6){
     width: 80%;
+    height: 50%;
 }
 .m-s-a-f-d__item:nth-child(7){
     width: 80%;
     justify-self: end;
+    height: 50%;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
+    height: 100%;
 }
 .m-s-a-f-d__item:nth-child(8){
     text-align: left;
@@ -470,6 +508,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .m-s-a-f-d__item>input{
     width: 100%;
+    height: 100%;
     height: 3rem;
     padding: 0.8rem;
     cursor: pointer;
@@ -490,7 +529,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .m-s-a-f-d__item>select{
     width: 100%;
-    height: 3rem;
+    height: 100%;
     padding: 0.5rem;
     cursor: pointer;
     border-radius: 0.2rem;
@@ -527,7 +566,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     
     padding: 3rem;
     height: 100%;
-    
+    display: grid;
+    grid-template-rows: 0.2fr 0.3fr auto;
+    min-height: 40rem;
+    min-width: 40rem;
+    gap: 2rem;
+
 }
 
 
@@ -546,21 +590,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 1.4rem;
 }
 
-.m-s__article-comollegar p{
-    margin-top: 1rem;
-    
-}
+
 
 .m-s__article-empresas{
     padding: 3rem;
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
+    
 }
 
 
 .m-s__article-empresas h2{
     font-size: 4rem;
-    margin-bottom: 1rem;
+    min-width: 45rem;
 }
 .m-s__article{
     width: 100%;
@@ -703,7 +745,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: auto;
     width: 100%;
     height: 100%;
-    font-size: 5vh;
+    font-size: 5rem;
     text-align: center;
 
 }
@@ -747,6 +789,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: grid;
     padding: 2%;
     gap: 2%;
+
     grid-template-rows: 1fr 1fr 1fr;
 }
 .dataonclick_div .empresa{
@@ -790,7 +833,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     gap: 1rem;
     display: grid;
     grid-template-rows: 0.5fr 1fr 20fr;
-    
+    min-width: 40rem;
 }
 
 
@@ -853,6 +896,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     box-sizing: border-box;
     margin: 0;
     margin-left: -100%;
+
     transition: all 0.4s;
 }
 
@@ -929,9 +973,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .m-s__article{
     display: grid;
-    width: 90%;
+    width: 100%;
     margin: auto;
     height: 100%;
+   
 }
 
 #dataonclick{

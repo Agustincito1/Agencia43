@@ -111,7 +111,7 @@
                 <article id="Nosotros" class="m-s__article-comollegar">
                     <h2>¿Como llegar?</h2>
                     <p><span>Ubicacion:</span> Avenida Quaranta y Avenida Santa Catalina, Ciudad de Posadas.</p>
-                    <p><span>Telefono:</span> 3754 5433435</p>
+                    <div class="agenciaredes_container"><div><img src="imgs/tel.png" alt=""><p >3754 5433435<p></div> <div><img src="imgs/ig.png" alt="instagram"><a href="https://www.instagram.com/local42y43?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="Instagram">@local42y43</a></div></div>
                     <div class="agenciaimg_container"> 
                         <img class="agenciaimg" src="imgs/agencia1.png" alt="foto de la agencia">
                         <img class="agenciaimg" src="imgs/agencia2.png" alt="foto de la agencia">
@@ -167,10 +167,10 @@
 
                     <nav class="f-s__nav">
                         <ul>
-                            <li><a class="f-s-n-l__a" href="">Principal</a></li>
-                            <li><a class="f-s-n-l__a" href="">Calendario</a></li>
-                            <li><a class="f-s-n-l__a" href="">Nosotros</a></li>
-                            <li><a class="f-s-n-l__a" href="">Contactanos</a></li>
+                            <li><a class="f-s-n-l__a" href="#viaje">Principal</a></li>
+                            <li><a class="f-s-n-l__a" href="#calendario">Calendario</a></li>
+                            <li><a class="f-s-n-l__a" href="#Nosotros">Nosotros</a></li>
+                            <li><a class="f-s-n-l__a" href="#Empresa">Contactanos</a></li>
                         </ul>
                     </nav>
                 </section>
