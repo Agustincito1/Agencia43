@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Boleto</title>
 </head>
@@ -167,7 +168,7 @@
                 <h2 id="anadirstyle">Tabla de boletos</h2>
                 <article class="mb-s__article">
                     <!-- tabla -->
-                    <table>
+                    <table class="table">
                         <tr>
                             <th>Nombre</th>
                             <th>In. destino</th>
@@ -176,7 +177,7 @@
                             <th>Horario</th>
                             <th>Cant. personas</th>
                             <th>Ida y vuelta</th>
-                            <th>Accion</th>
+                            <th>Configuraciones</th>
                             
                         </tr>
                         

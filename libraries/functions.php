@@ -104,7 +104,7 @@
                 for($n = 1; $n <= $cantidad_columnas; $n++){
                     echo "<td>".$values[$n]."</td>";
                 }
-                echo "<td>
+                echo "<td class='acont'>
                     <a href='delete.php?tabla=$nametable&id=".$values[0]."&campo=".$campo."'><img class='img' src='../libraries/Img/bas.png'/></a>
                 ";
                 echo "

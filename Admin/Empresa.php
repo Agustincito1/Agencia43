@@ -113,12 +113,12 @@
                         }
                     
                     ?>
-                    <h2 id="anadirstyle">Tabla de boletos</h2>
-                    <article class="mb-s__article">
+                <h2 id="anadirstyle">Tabla de boletos</h2>
+                <article class="mb-s__article">
                     <table>
                         <tr >
                             <th class="nombrecampos">Nombre</th>
-                            <th class="nombrecampos"></th>
+                            <th class="nombrecampos">Configuraciones</th>
                             
                         </tr>
 

@@ -83,14 +83,14 @@ body{
 
 #bodyB, #bodyE, #bodyH {
     display: grid;
-    gap: 20%;
+    gap: 10rem;
     grid-template-rows: 20rem 120rem auto; 
 }
 
 #bodyE{
     display: grid;
-    gap: 20%;
-    grid-template-rows: 20rem 90rem auto; 
+    gap: 10rem;
+    grid-template-rows: 20rem 120rem auto; 
 }
 #mainM, #mainB, #mainE,#mainH{
     height: 100%;
@@ -117,6 +117,8 @@ body{
 #mainB .mb_section, #mainE .mb_section, #mainH .mb_section{
     grid-template-rows: 4rem 50rem 4rem 38rem;
     justify-items: center;
+    gap: 5rem;
+
 }
 
 #mainE .mb-s__article .mb-s-a__form{
@@ -130,6 +132,7 @@ body{
 #mainE .mb-s__article .mb-s-a__form{
     
     padding-top: 2rem;
+
 }
 
 
@@ -209,6 +212,7 @@ body{
     height: 100%;
     border-radius: 0.4rem;
     border: 0.1rem solid #FFFF00;
+
     background-color: #989898;
 }
 
@@ -394,6 +398,7 @@ body{
 .mb-s__article table{
      /* border-collapse: collapse; */
     width: 100%;
+
 }
 .nombrecampos{
     position: sticky;
@@ -740,4 +745,26 @@ body{
 
 
 
+.img{
+    width: 2rem;
+    cursor: pointer;
+    transition: all 0.4s;
+}
 
+.img:hover{
+    transform: scale(1.1, 1.1);
+}
+
+.acont{
+    padding-top: 1%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+
+    justify-items: center;
+    margin: auto;
+}
+.acont a{
+    width: 2rem;
+}

@@ -110,7 +110,7 @@
                         <tr>
                             <th>Horario</th>
                             <th>Empresa</th>
-                            <th></th>
+                            <th>Configuraciones</th>
                             
                         </tr>
                         

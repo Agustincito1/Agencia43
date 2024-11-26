@@ -145,7 +145,7 @@
                             <th>Destino</th>
                             <th>Localidad</th>
                             <th>Nombre boleto</th>
-                            <th></th>
+                            <th>Configuraciones</th>
                             
                         </tr>
                         

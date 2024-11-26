@@ -41,8 +41,8 @@
                     <table>
                         <tr>
                             <th>Tipo</th>
-                            <th></th>
-                            <th></th>
+                            <th>Configuraciones</th>
+                            
                         </tr>
                         
                         <?php 
