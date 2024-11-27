@@ -64,7 +64,7 @@
                             </li>
                         </ul>
 
-                        <input type="submit" id="" class="submit" name="AnadirEmpresa">
+                        <input type="submit" id="submit" name="AnadirEmpresa">
 
                     </form>
                 </article>
@@ -76,7 +76,7 @@
                             $query = QueryAndGetData("SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE EmpresaID =  $id");
                             $datos = mysqli_fetch_assoc($query);
 
-                            echo '<h2> <a href="empresa.php" class="anadir">Añadir Empresa</a>Modificar empresa</h2>
+                            echo '<a href="empresa.php" class="anadir">Añadir empresa</a><h2 class="h2"> Modificar empresa</h2>
                             <article  class="mb-s__article" id="up" >
                                 <form class="mb-s-a__form" action="update.php" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value='.$id.'>

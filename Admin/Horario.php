@@ -57,7 +57,7 @@
 
                         <input type="time" id="Horario" name="Horario" value="00:00" required>
 
-                        <input type="Submit" class="submit" name="AnadirHorario">
+                        <input type="Submit" id="submit" name="AnadirHorario">
                     </form>
                 </article>
             
@@ -76,8 +76,8 @@
                             $datos = mysqli_fetch_assoc($query);
 
                             echo '
-                            
-                            <h2><a href="horario.php" class="anadir"> Añadir Horario</a> Modificar Horario</h2>
+                            <a href="horario.php" class="anadir"> Añadir Horario</a>
+                            <h2 class="h2"> Modificar Horario</h2>
                             <article class="mb-s__article up" id="up">
                                 <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>

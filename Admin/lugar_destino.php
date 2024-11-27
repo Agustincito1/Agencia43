@@ -11,7 +11,7 @@
 
     <title>Lugar Destino</title>
 </head>
-    <body  id="bodyE">
+    <body id="bodyD">
         <?php
             include "querys.php";
         ?>
@@ -38,7 +38,7 @@
             </section>
         </header>
         <!-- main -->
-        <main id="mainE">
+        <main id="mainD">
             <section class="mb_section">
                 <h2 id="addh2">Añadir destinos</h2>
                 <article class="mb-s__article" id="add">
@@ -68,7 +68,7 @@
                             ?>  
                         </select>
                         
-                        <input type="submit" id="" name="AnadirLugar">
+                        <input type="submit" id="submit" name="AnadirLugar">
                     </form>
                 </article>
                 
@@ -93,7 +93,7 @@
                             $datos = mysqli_fetch_assoc($query);
                             $id = $_GET['id'];
                             echo ' 
-                                <h2> <a href="lugar_destino.php" class="anadir">volver a añadir </a> Modificar destinos</h2>
+                                <a href="lugar_destino.php" class="anadir">Añadir destinos</a><h2 class="h2">  Modificar destinos</h2>
                             <article id="up" class="mb-s__article up">
                                 
                                 <form action="update.php" class="mb-s-a__form" method="POST">
