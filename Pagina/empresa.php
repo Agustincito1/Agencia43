@@ -2,9 +2,8 @@
     include "../libraries/functions.php";
     if(isset($_GET['Empresa'])){
         $id = $_GET['Empresa'];
-        $fotos_empresa = "SELECT `ImagenI`, `ImagenII`, `ImagenIII` WHERE `EmpresaID` = `$id`";
-        $fotos_empresa = QueryAndGetData($fotos_empresa);
-        $query = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE `EmpresaID` = `$id`";
+
+        $query = "SELECT * FROM `empresa` WHERE `EmpresaID` = `$id`";
     }
     
 ?>

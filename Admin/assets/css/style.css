@@ -173,7 +173,20 @@ body{
     height: 3rem;
 }
 
+#mainE .mb-s__article table tr td:last-child{
+    padding-top: 2%;
+}
 
+
+#mainH .mb-s__article table tr td:last-child{
+    padding-top: 2.5%;
+}
+
+
+
+#mainD .mb-s__article table tr td:last-child{
+    padding-top: 3%;
+}
 
 
 .inputImgContainer{

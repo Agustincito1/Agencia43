@@ -107,16 +107,12 @@
                                     AND boleto.CantidadPersonas = $pasajeros
                                     AND boleto.IdaYvuelta = '$option';";
                                 if($data = QueryAndGetData($query)){
-                                    
-                                    // if(mysqli_num_rows($data)>1){
-                                    //     while($data = mysqli_fetch_assoc($data)){
-                                    //         echo $data['Horario'];
-                                    //     }
-                                    // }
-                                    // else{
-                                    //     $data = mysqli_fetch_assoc($data);
-                                    //     echo $data['Horario'];
-                                    // }
+                                    if(mysqli_num_rows($data)>0){
+                                        
+                                    }
+                                    else{
+                                        $var = 0;
+                                    }
                                     
                                 }
                                 else{
@@ -157,10 +153,11 @@
                     $lista = 0;
                 }
                 else{
-                    $lista = NULL;
+                    $lista = 0;
                 }
 
             }
+          
         ?>
 
 

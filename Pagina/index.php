@@ -88,7 +88,7 @@
                             
                             <label for="fecha" class="m-s-a-f-d__item"><p >fecha de viaje</p>
 
-                                <input type="text" id="fecha" placeholder="Selecciona una fecha" required>
+                                <input type="date" id="fecha" placeholder="Selecciona una fecha" required>
                                 <input type="date" id="hidden-date-input" name="fecha">
 
                             </label>

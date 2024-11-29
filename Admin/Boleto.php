@@ -156,7 +156,7 @@
 
                             echo '</select>'; 
 
-                            echo '<input type="submit" class="submit" name="uptdateBoleto">
+                            echo '<input type="submit" id="submit" name="uptdateBoleto">
                             </form>
                         </article>';
                     }

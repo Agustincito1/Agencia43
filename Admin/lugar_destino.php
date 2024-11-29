@@ -127,7 +127,7 @@
                                 echo'
                                     </select>
                                     
-                                    <input type="submit"  name="updateLugar">
+                                    <input type="submit" id="submit" name="updateLugar">
                                                 
                                 </form>
                             </article>  

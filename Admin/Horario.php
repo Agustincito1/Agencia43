@@ -95,7 +95,7 @@
 
                                     <input type="time" id="HorarioU" value="'.$datos['Horario'].'" name="HorarioU" required>
 
-                                    <input type="Submit" class="submit" name="updateHorario">
+                                    <input type="Submit" id="submit" name="updateHorario">
                                 </form>
                             </article>  
                             ';

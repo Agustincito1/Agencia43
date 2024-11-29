@@ -13,10 +13,12 @@
         if(isset($_POST)){
             
             include "../libraries/functions.php";
-
+            include "../libraries/conexion.php";
+            
             $contrasena = $_POST['contrasena'];
             $usuario = $_POST['usuario'];
-
+            $usuario = mysqli_real_escape_string($conexion, $usuario);
+            $contrasena = mysqli_real_escape_string($conexion, $contrasena);
             if($validar = QueryAndGetData("SELECT AdminID ,Usuario, Contraseña FROM `admin` WHERE Contraseña = '$contrasena' AND Usuario = '$usuario'")){
                 //consulta completa
                 if(mysqli_num_rows($validar)>0){

@@ -46,9 +46,23 @@
 
                         <label for="Nombre">Nombre de la Empresa</label>
                         <input type="text" class="input" id="Nombre" name="Nombre" required>
+                        <h3>Imagen principal de la empresa</h3>
+                        <div>
+                            <input class="in" type="file" id="ImgP" name="ImgP" accept="image/*" required onchange="showImage('ImgP', 'ImgP-Preview')">
+                            <img id="ImgP-Preview" alt="Image Preview" style="display:none;">
+                        </div>
+
+                        <h3>Icono de la empresa</h3>
+                        <div>
+                            <input class="in" type="file" id="ImgI" name="ImgP" accept="image/*" required onchange="showImage('ImgI', 'ImgI-Preview')">
+                            <img id="ImgI-Preview" alt="Image Preview" style="display:none;">
+                        </div>
+
+
+
+
                         <h3>Imagenes de las empresas</h3>
 
-                        
                         <ul class="inputImgContainer">
                             <li  class="inputImgContainer-li">
                                 <input class="in" type="file" id="Img1" name="Img1" accept="image/*" required onchange="showImage('Img1', 'Img1-Preview')">
@@ -102,7 +116,7 @@
                                         </li>
                                     </ul>
 
-                                    <input type="submit" id="" class="submit" name="updateEmpresa">
+                                    <input type="submit" id="submit" name="updateEmpresa">
                                     
                                 </form>
                             </article>  
