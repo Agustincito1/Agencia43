@@ -47,14 +47,14 @@
                         <label for="Nombre">Nombre de la Empresa</label>
                         <input type="text" class="input" id="Nombre" name="Nombre" required>
                         <h3>Imagen principal de la empresa</h3>
-                        <div>
-                            <input class="in" type="file" id="ImgP" name="ImgP" accept="image/*" required onchange="showImage('ImgP', 'ImgP-Preview')">
+                        <div class="inputImgContainer-d">
+                            <input type="file" id="ImgP" name="ImgP" accept="image/*" required onchange="showImage('ImgP', 'ImgP-Preview')">
                             <img id="ImgP-Preview" alt="Image Preview" style="display:none;">
                         </div>
 
                         <h3>Icono de la empresa</h3>
-                        <div>
-                            <input class="in" type="file" id="ImgI" name="ImgI" accept="image/*" required onchange="showImage('ImgI', 'ImgI-Preview')">
+                        <div class="inputImgContainer-d">
+                            <input type="file" id="ImgI" name="ImgI" accept="image/*" required onchange="showImage('ImgI', 'ImgI-Preview')">
                             <img id="ImgI-Preview" alt="Image Preview" style="display:none;">
                         </div>
 
@@ -99,20 +99,33 @@
                                     <label for="Nombre">Nombre de la Empresa</label>
                                     <input type="text" class="input" id="Nombre" name="Nombre" value="'.$datos['Nombre'].'" required>
                                     <h3>Imagenes de las empresas</h3>
+                                    <div class="inputImgContainer-d">
+                                        <input type="file" id="ImgP" name="ImgPU" accept="image/*" required onchange="showImage(ImgPU, ImgPU-Preview)">
+                                        <img id="ImgP-Preview" alt="Image Preview" style="display:none;">
+                                    </div>
+
+                                    <h3>Icono de la empresa</h3>
+                                    <div class="inputImgContainer-d">
+                                        <input type="file" id="ImgI" name="ImgIU" accept="image/*" required onchange="showImage(ImgIU, ImgIU-Preview)">
+                                        <img id="ImgI-Preview" alt="Image Preview" style="display:none;">
+                                    </div>
+
+
+                                    <h3>Imagenes de las empresas</h3>
 
                                     
                                     <ul class="inputImgContainer">
                                         <li  class="inputImgContainer-li">
-                                            <input class="in" type="file" id="ImgpU" name="ImgpU" required onchange="showImage(ImgpU, ImgpU-Preview)">
-                                            <img id="Img1-Preview" alt="Image Preview" style="display:none;">
+                                            <input class="in" type="file" id="ImgpU" name="Img1U" required onchange="showImage(Img1U, Img1U-Preview)">
+                                            <img id="Img1U-Preview" alt="Image Preview" style="display:none;">
                                         </li>
                                         <li class="inputImgContainer-li">
-                                            <input class="in" type="file" id="Img1U"  name="Img1U" required onchange="showImage(Img1U, Img1U-Preview)">
-                                            <img id="Img2-Preview" alt="Image Preview" style="display:none;">
+                                            <input class="in" type="file" id="Img1U"  name="Img2U" required onchange="showImage(Img2U, Img2U-Preview)">
+                                            <img id="Img2U-Preview" alt="Image Preview" style="display:none;">
                                         </li>
                                         <li class="inputImgContainer-li">
-                                            <input class="in" type="file" id="Img2U" name="Img2U" required onchange="showImage(Img2U, Img2U-Preview)">
-                                            <img id="Img3-Preview" alt="Image Preview" style="display:none;" >
+                                            <input class="in" type="file" id="Img2U" name="Img3U" required onchange="showImage(Img3U, Img3U-Preview)">
+                                            <img id="Img3U-Preview" alt="Image Preview" style="display:none;" >
                                         </li>
                                     </ul>
 
