@@ -30,7 +30,7 @@
                 INNER JOIN 
                     `tipoboleto` ON `tipoboleto`.`TipoBoletoID` = `boleto`.`TipoBoletoID`";
 
-        $empresa = "SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE 1";
+        $empresa = "SELECT `EmpresaID`, `Nombre`, `ImagenPrincipal`, `ImagenI`, `ImagenII`, `ImagenIII`, `IconoEmpresa`, `PaletaID` FROM `empresa` WHERE 1";
 
         $select_provincia = "SELECT `ProvinciaID`, `Provincia` FROM `provincia` WHERE 1";
         $select_localidad = "SELECT `LocalidadID`, `Localidad` FROM `localidad` WHERE 1";

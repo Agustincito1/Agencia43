@@ -55,9 +55,10 @@
                 $imagen1 = $_FILES['Img1'];
                 $imagen2 = $_FILES['Img2'];
                 $imagen3= $_FILES['Img3'];
-
+                $imagen4= $_FILES['ImgP'];
+                $imagen5= $_FILES['ImgI'];
                 // Array de las imágenes a manejar
-                $imagenes = ['Img1', 'Img2', 'Img3'];
+                $imagenes = ['Img1', 'Img2', 'Img3', 'ImgP','ImgI'];
 
                 foreach ($imagenes as $imagen) {
 
@@ -133,17 +134,29 @@
                     $nombreArchivo = basename($imagen1['name']); 
                     $rutaDestino = $directorioDestino . $nombreArchivo;
                     $ubicacion1 = $rutaDestino;
+
                     $archivoTmp = $imagen2['tmp_name'];
                     $nombreArchivo = basename($imagen2['name']); 
                     $rutaDestino = $directorioDestino . $nombreArchivo;
                     $ubicacion2 = $rutaDestino;
+
                     $archivoTmp = $imagen3['tmp_name'];
                     $nombreArchivo = basename($imagen3['name']); 
                     $rutaDestino = $directorioDestino . $nombreArchivo;
                     $ubicacion3 = $rutaDestino;
 
-                    $add = "INSERT INTO `empresa`(`Nombre`, `ImagenI`, `ImagenII`, `ImagenIII`) VALUES ('$nombre', '$ubicacion1', '$ubicacion2', '$ubicacion3')";
+                    $archivoTmp = $imagen4['tmp_name'];
+                    $nombreArchivo = basename($imagen4['name']); 
+                    $rutaDestino = $directorioDestino . $nombreArchivo;
+                    $ubicacion4 = $rutaDestino;
 
+                    $archivoTmp = $imagen5['tmp_name'];
+                    $nombreArchivo = basename($imagen5['name']); 
+                    $rutaDestino = $directorioDestino . $nombreArchivo;
+                    $ubicacion5 = $rutaDestino;
+
+                    $add = "INSERT INTO `empresa`(`Nombre`, `ImagenI`, `ImagenII`, `ImagenIII`, `ImagenPrincipal`,`IconoEmpresa`) VALUES ('$nombre', '$ubicacion1', '$ubicacion2', '$ubicacion3', '$ubicacion4', '$ubicacion5')";
+                    
                     if(Query($add)){
                         echo "
                         <script>

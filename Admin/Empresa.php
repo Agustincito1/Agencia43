@@ -54,7 +54,7 @@
 
                         <h3>Icono de la empresa</h3>
                         <div>
-                            <input class="in" type="file" id="ImgI" name="ImgP" accept="image/*" required onchange="showImage('ImgI', 'ImgI-Preview')">
+                            <input class="in" type="file" id="ImgI" name="ImgI" accept="image/*" required onchange="showImage('ImgI', 'ImgI-Preview')">
                             <img id="ImgI-Preview" alt="Image Preview" style="display:none;">
                         </div>
 
@@ -129,15 +129,22 @@
                     ?>
                 <h2 id="anadirstyle">Tabla de boletos</h2>
                 <article class="mb-s__article">
-                    <table>
+                    <table >
                         <tr >
                             <th class="nombrecampos">Nombre</th>
+                            <th class="nombrecampos">Imagen Principal</th>
+                            <th class="nombrecampos">Imagen I</th>
+                            <th class="nombrecampos">Imagen II</th>
+                            <th class="nombrecampos">Imagen III</th>
+                            <th class="nombrecampos">Icono empresa</th>
+                            <th class="nombrecampos">Paleta de colores</th>
+
                             <th class="nombrecampos">Configuraciones</th>
                             
                         </tr>
 
                         <?php 
-                            filas($empresa,1,"empresa","EmpresaID");
+                            filas($empresa,7,"empresa","EmpresaID");
                         ?>
                         
                     </table>

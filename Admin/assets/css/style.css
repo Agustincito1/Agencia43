@@ -173,20 +173,7 @@ body{
     height: 3rem;
 }
 
-#mainE .mb-s__article table tr td:last-child{
-    padding-top: 2%;
-}
 
-
-#mainH .mb-s__article table tr td:last-child{
-    padding-top: 2.5%;
-}
-
-
-
-#mainD .mb-s__article table tr td:last-child{
-    padding-top: 3%;
-}
 
 
 .inputImgContainer{
@@ -258,7 +245,6 @@ body{
     height: 100%;
     border-radius: 0.4rem;
     border: 0.1rem solid #FFFF00;
-
     background-color: #989898;
 }
 
@@ -268,8 +254,27 @@ body{
 #up{
     width: 50%;
 }
+
+
+#mainH .mb-s__article:nth-child(4){
+    width: 50%;
+    background-color: #989898;
+    border: 0.15rem solid #494848;
+    height: 100%;
+    overflow: auto;
+}
+
+
+#mainD .mb-s__article:nth-child(4){
+    width: 70%;
+    background-color: #989898;
+    border: 0.15rem solid #494848;
+    height: 100%;
+    overflow: auto;
+}
+
 .mb-s__article:nth-child(4){
-    width: 100%;
+    width: 90%;
     background-color: #989898;
     border: 0.15rem solid #494848;
     height: 100%;
@@ -435,22 +440,16 @@ body{
 .mb-s__article table{
      /* border-collapse: collapse; */
     width: 100%;
-    min-width: 60rem;
+    
 }
 .nombrecampos{
     position: sticky;
 }
-.mb-s__article table tr:first-child{
-    border: 0.2rem solid #494848;
-    
-    width: 100%;
-    height: 5rem;
-    text-align: left;
-    background-color: #D9D9D9;
-}
+
 
 .mb-s__article table tr td:last-child{
-    padding-top: 5%;
+    padding-top: 6%;
+ 
 }
 .mb-s__article table tr td{
     height: 4rem;
@@ -462,18 +461,37 @@ body{
     height: 5rem;
     text-align: center;
 }
-.mb-s__article table tr{
 
-    height: 3rem;
+
+table tr td p{
+    width: 90%;
+    height: 100%;
+    margin: auto;
     text-align: center;
+    
+    white-space: nowrap; /* Evita saltos de línea */
+    overflow: hidden; /* Oculta el texto que se sale del contenedor */
+    text-overflow: ellipsis; /* Muestra "..." cuando el texto se corta */
+    padding-top: 15%;
+    box-sizing: border-box;
+}   
+
+
+table tr td{
+    max-width: 4rem;
+    min-width: 4rem;
+    height: 100%;
+}   
+
+table tr td img{
+    max-width: 4rem;
+}   
+table tr{
+    height: 5rem;
+    box-sizing: content-box;
     background-color: #D9D9D9;
-}
-
-
-
-
-
-
+    box-sizing: border-box;
+}   
 
 .formInicio{
     width: 50%;

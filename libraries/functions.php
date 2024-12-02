@@ -92,7 +92,29 @@
         }
 
     }
+     //funcion para verificar si un archivo es imagen
 
+    function esImagen($string) {
+        // Expresión regular para verificar si la cadena tiene una extensión de imagen válida
+        $patron = '/\.(jpg|jpeg|png|gif|bmp|tiff)$/i'; 
+    
+        if (preg_match($patron, $string)) {
+            // Verificamos si la URL o ruta de archivo apunta a una imagen real
+            // Si es una URL, puedes hacer algo como esto (opcional):
+            // $headers = get_headers($string);
+            // if(strpos($headers[0], '200') === false) {
+            //     return false;  // La URL no es válida
+            // }
+    
+            // Si la ruta apunta a un archivo local, puedes usar getimagesize() para comprobar si es una imagen válida
+            if (file_exists($string) && getimagesize($string)) {
+                return true; // Es una imagen válida
+            }
+        }
+    
+        return false; // No es una imagen
+    }
+    
     //funcion para crear filas desde la bd
 
     function filas($query, $cantidad_columnas, $nametable, $campo){
@@ -102,7 +124,15 @@
                 echo "<tr>";
                 $values = array_values($row);
                 for($n = 1; $n <= $cantidad_columnas; $n++){
-                    echo "<td>".$values[$n]."</td>";
+
+                    if (esImagen($values[$n])) {
+                        echo "<td><img src='".$values[$n]."'></td>";
+                    } else {
+                        echo "<td><p>".$values[$n]."</p></td>";
+                    }
+
+                   
+    
                 }
                 echo "<td class='acont'>
                     <a href='delete.php?tabla=$nametable&id=".$values[0]."&campo=".$campo."'><img class='img' src='../libraries/Img/bas.png'/></a>
