@@ -73,6 +73,7 @@
                         <label for="Cantidad" >Cantidad Pasajeros</label>
 
                         <select name="Cantidad" id="Cantidad">
+                            <option selected disabled>Seleccione aquí</option>
                             <option value='1'>1</option>
                             <option value='2'>2</option>
                             <option value='3'>3</option>
@@ -85,6 +86,7 @@
                         <label for="IdaYvuelta">Ida y vuelta</label>
 
                         <select name="IdaYvuelta" id="IdaYvuelta">
+                        <option selected disabled>Seleccione aquí</option>
                             <option value='Ida'>Solo ida</option>
                             <option value='IdaYvuelta'>Ida y vuelta</option>
                         </select>

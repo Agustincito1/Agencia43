@@ -52,11 +52,23 @@
                                 options($empresa);
                             ?>
                         </select>
-
+                        
                         <label for="Horario">Horario</label>
 
                         <input type="time" id="Horario" name="Horario" value="00:00" required>
 
+                        <label for="Dia">Día</label>
+
+                        <select name="dia" id="Dia">
+                            <option selected disabled>Seleccione aquí</option>
+                            <option value='Lunes'>Lunes</option>
+                            <option value='Martes'>Martes</option>
+                            <option value='Miercoles'>Miercoles</option>
+                            <option value='Jueves'>Jueves</option>
+                            <option value='Viernes'>Viernes</option>
+                            <option value='Sabado'>Sabado</option>
+                            <option value='Domingo'>Domingo</option>
+                        </select>
                         <input type="Submit" id="submit" name="AnadirHorario">
                     </form>
                 </article>
@@ -65,20 +77,33 @@
                 <?php
                         if(isset($_GET['id'])){
                             $id =$_GET['id'];
+                            $dias = [
+                                'Lunes',
+                                'Martes',
+                                'Miercoles',
+                                'Jueves',
+                                'Viernes',
+                                'Sábado',
+                                'Domingo'
+                            ];
                             $query = QueryAndGetData("SELECT 
                                 `HorarioID`, 
                                 `Horario`, 
                                 `empresa`.`Nombre`,
-                                `empresa`.`EmpresaID`
+                                `empresa`.`EmpresaID`,
+                                `horario`.`Dia`
                                 FROM `horario`
                                 INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID` 
                                 WHERE `HorarioID` = $id");
                             $datos = mysqli_fetch_assoc($query);
+                            
+                            $diaSeleccionado = $datos['Dia'];
+
 
                             echo '
-                            <a href="horario.php" class="anadir"> Añadir Horario</a>
-                            <h2 class="h2"> Modificar Horario</h2>
-                            <article class="mb-s__article up" id="up">
+                                <a href="horario.php" class="anadir"> Añadir Horario</a>
+                                <h2 class="h2"> Modificar Horario</h2>
+                                <article class="mb-s__article up" id="up">
                                 <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Horarios</h2>
@@ -95,6 +120,24 @@
 
                                     <input type="time" id="HorarioU" value="'.$datos['Horario'].'" name="HorarioU" required>
 
+                                    <label for="Dia">Día</label>
+                                    ';
+                            
+                                    echo '<select name="dia">';
+
+                                    foreach ($dias as $dia) {
+                                        // Comprobar si el día es el que se debe seleccionar
+                                        $seleccionado = ($dia == $diaSeleccionado) ? 'selected' : '';
+                                        echo "<option value=\"$dia\" $seleccionado>$dia</option>";
+                                    }
+                                
+                                    echo '</select>';
+                            echo '
+
+                                    
+
+
+                                
                                     <input type="Submit" id="submit" name="updateHorario">
                                 </form>
                             </article>  
@@ -110,12 +153,13 @@
                         <tr>
                             <th>Horario</th>
                             <th>Empresa</th>
+                            <th>Dia</th>
                             <th>Configuraciones</th>
                             
                         </tr>
                         
                         <?php  
-                            filas($select_horario,2, "horario", "HorarioID");
+                            filas($select_horario,3, "horario", "HorarioID");
                         ?>
 
                     </table>

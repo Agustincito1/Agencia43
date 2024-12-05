@@ -11,7 +11,8 @@
         $select_horario = "SELECT 
                     `HorarioID`, 
                     `Horario`, 
-                    `empresa`.`Nombre` 
+                    `empresa`.`Nombre`,
+                    `dia` 
                     FROM `horario`
                     INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID`";    
     

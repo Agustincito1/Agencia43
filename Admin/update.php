@@ -179,8 +179,8 @@
                     $id = $_POST['id'];
                     $empresa = $_POST['EmpresaU'];
                     $horario = $_POST['HorarioU'];
-                    
-                    $add = "UPDATE `horario` SET `Horario`='$horario',`EmpresaID`='$empresa' WHERE HorarioID = $id";
+                    $dia = $_POST['dia'];
+                    $add = "UPDATE `horario` SET `Horario`='$horario',`EmpresaID`='$empresa',`Dia` ='$dia'  WHERE HorarioID = $id";
         
                     if(Query($add)){
                         echo "

@@ -150,9 +150,16 @@ body{
 
 
 #mainH .mb_section{
-    grid-template-rows: 4rem 28rem 4rem 38rem;
+    grid-template-rows: 4rem 30rem 4rem 38rem;
     justify-items: center;
     gap: 5rem;
+
+}
+#mainH .mb-s__article .mb-s-a__form{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 3rem 1.5rem 3.5rem 1rem 3.5rem 1rem 3.5rem ;
+    gap: 2.5%;
 
 }
 #mainE .mb-s__article .mb-s-a__form{
@@ -319,9 +326,24 @@ body{
     overflow: auto;
 }
 
+#mainH .mb-s__article:nth-child(7){
+    width: 50%;
+    background-color: #989898;
+    border: 0.15rem solid #494848;
+    height: 100%;
+    overflow: auto;
+}
 
 #mainD .mb-s__article:nth-child(4){
-    width: 70%;
+    width: 50%;
+    background-color: #989898;
+    border: 0.15rem solid #494848;
+    height: 100%;
+    overflow: auto;
+}
+
+#mainD .mb-s__article:nth-child(7){
+    width: 50%;
     background-color: #989898;
     border: 0.15rem solid #494848;
     height: 100%;
@@ -329,6 +351,14 @@ body{
 }
 
 .mb-s__article:nth-child(4){
+    width: 90%;
+    background-color: #989898;
+    border: 0.15rem solid #494848;
+    height: 100%;
+    overflow: auto;
+}
+
+.mb-s__article:nth-child(7){
     width: 90%;
     background-color: #989898;
     border: 0.15rem solid #494848;
@@ -503,8 +533,7 @@ body{
 
 
 .mb-s__article table tr td:last-child{
-    padding-top: 6%;
- 
+    padding-top: 10%;
 }
 .mb-s__article table tr td{
     height: 4rem;
@@ -527,7 +556,7 @@ table tr td p{
     white-space: nowrap; /* Evita saltos de línea */
     overflow: hidden; /* Oculta el texto que se sale del contenedor */
     text-overflow: ellipsis; /* Muestra "..." cuando el texto se corta */
-    padding-top: 15%;
+    padding-top: 1.8rem;
     box-sizing: border-box;
 }   
 
@@ -540,6 +569,8 @@ table tr td{
 
 table tr td img{
     max-width: 4rem;
+    margin: auto;
+    
 }   
 table tr{
     height: 5rem;
@@ -872,7 +903,7 @@ table tr{
 }
 
 .acont{
-    padding-top: 1%;
+    padding-top: 5%;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -880,6 +911,7 @@ table tr{
 
     justify-items: center;
     margin: auto;
+    
 }
 .acont a{
     width: 2rem;

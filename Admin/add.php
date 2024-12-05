@@ -15,35 +15,106 @@
 
         // conseguir los datos en metodo post y verificarlos
         if(isset($_POST['AnadirBoleto'])){
+            if(isset($_POST['Tipo'])){
+                if(isset($_POST['Horario'])){
+                    if(isset($_POST['Cantidad'])){
+                        if(isset($_POST['IdaYvuelta'])){
 
-            $nombre = $_POST['Nombre'];
-            $tipo = $_POST['Tipo'];
-            $horario = $_POST['Horario'];
-            $precio = $_POST['Precio'];
-            $cantidad = $_POST['Cantidad'];
-            $ida = $_POST['IdaYvuelta'];
+                            $nombre = $_POST['Nombre'];
+                            $tipo = $_POST['Tipo'];
+                            $horario = $_POST['Horario'];
+                            $precio = $_POST['Precio'];
+                            $cantidad = $_POST['Cantidad'];
+                            $ida = $_POST['IdaYvuelta'];
+                            // consulta query
+                            $add = "INSERT INTO `boleto`(`NombreBoleto`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `IdaYvuelta`) 
+                            VALUES ('$nombre','$precio','$tipo','$horario', '$cantidad','$ida')";
 
-            // consulta query
-            $add = "INSERT INTO `boleto`(`NombreBoleto`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `IdaYvuelta`) 
-            VALUES ('$nombre','$precio','$tipo','$horario', '$cantidad','$ida')";
+                            // desicion si el boleto es creado correctamente
+                            if(Query($add)){
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: '¡Boleto creado correctamente!',
+                                        icon: 'success',
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            
+                                            window.location.href = 'boleto.php';
+                                        }
+                                    });
+                                </script>";
+                            }
 
-            // desicion si el boleto es creado correctamente
-            if(Query($add)){
+                        }
+                        else{
+                            echo "
+                            <script>
+                                Swal.fire({
+                                    title: '¡Oops...!',
+                                    text: 'Seleccione la ida y vuelta',
+                                    icon: 'error',
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            
+                                            history.go(-1);
+                                        }
+                                    });
+                                </script>";
+                        }
+                    }
+                    else{
+                        echo "
+                        <script>
+                            Swal.fire({
+                                title: '¡Oops...!',
+                                text: 'Seleccione la cantidad',
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        
+                                        history.go(-1);
+                                    }
+                                });
+                            </script>";
+                    }
+                }
+                else{
+                    echo "
+                    <script>
+                        Swal.fire({
+                            title: '¡Oops...!',
+                            text: 'Seleccione el horario',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                                if (result.isConfirmed) {
+                                    
+                                    history.go(-1);
+                                }
+                            });
+                        </script>";
+                }
+            }
+            else{
                 echo "
                 <script>
                     Swal.fire({
-                        title: '¡Boleto creado correctamente!',
-                        icon: 'success',
+                        title: '¡Oops...!',
+                        text: 'Seleccione el tipo de boleto',
+                        icon: 'error',
                         confirmButtonText: 'Aceptar'
                     }).then((result) => {
-                        if (result.isConfirmed) {
-                            
-                            window.location.href = 'boleto.php';
-                        }
-                    });
-                </script>";
+                            if (result.isConfirmed) {
+                                
+                                history.go(-1);
+                            }
+                        });
+                    </script>";
             }
-
         }
         else{
             // lo mismo pero con los datos de la empresa
@@ -174,57 +245,165 @@
                     }
 
                 }
+                else{
+                    echo "
+                    <script>
+                        Swal.fire({
+                            title: '¡Oops...!',
+                            text: 'Seleccione el tipo de boleto',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                                if (result.isConfirmed) {
+                                    
+                                    history.go(-1);
+                                }
+                            });
+                        </script>";
+                }
                     
 
             }
             else{
                 // lo mismo pero los horarios
                 if(isset($_POST['AnadirHorario'])){
-                    $empresa = $_POST['Empresa'];
-                    $horario = $_POST['Horario'];
-                    
-                    $add = "INSERT INTO `horario`(`Horario`, `EmpresaID`) VALUES ('$horario','$empresa')";
-        
-                    if(Query($add)){
+
+                    if(isset($_POST['Empresa'])){
+                        if(isset($_POST['dia'])){
+                            $empresa = $_POST['Empresa'];
+                            $horario = $_POST['Horario'];
+                            $dia = $_POST['dia'];
+                            $add = "INSERT INTO `horario`(`Horario`, `EmpresaID`, `Dia`) VALUES ('$horario','$empresa','$dia' )";
+                            if(Query($add)){
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: 'Horario creado correctamente!',
+                                        icon: 'success',
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            
+                                            window.location.href = 'horario.php';
+                                        }
+                                    });
+                                </script>";
+                            }
+                        }
+                        else{
+                            echo "
+                            <script>
+                                Swal.fire({
+                                    title: '¡Oops...!',
+                                    text: 'Seleccione el día',
+                                    icon: 'error',
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            
+                                            history.go(-1);
+                                        }
+                                    });
+                                </script>";
+                        }      
+                        
+                    }
+                    else{
                         echo "
                         <script>
                             Swal.fire({
-                                title: 'Horario creado correctamente!',
-                                icon: 'success',
+                                title: '¡Oops...!',
+                                text: 'Seleccione la empresa',
+                                icon: 'error',
                                 confirmButtonText: 'Aceptar'
                             }).then((result) => {
-                                if (result.isConfirmed) {
-                                    
-                                    window.location.href = 'horario.php';
-                                }
-                            });
-                        </script>";
-                    }
+                                    if (result.isConfirmed) {
+                                        
+                                        history.go(-1);
+                                    }
+                                });
+                            </script>";
+                    }                   
                 }
                 else{
                     // lo mismo pero el lugar
                     if(isset($_POST['AnadirLugar'])){
-                        $nombre = $_POST['Nombre'];
-                        $localidad = $_POST['Localidad'];
-                        $bolet  = $_POST['Boleto'];
-    
-                        $add = "INSERT INTO `destino`( `Nombre`, `LocalidadID`, `BoletoID`) VALUES ('$nombre','$localidad','$bolet')";
-            
-                        if(Query($add)){
+                        if(isset($_POST['Localidad'])){
+                            if(isset($_POST['Boleto'])){
+                                if(isset($_POST['Provincia'])){
+                                    $nombre = $_POST['Nombre'];
+                                    $localidad = $_POST['Localidad'];
+                                    $bolet  = $_POST['Boleto'];
+                                    $add = "INSERT INTO `destino`( `Nombre`, `LocalidadID`, `BoletoID`) VALUES ('$nombre','$localidad','$bolet')";
+                
+                                    if(Query($add)){
+                                        echo "
+                                        <script>
+                                            Swal.fire({
+                                                title: '¡Lugar creado correctamente!',
+                                                icon: 'success',
+                                                confirmButtonText: 'Aceptar'
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    
+                                                    window.location.href = 'lugar_destino.php';
+                                                }
+                                            });
+                                        </script>";
+                                    }
+                                }
+                                else{
+                                    echo "
+                                    <script>
+                                        Swal.fire({
+                                            title: '¡Oops...!',
+                                            text: 'Seleccione la provincia',
+                                            icon: 'error',
+                                            confirmButtonText: 'Aceptar'
+                                        }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    
+                                                    history.go(-1);
+                                                }
+                                            });
+                                        </script>";
+                                }   
+                            }
+                            else{
+                                echo "
+                                <script>
+                                    Swal.fire({
+                                        title: '¡Oops...!',
+                                        text: 'Seleccione el boleto',
+                                        icon: 'error',
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                
+                                                history.go(-1);
+                                            }
+                                        });
+                                    </script>";
+                            }   
+                        }
+                        else{
                             echo "
                             <script>
                                 Swal.fire({
-                                    title: '¡Lugar creado correctamente!',
-                                    icon: 'success',
+                                    title: '¡Oops...!',
+                                    text: 'Seleccione la localidad',
+                                    icon: 'error',
                                     confirmButtonText: 'Aceptar'
                                 }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        
-                                        window.location.href = 'lugar_destino.php';
-                                    }
-                                });
-                            </script>";
-                        }
+                                        if (result.isConfirmed) {
+                                            
+                                            history.go(-1);
+                                        }
+                                    });
+                                </script>";
+                        }   
+    
+                        
                     }
                     else{
                         // lo mismo pero el tipo 

@@ -79,7 +79,8 @@
 
     function options($query){
 
-        if($data = QueryAndGetData($query)){
+        if($data = QueryAndGetData($query)){   
+            echo "<option disabled selected>Seleccione aquí</option>";
 
             while($row = mysqli_fetch_assoc($data)){
                 $values = array_values($row);
@@ -121,14 +122,14 @@
 
         if($data = QueryAndGetData($query)){
             while($row = mysqli_fetch_assoc($data)){
-                echo "<tr>";
+                echo "<tr >";
                 $values = array_values($row);
                 for($n = 1; $n <= $cantidad_columnas; $n++){
 
                     if (esImagen($values[$n])) {
-                        echo "<td><img src='".$values[$n]."'></td>";
+                        echo "<td class='tcont'><img src='".$values[$n]."'></td>";
                     } else {
-                        echo "<td><p>".$values[$n]."</p></td>";
+                        echo "<td class='tcont'><p>".$values[$n]."</p></td>";
                     }
 
                    
