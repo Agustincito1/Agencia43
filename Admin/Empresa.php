@@ -85,55 +85,66 @@
                 
                     <!-- Modificar -->
                     <?php
-                        if(isset($_GET['id'])){
-                            $id =$_GET['id'];
-                            $query = QueryAndGetData("SELECT `EmpresaID`, `Nombre` FROM `empresa` WHERE EmpresaID =  $id");
-                            $datos = mysqli_fetch_assoc($query);
-
-                            echo '<a href="empresa.php" class="anadir">Añadir empresa</a><h2 class="h2"> Modificar empresa</h2>
-                            <article  class="mb-s__article" id="up" >
-                                <form class="mb-s-a__form" action="update.php" method="POST" enctype="multipart/form-data">
-                                    <input type="hidden" name="id" value='.$id.'>
-                                    <h2>Modificar empresa</h2>
-                                    
-                                    <label for="Nombre">Nombre de la Empresa</label>
-                                    <input type="text" class="input" id="Nombre" name="Nombre" value="'.$datos['Nombre'].'" required>
-                                    <h3>Imagenes de las empresas</h3>
-                                    <div class="inputImgContainer-d">
-                                        <input type="file" id="ImgP" name="ImgPU" accept="image/*" required onchange="showImage(ImgPU, ImgPU-Preview)">
-                                        <img id="ImgP-Preview" alt="Image Preview" style="display:none;">
-                                    </div>
-
-                                    <h3>Icono de la empresa</h3>
-                                    <div class="inputImgContainer-d">
-                                        <input type="file" id="ImgI" name="ImgIU" accept="image/*" required onchange="showImage(ImgIU, ImgIU-Preview)">
-                                        <img id="ImgI-Preview" alt="Image Preview" style="display:none;">
-                                    </div>
-
-
-                                    <h3>Imagenes de las empresas</h3>
-
-                                    
-                                    <ul class="inputImgContainer">
-                                        <li  class="inputImgContainer-li">
-                                            <input class="in" type="file" id="ImgpU" name="Img1U" required onchange="showImage(Img1U, Img1U-Preview)">
-                                            <img id="Img1U-Preview" alt="Image Preview" style="display:none;">
-                                        </li>
-                                        <li class="inputImgContainer-li">
-                                            <input class="in" type="file" id="Img1U"  name="Img2U" required onchange="showImage(Img2U, Img2U-Preview)">
-                                            <img id="Img2U-Preview" alt="Image Preview" style="display:none;">
-                                        </li>
-                                        <li class="inputImgContainer-li">
-                                            <input class="in" type="file" id="Img2U" name="Img3U" required onchange="showImage(Img3U, Img3U-Preview)">
-                                            <img id="Img3U-Preview" alt="Image Preview" style="display:none;" >
-                                        </li>
-                                    </ul>
-
-                                    <input type="submit" id="submit" name="updateEmpresa">
-                                    
-                                </form>
-                            </article>  
-                            ';
+                                      if(isset($_GET['id'])){
+                                        $id =$_GET['id'];
+                                        $query = QueryAndGetData("SELECT * FROM `empresa` WHERE EmpresaID =  $id");
+                                        $datos = mysqli_fetch_assoc($query);
+                                        $imgI = $datos['ImagenI'];
+                                        $imgII = $datos['ImagenII'];
+                                        $imgIII = $datos['ImagenIII'];
+                                        $icono = $datos['IconoEmpresa'];
+                                        $principal = $datos['ImagenPrincipal'];
+            
+            
+                                        $stringI = "'ImgPU', 'ImgPU-Preview'";
+                                        $stringII = "'ImgIU', 'ImgIU-Preview'";
+                                        $stringIII = "'Img1U', 'Img1U-Preview'";
+                                        $stringIV = "'Img2U', 'Img2U-Preview'";
+                                        $stringV = "'Img3U', 'Img3U-Preview'";
+                                        echo '<a href="empresa.php" class="anadir">Añadir empresa</a><h2 class="h2"> Modificar empresa</h2>
+                                        <article  class="mb-s__article" id="up" >
+                                        <form class="mb-s-a__form" action="update.php" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="id" value='.$id.'>
+                                                <h2>Modificar empresa</h2>
+                                                
+                                                <label for="Nombre">Nombre de la Empresa</label>
+                                                <input type="text" class="input" id="Nombre" name="Nombre" value="'.$datos['Nombre'].'" required>
+                                                <h3>Imagenes de las empresas</h3>
+                                                <div class="inputImgContainer-d">
+                                                    <input type="file" id="ImgPU" name="ImgPU" accept="image/*" required onchange="showImage('.$stringI.')">
+                                                    <img src="'.$principal.'" class="ver" id="ImgPU-Preview" alt="Image Preview" style="display:none;">
+                                                </div>
+            
+                                                <h3>Icono de la empresa</h3>
+                                                <div class="inputImgContainer-d">
+                                                    <input type="file" id="ImgIU" name="ImgIU" accept="image/*" required onchange="showImage('.$stringII.')">
+                                                    <img src="'.$icono.'" class="ver" id="ImgIU-Preview" alt="Image Preview" style="display:none;">
+                                                </div>
+            
+            
+                                                <h3>Imagenes de las empresas</h3>
+            
+                                                
+                                                <ul class="inputImgContainer">
+                                                    <li  class="inputImgContainer-li">
+                                                        <input class="in" type="file" id="Img1U" name="Img1U" required onchange="showImage('.$stringIII.')">
+                                                        <img src="'.$imgI.'" class="ver" id="Img1U-Preview" alt="Image Preview" style="display:none;">
+                                                    </li>
+                                                    <li class="inputImgContainer-li">
+                                                        <input class="in" type="file" id="Img2U"  name="Img2U" required onchange="showImage('.$stringIV.')">
+                                                        <img src="'.$imgII.'" class="ver"  id="Img2U-Preview" alt="Image Preview" style="display:none;">
+                                                    </li>
+                                                    <li class="inputImgContainer-li">
+                                                        <input class="in" type="file" id="Img3U" name="Img3U" required onchange="showImage('.$stringIV.')">
+                                                        <img src="'.$imgIII.'" class="ver"  id="Img3U-Preview" alt="Image Preview" style="display:none;" >
+                                                    </li>
+                                                </ul>
+            
+                                                <input type="submit" id="submit" name="updateEmpresa">
+                                                
+                                            </form>
+                                        </article>  
+                                        ';
                         }
                         else{
                         
@@ -189,4 +200,22 @@
     </body>
     <script type="text/javascript" src="assets/js/mostrarcaja.js"></script>
     <script type="text/javascript" src="assets/js/functions.js"></script>
+    <script>
+        let imagenes = document.querySelectorAll('.ver');
+     
+        // Recorrer cada etiqueta <img>
+        imagenes.forEach(function(imagen) {
+        // Obtener el valor del atributo src
+            let src = imagen.getAttribute('src');
+
+            // Verificar si el atributo src tiene una URL válida
+            if (src && src.trim() !== '') {
+                console.log("tiene sisdadas");
+                imagen.style.display = 'block'; // O 'inline', según el estilo deseado  
+                
+            } else {
+                imagen.style.display = 'none'; // O 'inline', según el estilo deseado
+            }
+        });
+    </script>
 </html>
