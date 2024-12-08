@@ -111,13 +111,13 @@
                                                 <input type="text" class="input" id="Nombre" name="Nombre" value="'.$datos['Nombre'].'" required>
                                                 <h3>Imagenes de las empresas</h3>
                                                 <div class="inputImgContainer-d">
-                                                    <input type="file" id="ImgPU" name="ImgPU" accept="image/*" required onchange="showImage('.$stringI.')">
+                                                    <input class="in" type="file" id="ImgPU" name="ImgPU" accept="image/*" required onchange="showImage('.$stringI.')">
                                                     <img src="'.$principal.'" class="ver" id="ImgPU-Preview" alt="Image Preview" style="display:none;">
                                                 </div>
             
                                                 <h3>Icono de la empresa</h3>
                                                 <div class="inputImgContainer-d">
-                                                    <input type="file" id="ImgIU" name="ImgIU" accept="image/*" required onchange="showImage('.$stringII.')">
+                                                    <input class="in" type="file" id="ImgIU" name="ImgIU" accept="image/*" required onchange="showImage('.$stringII.')">
                                                     <img src="'.$icono.'" class="ver" id="ImgIU-Preview" alt="Image Preview" style="display:none;">
                                                 </div>
             

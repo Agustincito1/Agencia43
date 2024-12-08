@@ -187,6 +187,7 @@
     <script type="text/javascript" src="assets/js/mostrar.js"></script>
     <script type="text/javascript" src="../libraries/node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/links.js"></script>
+    <script src="../libraries/sheetjs/xlsx/xlsx.js"></script>
     <script>
         document.documentElement.style.scrollBehavior = 'smooth';
     </script>

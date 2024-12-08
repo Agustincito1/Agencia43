@@ -127,7 +127,7 @@ container.addEventListener('click', (event) => {
                     button.addEventListener('click', () => {
                         // Obtener el array desde el atributo
                         const arrayData = JSON.parse(button.getAttribute('data-array'));
-                    
+                        console.log(arrayData);
                         const worksheet = XLSX.utils.json_to_sheet(arrayData);
                         const workbook = XLSX.utils.book_new();
                         XLSX.utils.book_append_sheet(workbook, worksheet, 'Datos');
