@@ -49,116 +49,79 @@
 
                 $id = $_POST['id'];
                 $nombre = $_POST['Nombre'];
-                $imagen1 = $_FILES['Img1U'];
-                $imagen2 = $_FILES['Img2U'];
-                $imagen3= $_FILES['Img3U'];
-                $imagen4= $_FILES['ImgPU'];
-                $imagen5= $_FILES['ImgIU'];
-                // Array de las imágenes a manejar
-                $imagenes = ['Img1U', 'Img2U', 'Img3U', 'ImgPU','ImgIU'];
 
-                foreach ($imagenes as $imagen) {
+                // Array de nombres de columnas de la base de datos correspondientes a las imágenes
+                $columnasImagenes = [
+                    'Img1U' => 'ImagenI',       // 'Img1U' es el campo del formulario y 'ImagenI' es la columna en la base de datos
+                    'Img2U' => 'ImagenII',
+                    'Img3U' => 'ImagenIII',
+                    'ImgPU' => 'ImagenPrincipal',
+                    'ImgIU' => 'IconoEmpresa'
+                ];
 
-                    if (isset($_FILES[$imagen])) {
-                        $archivo = $_FILES[$imagen];
+                // Bandera para verificar si al menos una imagen fue cargada
+                $a = 0;
 
-                        // Verifica si hubo un error al cargar el archivo
-                        if ($archivo['error'] === UPLOAD_ERR_OK) {
-                            // Obtiene la ubicación temporal del archivo
-                            $archivoTmp = $archivo['tmp_name'];
+                // Inicializar un array para almacenar las ubicaciones de las imágenes
+                $ubicaciones = [];
 
-                            // Genera un nombre único para evitar sobrescribir archivos
-                            $nombreArchivo = basename($archivo['name']);
-                            $rutaDestino = $directorioDestino . $nombreArchivo;
+                // Procesamos cada imagen según el array $columnasImagenes
+                foreach ($columnasImagenes as $input => $columna) {
+                    if (isset($_FILES[$input]) && $_FILES[$input]['error'] === UPLOAD_ERR_OK) {
 
-                            
+                        // Obtiene la información del archivo cargado
+                        $archivo = $_FILES[$input];
+                        $archivoTmp = $archivo['tmp_name'];
+                        $nombreArchivo = basename($archivo['name']);
+                        $rutaDestino = $directorioDestino . $nombreArchivo;
 
-                            // Mueve el archivo a la carpeta de destino
-                            if (move_uploaded_file($archivoTmp, $rutaDestino)) {
-                                $a = 1;
-
-                            } else {
-                                echo "<script>
-                                Swal.fire({
-                                    title: '¡Oops...!',
-                                    text: 'No se pudo añadir la imagen',
-                                    icon: 'error',
-                                    confirmButtonText: 'Aceptar'
-                                }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            
-                                            history.go(-1);
-                                        }
-                                    });
-                                </script>";
-                            }
-
+                        // Mueve el archivo a la carpeta de destino
+                        if (move_uploaded_file($archivoTmp, $rutaDestino)) {
+                            // Asigna la ubicación del archivo cargado para su posterior actualización en la base de datos
+                            $ubicaciones[$columna] = $rutaDestino; // Guarda la ruta para la imagen cargada
+                            $a++; // Incrementa la bandera que indica que al menos una imagen fue cargada
                         } else {
+                            // Si no se pudo mover el archivo, muestra un mensaje de error
                             echo "<script>
                             Swal.fire({
                                 title: '¡Oops...!',
-                                text: 'No se pudo añadir la imagen',
+                                text: 'No se pudo añadir la imagen: $input',
                                 icon: 'error',
                                 confirmButtonText: 'Aceptar'
                             }).then((result) => {
                                     if (result.isConfirmed) {
-                                        
                                         history.go(-1);
                                     }
                                 });
-                            </script>";;
+                            </script>";
+                            exit; // Detener el script si hubo un error en la carga
                         }
 
                     } else {
-                        echo "<script>
-                        Swal.fire({
-                            title: '¡Oops...!',
-                            text: 'No se pudo añadir la imagen',
-                            icon: 'error',
-                            confirmButtonText: 'Aceptar'
-                        }).then((result) => {
-                                if (result.isConfirmed) {
-                                    
-                                    history.go(-1);
-                                }
-                            });
-                        </script>";;
+                        // Si el archivo no fue subido, simplemente omite este paso y pasa al siguiente archivo
+                        $ubicaciones[$columna] = null; // No hay imagen para este campo
                     }
                 }
 
-                if($a>0){
-                    $archivoTmp = $imagen1['tmp_name'];
-                    $nombreArchivo = basename($imagen1['name']); 
-                    $rutaDestino = $directorioDestino . $nombreArchivo;
-                    $ubicacion1 = $rutaDestino;
+                // Independientemente de si se cargaron imágenes o no, siempre actualizamos el nombre
+                $updateQuery = "UPDATE `empresa` SET `Nombre` = '$nombre'";
 
-                    $archivoTmp = $imagen2['tmp_name'];
-                    $nombreArchivo = basename($imagen2['name']); 
-                    $rutaDestino = $directorioDestino . $nombreArchivo;
-                    $ubicacion2 = $rutaDestino;
+                // Añadir las ubicaciones de las imágenes si fueron cargadas
+                foreach ($ubicaciones as $columna => $ubicacion) {
+                    // Solo actualizamos el campo si se ha cargado una imagen
+                    if ($ubicacion) {
+                        $updateQuery .= ", `$columna` = '$ubicacion'";
+                    }
+                }
 
-                    $archivoTmp = $imagen3['tmp_name'];
-                    $nombreArchivo = basename($imagen3['name']); 
-                    $rutaDestino = $directorioDestino . $nombreArchivo;
-                    $ubicacion3 = $rutaDestino;
+                // Agregar condición para la empresa con el ID específico
+                $updateQuery .= " WHERE `EmpresaID` = $id";
 
-                    $archivoTmp = $imagen4['tmp_name'];
-                    $nombreArchivo = basename($imagen4['name']); 
-                    $rutaDestino = $directorioDestino . $nombreArchivo;
-                    $ubicacion4 = $rutaDestino;
-
-                    $archivoTmp = $imagen5['tmp_name'];
-                    $nombreArchivo = basename($imagen5['name']); 
-                    $rutaDestino = $directorioDestino . $nombreArchivo;
-                    $ubicacion5 = $rutaDestino;
-
-                    $add = "UPDATE `empresa` SET `Nombre`='$nombre' WHERE `EmpresaID` = $id";
-                    
-                    if(Query($add)){
-                        echo "
+                if(Query($updateQuery)){
+                    echo "
                         <script>
                             Swal.fire({
-                                title: '¡Boleto modificado correctamente!',
+                                title: 'Empresa modificada correctamente!',
                                 icon: 'success',
                                 confirmButtonText: 'Aceptar'
                             }).then((result) => {
@@ -168,7 +131,7 @@
                                 }
                             });
                         </script>";
-                    }
+                    
 
                 }
     
@@ -186,7 +149,7 @@
                         echo "
                         <script>
                             Swal.fire({
-                                title: '¡Boleto modificado correctamente!',
+                                title: 'Horario modificado correctamente!',
                                 icon: 'success',
                                 confirmButtonText: 'Aceptar'
                             }).then((result) => {
@@ -212,7 +175,7 @@
                             echo "
                             <script>
                                 Swal.fire({
-                                    title: '¡Boleto modificado correctamente! ',
+                                    title: '¡Lugar modificado correctamente! ',
                                     icon: 'success',
                                     confirmButtonText: 'Aceptar'
                                 }).then((result) => {

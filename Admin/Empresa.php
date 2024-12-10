@@ -48,13 +48,13 @@
                         <input type="text" class="input" id="Nombre" name="Nombre" required>
                         <h3>Imagen principal de la empresa</h3>
                         <div class="inputImgContainer-d">
-                            <input type="file" id="ImgP" name="ImgP" accept="image/*" required onchange="showImage('ImgP', 'ImgP-Preview')">
+                            <input class="in" type="file" id="ImgP" name="ImgP" accept="image/*" required onchange="showImage('ImgP', 'ImgP-Preview')">
                             <img id="ImgP-Preview" alt="Image Preview" style="display:none;">
                         </div>
 
                         <h3>Icono de la empresa</h3>
                         <div class="inputImgContainer-d">
-                            <input type="file" id="ImgI" name="ImgI" accept="image/*" required onchange="showImage('ImgI', 'ImgI-Preview')">
+                            <input class="in" type="file" id="ImgI" name="ImgI" accept="image/*" required onchange="showImage('ImgI', 'ImgI-Preview')">
                             <img id="ImgI-Preview" alt="Image Preview" style="display:none;">
                         </div>
 
@@ -85,7 +85,7 @@
                 
                     <!-- Modificar -->
                     <?php
-                                      if(isset($_GET['id'])){
+                                    if(isset($_GET['id'])){
                                         $id =$_GET['id'];
                                         $query = QueryAndGetData("SELECT * FROM `empresa` WHERE EmpresaID =  $id");
                                         $datos = mysqli_fetch_assoc($query);
@@ -111,13 +111,13 @@
                                                 <input type="text" class="input" id="Nombre" name="Nombre" value="'.$datos['Nombre'].'" required>
                                                 <h3>Imagenes de las empresas</h3>
                                                 <div class="inputImgContainer-d">
-                                                    <input class="in" type="file" id="ImgPU" name="ImgPU" accept="image/*" required onchange="showImage('.$stringI.')">
+                                                    <input class="in" type="file" id="ImgPU" name="ImgPU" accept="image/*"  onchange="showImage('.$stringI.')">
                                                     <img src="'.$principal.'" class="ver" id="ImgPU-Preview" alt="Image Preview" style="display:none;">
                                                 </div>
             
                                                 <h3>Icono de la empresa</h3>
                                                 <div class="inputImgContainer-d">
-                                                    <input class="in" type="file" id="ImgIU" name="ImgIU" accept="image/*" required onchange="showImage('.$stringII.')">
+                                                    <input class="in" type="file" id="ImgIU" name="ImgIU" accept="image/*"  onchange="showImage('.$stringII.')">
                                                     <img src="'.$icono.'" class="ver" id="ImgIU-Preview" alt="Image Preview" style="display:none;">
                                                 </div>
             
@@ -127,15 +127,15 @@
                                                 
                                                 <ul class="inputImgContainer">
                                                     <li  class="inputImgContainer-li">
-                                                        <input class="in" type="file" id="Img1U" name="Img1U" required onchange="showImage('.$stringIII.')">
+                                                        <input class="in" type="file" id="Img1U" name="Img1U" accept="image/*"  onchange="showImage('.$stringIII.')">
                                                         <img src="'.$imgI.'" class="ver" id="Img1U-Preview" alt="Image Preview" style="display:none;">
                                                     </li>
                                                     <li class="inputImgContainer-li">
-                                                        <input class="in" type="file" id="Img2U"  name="Img2U" required onchange="showImage('.$stringIV.')">
+                                                        <input class="in" type="file" id="Img2U"  name="Img2U" accept="image/*"  onchange="showImage('.$stringIV.')">
                                                         <img src="'.$imgII.'" class="ver"  id="Img2U-Preview" alt="Image Preview" style="display:none;">
                                                     </li>
                                                     <li class="inputImgContainer-li">
-                                                        <input class="in" type="file" id="Img3U" name="Img3U" required onchange="showImage('.$stringIV.')">
+                                                        <input class="in" type="file" id="Img3U" name="Img3U" accept="image/*"  onchange="showImage('.$stringIV.')">
                                                         <img src="'.$imgIII.'" class="ver"  id="Img3U-Preview" alt="Image Preview" style="display:none;" >
                                                     </li>
                                                 </ul>

@@ -242,7 +242,7 @@ body{
     border-radius: 100%;
 }
 
-.inputImgContainer-d .in{
+.inputImgContainer-d .in, .inputImgContainer-li .in{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -253,16 +253,6 @@ body{
     z-index: 10;
 }
 
-.inputImgContainer-li input{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    cursor: pointer;
-    background-color: transparent;
-    opacity: 0;
-    z-index: 10;
-}
 
 .inputImgContainer-li{
     position: relative;
