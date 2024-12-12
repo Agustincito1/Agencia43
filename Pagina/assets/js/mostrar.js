@@ -128,13 +128,69 @@ container.addEventListener('click', (event) => {
                         // Obtener el array desde el atributo
                         const arrayData = JSON.parse(button.getAttribute('data-array'));
                         console.log(arrayData);
+                        
+                        // Convertir el array JSON a hoja de trabajo (worksheet)
                         const worksheet = XLSX.utils.json_to_sheet(arrayData);
+                    
+                        // Estilos para el encabezado
+                        const headerStyle = {
+                            font: { bold: true, color: { rgb: "FFFFFF" }, name: "Arial", sz: 12 },
+                            alignment: { horizontal: "center", vertical: "center" },
+                            fill: { fgColor: { rgb: "4F81BD" } },
+                            border: {
+                                top: { style: "thin", color: { rgb: "000000" } },
+                                left: { style: "thin", color: { rgb: "000000" } },
+                                bottom: { style: "thin", color: { rgb: "000000" } },
+                                right: { style: "thin", color: { rgb: "000000" } }
+                            }
+                        };
+                    
+                        // Estilo para las celdas de datos
+                        const dataStyle = {
+                            font: { color: { rgb: "000000" }, name: "Arial", sz: 10 },
+                            alignment: { horizontal: "center", vertical: "center" },
+                            border: {
+                                top: { style: "thin", color: { rgb: "000000" } },
+                                left: { style: "thin", color: { rgb: "000000" } },
+                                bottom: { style: "thin", color: { rgb: "000000" } },
+                                right: { style: "thin", color: { rgb: "000000" } }
+                            }
+                        };
+                    
+                        // Obtener los encabezados (primer fila)
+                        const headers = Object.keys(arrayData[0]);
+                    
+                        // Aplicar estilo a los encabezados
+                        headers.forEach((header, colIndex) => {
+                            const cellAddress = { r: 0, c: colIndex }; // Dirección de la celda
+                            worksheet[cellAddress] = worksheet[cellAddress] || {}; // Crear la celda si no existe
+                            worksheet[cellAddress].s = headerStyle; // Asignar el estilo al encabezado
+                        });
+                    
+                        // Aplicar estilo a las celdas de datos
+                        arrayData.forEach((row, rowIndex) => {
+                            headers.forEach((header, colIndex) => {
+                                const cellAddress = { r: rowIndex + 1, c: colIndex }; // Las filas de datos empiezan desde la segunda fila
+                                worksheet[cellAddress] = worksheet[cellAddress] || {}; // Crear la celda si no existe
+                                worksheet[cellAddress].s = dataStyle; // Asignar el estilo a los datos
+                            });
+                        });
+                    
+                        // Ajustar el ancho de las columnas (opcional, puedes personalizar según el contenido)
+                        worksheet["!cols"] = headers.map(header => ({ wch: Math.max(header.length, 10) }));
+                    
+                        // Crear el libro de trabajo (workbook)
                         const workbook = XLSX.utils.book_new();
                         XLSX.utils.book_append_sheet(workbook, worksheet, 'Datos');
                     
+                        // Nombre del archivo
                         const fileName = 'Lista.xlsx';
+                    
+                        // Descargar el archivo con los estilos aplicados
                         XLSX.writeFile(workbook, fileName);
                     });
+                    
+                    
                 }
             
             },

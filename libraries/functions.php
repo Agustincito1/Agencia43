@@ -127,7 +127,7 @@
                 for($n = 1; $n <= $cantidad_columnas; $n++){
 
                     if (esImagen($values[$n])) {
-                        echo "<td class='tcont'><img src='".$values[$n]."'></td>";
+                        echo "<td class='tcont'><img class='imagenE' src='".$values[$n]."'></td>";
                     } else {
                         echo "<td class='tcont'><p>".$values[$n]."</p></td>";
                     }

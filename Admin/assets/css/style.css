@@ -34,7 +34,7 @@ select,input,a{
 
 body{
     display: grid;
-    grid-template-rows: 40rem auto;
+    grid-template-rows: 50rem auto;
     gap: 20%;
     height: 100%;
     width: 100%;
@@ -96,7 +96,7 @@ body{
 #bodyM{
     display: grid;
     height: 100%;
-    grid-template-rows: 20rem 35rem auto; 
+    grid-template-rows: 20rem 40rem auto; 
     
 }
 
@@ -926,3 +926,8 @@ table tr{
 .acont a{
     width: 2rem;
 }
+.tcont {
+    text-align: center;
+   
+}
+
