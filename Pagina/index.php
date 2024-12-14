@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../libraries/Pikaday-master/css/pikaday.css">
+    <script type="text/javascript" src="../libraries/Pikaday-master/pikaday.js"></script>
     <title>Agencias 42-43</title>
 </head>
     <body id="bodyB">
@@ -88,9 +89,8 @@
                             
                             <label for="fecha" class="m-s-a-f-d__item"><p >fecha de viaje</p>
 
-                                <input type="date" id="fecha" placeholder="Selecciona una fecha" required>
-                                <input type="date" id="hidden-date-input" name="fecha">
-
+                                <input type="date" name="fecha" id="fecha" placeholder="Selecciona una fecha" required>
+                                
                             </label>
                             
                             <label for="cantidad" class="m-s-a-f-d__item"><p>Cant. Pasajeros</p>
@@ -180,8 +180,6 @@
     </body>
 
     <script type="text/javascript" src="assets/js/filtro.js"></script>
-
-    <script type="text/javascript" src="../libraries/Pikaday-master/pikaday.js"></script>
     <script type="text/javascript" src="assets/js/pika.js"></script>
     <script type="text/javascript" src="assets/js/calendario.js"></script>
     <script type="text/javascript" src="assets/js/mostrar.js"></script>

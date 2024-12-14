@@ -1,6 +1,12 @@
+// Obtener la fecha actual en formato YYYY-MM-DD para que se muestre en el input por defecto
+const today = new Date();
+const formattedDate = today.toISOString().split('T')[0];  // Formato YYYY-MM-DD
+document.getElementById('fecha').value = formattedDate; // Asigna la fecha predeterminada al input
+
+// Inicializa Pikaday
 var picker = new Pikaday({
     field: document.getElementById('fecha'),
-    format: 'YYYY-MM-DD',  // Aquí defines el formato de la fecha que usará Pikaday
+    format: 'YYYY-MM-DD',  // Formato de fecha que usará Pikaday
     i18n: {
         previousMonth : 'Mes anterior',
         nextMonth     : 'Mes siguiente',
@@ -10,7 +16,7 @@ var picker = new Pikaday({
     },
     onSelect: function(date) {
         // Establece la fecha seleccionada en el input tipo date
-        // El valor se asigna directamente al input tipo date con el formato YYYY-MM-DD
-        document.getElementById('fecha').value = date.toISOString().split('T')[0];
+        const formattedDate = date.toLocaleDateString('en-CA'); // Usa el formato ISO 8601 (YYYY-MM-DD)
+        document.getElementById('fecha').value = formattedDate;  // Asigna la fecha al input
     }
 });

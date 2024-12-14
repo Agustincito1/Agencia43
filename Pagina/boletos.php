@@ -53,6 +53,7 @@
                         $var = 11;
                     }
                     else{
+                        
                         if(isset($_POST['fecha'])){
                             $fecha = $_POST['fecha'];
                             if(isset($_POST['cantidad'])){
@@ -78,7 +79,7 @@
                                     // Retornar el nombre del día en español
                                     return $dias_espaniol[$nombre_dia_ingles];
                                 }
-            
+                                
                                 $day = obtenerNombreDiaEnEspanol($fecha);
                                 $query = "SELECT 
                                     boleto.NombreBoleto as Nombre,
@@ -106,6 +107,7 @@
                                     AND boleto.TipoboletoID = $tipo
                                     AND boleto.CantidadPersonas = $pasajeros
                                     AND boleto.IdaYvuelta = '$option';";
+                               
                                 if($data = QueryAndGetData($query)){
                                     if(mysqli_num_rows($data)>0){
                                         
@@ -179,7 +181,7 @@
                     <div class="mB-s-a__div">';
                     while($data = mysqli_fetch_assoc($data)){
                         echo '<div class="boletocontainer">';
-
+                        echo '<img class="boletocontainer__imgempresa" src="'.$data['IconoEmpresa'].'">';
                         echo '<p class="boletocontainer__inicio">Desde Terminal de Posadas Misiones hacia '.$data['Destino'].'</p>';
                         echo '<p class="boletocontainer__precio">$ARS'.$data['Precio'].'</p>';
                         echo '<p class="boletocontainer__tipob">'.$data['Tipo'].'</p>';
