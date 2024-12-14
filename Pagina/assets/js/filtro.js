@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (Array.isArray(data) && data.length > 0) {
                     createOptions(data);
                 } else {
-                    // Si no hay resultados, mostramos un mensaje
-                    createOptions([{ text: 'No se encontraron resultados', value: '' }]);
+                    
                 }
             })
             .catch(error => {
