@@ -3,6 +3,9 @@
     src: url('../../../libraries/fontlato/Lato-Regular.ttf') format('truetype'); /* Asegúrate de usar la ruta correcta */
 }
 
+h2{
+    cursor: default;
+}
 #hidden-date-input{
     display: none;
 }
@@ -289,19 +292,21 @@ p{
 .agenciaimg_container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
-    
     gap: 5%;
     overflow-y: auto;
-    height: 25rem;
-
+    height: 30rem;
     justify-content: center;
+    position: relative;
+    padding-top: 5%;
 }
+
 .agenciaredes_container{
     display: grid;
     grid-template-columns:  repeat(auto-fit, minmax(20rem, 20rem));;
     width: 80%;
    
 }
+
 .agenciaredes_container div{
     display: grid;
     height: 20%;
@@ -354,6 +359,13 @@ p{
     width: 20rem;
     min-height: 5rem;
     border:0.2rem solid #DEDE38;
+    transition: all 0.4s;
+    
+}
+
+.agenciaimg:hover{
+    transform: scale(1.1, 1.1);
+    z-index: 10;
 }
 #Empresa{
     display: grid;
@@ -361,6 +373,7 @@ p{
 }
 .empresaimg_container{
     display: grid;
+    padding-top: 2%;
     grid-template-columns: repeat(auto-fit, minmax(5rem, 8rem));
     height: 80%;
     gap: 2%;
@@ -373,9 +386,14 @@ p{
     height: 8rem;
     min-height: 5rem;
     border:0.2rem solid #DEDE38;
+    transition: all 0.5s;
 }
 
 
+.empresaimg:hover{
+  transform: scale(1.1, 1.1);
+  cursor: default;
+}
 
 #mainB{
     height: 100%;
@@ -575,7 +593,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 }
 
+.redes{
+    cursor: pointer;
+    transition: all 0.4s;
+}
 
+.redes:hover{
+    
+    transform: scale(1.05, 1.05);
+}
 .m-s__article-comollegar h2{
     font-weight: bold;
     font-size: 5rem;
@@ -856,9 +882,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: bold;
     height: 5rem;
     display: grid;
+
     grid-template-columns: 0.2fr 1fr 0.2fr;
 }
-
+#calendar-header button {
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 2rem;
+}
 #calendar-body {
     display: flex;
     flex-direction: column;
@@ -895,7 +926,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     position: relative;
 }
 .day span{
-
+    border-radius: 10%;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -910,14 +941,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .day:hover {
- 
+    border-radius: 10%;
     background-color: #494848;
-    color: red;
+    color: #D9D9D9;
 }
 .day span:hover {
-    
+    border-radius: 10%;
     background-color: #494848;
-    color: red;
+    color: #D9D9D9;
 }
 
 #month-year{
