@@ -910,12 +910,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .day:hover {
+ 
     background-color: #494848;
-    color: #ffffff;
+    color: red;
 }
 .day span:hover {
+    
     background-color: #494848;
-    color: #ffffff;
+    color: red;
 }
 
 #month-year{
