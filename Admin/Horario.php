@@ -44,14 +44,6 @@
                     <form class="mb-s-a__form" action="add.php" method="POST">
 
                         <h2>Horarios</h2>
-
-                        <label for="Empresa">Empresa</label>
-
-                        <select name="Empresa" id="Empresa">
-                            <?php
-                                options($empresa);
-                            ?>
-                        </select>
                         
                         <label for="Horario">Horario</label>
 
@@ -89,11 +81,8 @@
                             $query = QueryAndGetData("SELECT 
                                 `HorarioID`, 
                                 `Horario`, 
-                                `empresa`.`Nombre`,
-                                `empresa`.`EmpresaID`,
                                 `horario`.`Dia`
                                 FROM `horario`
-                                INNER JOIN `empresa` ON `empresa`.`EmpresaID` = `horario`.`EmpresaID` 
                                 WHERE `HorarioID` = $id");
                             $datos = mysqli_fetch_assoc($query);
                             
@@ -106,16 +95,11 @@
                                 <article class="mb-s__article up" id="up">
                                 <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
-                                    <h2>Horarios</h2>
-
-                                    <label for="EmpresaU">Empresa</label>
-
-                                    <select name="EmpresaU" id="EmpresaU">';
+                                    <h2>Horarios</h2>';
                                         
-                                    options_selectionado($empresa, $datos['EmpresaID']);
+                                    
                             echo '
-                                    </select>
-
+                                   
                                     <label for="HorarioU">Horario</label>
 
                                     <input type="time" id="HorarioU" value="'.$datos['Horario'].'" name="HorarioU" required>
@@ -152,14 +136,14 @@
                     <table>
                         <tr>
                             <th>Horario</th>
-                            <th>Empresa</th>
+                
                             <th>Dia</th>
                             <th>Configuraciones</th>
                             
                         </tr>
                         
                         <?php  
-                            filas($select_horario,3, "horario", "HorarioID");
+                            filas($select_horario,2, "horario", "HorarioID");
                         ?>
 
                     </table>

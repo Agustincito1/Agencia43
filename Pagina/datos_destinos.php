@@ -10,7 +10,13 @@
         $search = mysqli_real_escape_string($conexion, $search);  // Sanitiza la entrada para evitar inyecciones SQL
         
         // Construye la consulta SQL
-        $query = "SELECT `DestinoID`, `Nombre`, `LocalidadID`, `BoletoID` FROM `destino` WHERE UPPER(`Nombre`) LIKE UPPER('%$search%') ORDER BY Nombre ASC;";
+        $query = "SELECT
+            `localidad`.`LocalidadID`,
+            `provincia`.`Provincia`, 
+            `localidad`.`Localidad`
+        FROM `localidad`
+        INNER JOIN `provincia` ON `provincia`.`ProvinciaID` = `localidad`.`ProvinciaID`
+        WHERE `localidad`.`Localidad` LIKE '%$search%';";
 
         // Llama a la función QueryAndGetData con la consulta preparada
         $result = QueryAndGetData($query);
@@ -21,9 +27,11 @@
         // Si hay resultados
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
+
+                $text = $row['Provincia'].","." ".$row['Localidad'];
                 $data[] = [
-                    'text' => $row['Nombre'],
-                    'value' => $row['DestinoID']
+                    'text' => $text, 
+                    'value' => $row['LocalidadID']
                 ];
             }
             

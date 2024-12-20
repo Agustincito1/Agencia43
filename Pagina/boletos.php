@@ -48,6 +48,10 @@
                     $option = $_POST['option'];
                     $tipo = $_POST['tipo'];
                     $destino = $_POST['destino'];
+                    $parts = explode(",", $destino); // Separamos la cadena por la coma
+
+                    $Provincia = trim($parts[0]);  // Primera parte antes de la coma
+                    $Localidad = trim($parts[1]);
                     if(empty($destino)){
 
                         $var = 11;
@@ -81,33 +85,38 @@
                                 }
                                 
                                 $day = obtenerNombreDiaEnEspanol($fecha);
+                               
                                 $query = "SELECT 
-                                    boleto.NombreBoleto as Nombre,
+                                    localidad.Localidad as Nombre,
                                     boleto.Precio as Precio,
                                     tipoboleto.tipo as Tipo,
                                     boleto.cantidadPersonas as Cantidad,
                                     boleto.idaYvuelta as Ida,
-                                    destino.Nombre as Destino, 
-                                    destino.BoletoID , 
+                                    localidad.Localidad as Destino,
                                     horario.Horario as Horario, 
                                     empresa.Nombre as NombreEmpresa,
-                                    empresa.IconoEmpresa 
+                                    empresa.IconoEmpresa,
+                                    provincia.Provincia
                                 FROM 
-                                    destino
-                                INNER JOIN 
-                                    boleto ON destino.BoletoID = boleto.BoletoID  
+                                    boleto
                                 INNER JOIN 
                                     tipoboleto ON boleto.TipoBoletoID = tipoboleto.TipoBoletoID  
                                 INNER JOIN 
-                                    horario ON boleto.HorarioID = horario.HorarioID and horario.Dia = '$day'
+                                    horario ON boleto.HorarioID = horario.HorarioID AND horario.Dia = '$day'
                                 INNER JOIN 
                                     empresa ON empresa.EmpresaID = horario.EmpresaID
+                                INNER JOIN 
+                                    localidad ON boleto.LocalidadID = localidad.LocalidadID
+                                INNER JOIN 
+                                    provincia ON localidad.ProvinciaID = provincia.ProvinciaID
                                 WHERE 
-                                    destino.Nombre = '$destino'
-                                    AND boleto.TipoboletoID = $tipo
+                                    localidad.Localidad = '$Localidad'
+                                    AND provincia.Provincia = '$Provincia'
+                                    AND boleto.TipoBoletoID = $tipo
                                     AND boleto.CantidadPersonas = $pasajeros
-                                    AND boleto.IdaYvuelta = '$option';";
-                               
+                                    AND boleto.IdaYvuelta = '$option';
+                                ";
+                                
                                 if($data = QueryAndGetData($query)){
                                     if(mysqli_num_rows($data)>0){
                                         

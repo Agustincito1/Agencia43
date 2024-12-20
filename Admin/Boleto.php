@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Boleto</title>
 </head>
     <body id="bodyB">
@@ -44,10 +45,6 @@
                     <form  class="mb-s-a__form"action="add.php" method="POST">
                         <h2 class="mb-s-a-f__h2">Crea un boleto</h2>
 
-                        <label for="Nombre" >Nombre</label>
-
-                        <input type="text" id="Nombre" placeholder="Nombre del boleto" name="Nombre" required>
-
                         <label for="Tipo">Tipo de Boleto</label>
 
                         <select name="Tipo" id="Tipo">
@@ -66,7 +63,7 @@
                             ?>
                         </select>
 
-                        <label for="Precio" >Precio</label>
+                        <label for="Precio" >Precio en pesos</label>
 
                         <input type="text" id="Precio" name="Precio" placeholder="00" required>
 
@@ -91,6 +88,31 @@
                             <option value='IdaYvuelta'>Ida y vuelta</option>
                         </select>
 
+                        
+                        <label for="Provincia">Provincia</label>
+
+                        <select name="Provincia" id="Provincia">
+                            <?php
+                                //Llamamos la  funcion de creacion de opciones  
+                                options($select_provincia);
+                            ?>
+                        </select>
+                        
+                        <label for="Localidad">Localidad</label>
+
+                        <select name="Localidad" id="Localidad">
+                            <option value="">Seleccione una Provincia primero</option>
+                        </select>
+
+                        <label for="Empresa">Empresa</label>
+
+                        <select name="Empresa" id="Empresa">
+                            <?php
+                                //Llamamos la  funcion de creacion de opciones  
+                                options($select_empresa);
+                            ?>
+                        </select>
+
                         <input type="submit" id="submit"  name="AnadirBoleto">
                     </form>
                 </article>
@@ -101,17 +123,16 @@
 
                     if(isset($_GET['id'])){
                         $id =$_GET['id'];
-                        $query = QueryAndGetData("SELECT `BoletoID`, `NombreBoleto`, `InicioDestino`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `localID`, `IdaYvuelta` FROM `boleto` WHERE BoletoID =  $id");
+                        $query = QueryAndGetData("SELECT `BoletoID`, `InicioDestino`, `Precio`, `TipoboletoID`, `HorarioID`, `CantidadPersonas`, `localID`, `IdaYvuelta`, `LocalidadID`, `EmpresaID` FROM `boleto` WHERE BoletoID =  $id");
                         $datos = mysqli_fetch_assoc($query);
-                        $id =$_GET['id'];
+                        $id = $_GET['id'];
                         
                         echo ' <a href="boleto.php" class="anadir">Añadir boleto</a> <h2 class="h2"> Modificar boleto</h2>
                         <article class="mb-s__article up" id="up">
                                     <form action="update.php" class="mb-s-a__form" method="POST">
                                     <input type="hidden" name="id" value='.$id.'>
                                     <h2>Actualizar un boleto</h2>
-                                    <label for="NombreU">Nombre</label>
-                                    <input type="text" name="NombreU" id="NombreU" value = "'.$datos['NombreBoleto'].'" required>';
+                                    <label for="NombreU">Nombre</label>';
 
                                     echo '<label for="TipoU">Tipo de Boleto</label>
                                         <select name="TipoU" id="TipoU">';
@@ -158,6 +179,14 @@
 
                             echo '</select>'; 
 
+
+
+                            echo '<label for="EmpresaU">Empresa</label>
+                            <select name="EmpresaU" id="EmpresaU">';
+                            options_selectionado($select_empresa,$datos['EmpresaID']);
+                            echo '</select>';
+
+
                             echo '<input type="submit" id="submit" name="uptdateBoleto">
                             </form>
                         </article>';
@@ -172,19 +201,21 @@
                     <!-- tabla -->
                     <table class="table">
                         <tr>
-                            <th>Nombre</th>
+                            
                             <th>In. destino</th>
                             <th>Precio</th>
                             <th>Tipo de boleto</th>
                             <th>Horario</th>
                             <th>Cant. personas</th>
                             <th>Ida y vuelta</th>
+                            <th>Destino</th>
+                            <th>Empresa</th>
                             <th>Configuraciones</th>
                             
                         </tr>
                         
                         <?php 
-                            filas($boleto,7,"boleto", "BoletoID");
+                            filas($boleto,8,"boleto", "BoletoID");
                         ?>
                         
                     </table>
@@ -213,10 +244,6 @@
             </div>
         </footer>
     </body>
-
-
-
-
-
+    <script src="assets/js/selectfiltro.js"></script>
     <script type="text/javascript" src="assets/js/mostrarcaja.js"></script>
 </html>

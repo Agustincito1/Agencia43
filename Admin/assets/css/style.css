@@ -137,7 +137,7 @@ body{
 }
 
 #mainB .mb_section{
-    grid-template-rows: 4rem 54rem 4rem 38rem;
+    grid-template-rows: 4rem 70rem 4rem 38rem;
     justify-items: center;
     gap: 5rem;
 
@@ -344,21 +344,7 @@ body{
     overflow: auto;
 }
 
-#mainD .mb-s__article:nth-child(4){
-    width: 50%;
-    background-color: #989898;
-    border: 0.15rem solid #494848;
-    height: 100%;
-    overflow: auto;
-}
 
-#mainD .mb-s__article:nth-child(7){
-    width: 50%;
-    background-color: #989898;
-    border: 0.15rem solid #494848;
-    height: 100%;
-    overflow: auto;
-}
 
 .mb-s__article:nth-child(4){
     width: 90%;

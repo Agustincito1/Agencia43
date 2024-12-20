@@ -17,13 +17,13 @@
         if(isset($_POST['uptdateBoleto'])){
             
             $id = $_POST['id'];
-            $nombre = $_POST['NombreU'];
             $tipo = $_POST['TipoU'];
             $horario = $_POST['HorarioU'];
             $precio = $_POST['PrecioU'];
             $cantidad = $_POST['CantidadU'];
             $ida = $_POST['IdaYvueltaU'];
-            $add = "UPDATE `boleto` SET `NombreBoleto`='$nombre',`Precio`='$precio',`TipoboletoID`='$tipo',`HorarioID`='$horario',`CantidadPersonas`='$cantidad',`IdaYvuelta`='$ida' WHERE BoletoID = $id";
+            $empresa = $_POST['EmpresaU'];
+            $add = "UPDATE `boleto` SET `EmpresaID`='$empresa',`Precio`='$precio',`TipoboletoID`='$tipo',`HorarioID`='$horario',`CantidadPersonas`='$cantidad',`IdaYvuelta`='$ida' WHERE BoletoID = $id";
 
             if(Query($add)){
                 echo "
@@ -140,10 +140,9 @@
                 if(isset($_POST['updateHorario'])){
                     
                     $id = $_POST['id'];
-                    $empresa = $_POST['EmpresaU'];
                     $horario = $_POST['HorarioU'];
                     $dia = $_POST['dia'];
-                    $add = "UPDATE `horario` SET `Horario`='$horario',`EmpresaID`='$empresa',`Dia` ='$dia'  WHERE HorarioID = $id";
+                    $add = "UPDATE `horario` SET `Horario`='$horario',`Dia` ='$dia'  WHERE HorarioID = $id";
         
                     if(Query($add)){
                         echo "
