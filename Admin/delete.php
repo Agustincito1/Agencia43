@@ -25,7 +25,8 @@
                     Swal.fire({
                         title: '¡Dato eliminado correctamente!',
                         icon: 'success',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
                     }).then((result) => {
                         if (result.isConfirmed) {
                             history.go(-1);
@@ -40,7 +41,8 @@
                         title: '¡Oops...!',
                         text: 'No se pudo eliminar',
                         icon: 'error',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
                     }).then((result) => {
                         if (result.isConfirmed) {
                             

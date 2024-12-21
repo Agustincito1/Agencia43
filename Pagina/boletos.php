@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../libraries/sweet/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <link rel="shortcut icon" href="imgs/icono.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="canonical" href="">
     <title>Boletos</title>
@@ -45,100 +44,107 @@
             if(isset($_POST['buscar'])){
 
                 if(isset($_POST['option'])){
-                    $option = $_POST['option'];
-                    $tipo = $_POST['tipo'];
-                    $destino = $_POST['destino'];
-                    $parts = explode(",", $destino); // Separamos la cadena por la coma
 
-                    $Provincia = trim($parts[0]);  // Primera parte antes de la coma
-                    $Localidad = trim($parts[1]);
-                    if(empty($destino)){
+                    if(isset($_POST['tipo'])){
+                        $destino = $_POST['destino'];
+                        if(empty($destino)){
+    
+                            $var = 11;
+                        }
+                        else{
+                            $option = $_POST['option'];
+                            $tipo = $_POST['tipo'];
+                            
+                            $parts = explode(",", $destino); // Separamos la cadena por la coma
+                            $Provincia = trim($parts[0]);  // Primera parte antes de la coma
+                            $Localidad = trim($parts[1]);
 
-                        $var = 11;
-                    }
-                    else{
+                            if(isset($_POST['fecha'])){
+                                $fecha = $_POST['fecha'];
+                                if(isset($_POST['cantidad'])){
+                                    $pasajeros = $_POST['cantidad'];
+                                    function obtenerNombreDiaEnEspanol($fecha) {
+                                        // Convertir la fecha a un timestamp
+                                        $timestamp = strtotime($fecha);
                         
-                        if(isset($_POST['fecha'])){
-                            $fecha = $_POST['fecha'];
-                            if(isset($_POST['cantidad'])){
-                                $pasajeros = $_POST['cantidad'];
-                                function obtenerNombreDiaEnEspanol($fecha) {
-                                    // Convertir la fecha a un timestamp
-                                    $timestamp = strtotime($fecha);
-                    
-                                    // Obtener el nombre del día en inglés
-                                    $nombre_dia_ingles = date('l', $timestamp);
-                    
-                                    // Array de días en inglés a español
-                                    $dias_espaniol = array(
-                                        'Sunday' => 'Domingo',
-                                        'Monday' => 'Lunes',
-                                        'Tuesday' => 'Martes',
-                                        'Wednesday' => 'Miercoles',
-                                        'Thursday' => 'Jueves',
-                                        'Friday' => 'Viernes',
-                                        'Saturday' => 'Sabado'
-                                    );
-                    
-                                    // Retornar el nombre del día en español
-                                    return $dias_espaniol[$nombre_dia_ingles];
-                                }
-                                
-                                $day = obtenerNombreDiaEnEspanol($fecha);
-                               
-                                $query = "SELECT 
-                                    localidad.Localidad as Nombre,
-                                    boleto.Precio as Precio,
-                                    tipoboleto.tipo as Tipo,
-                                    boleto.cantidadPersonas as Cantidad,
-                                    boleto.idaYvuelta as Ida,
-                                    localidad.Localidad as Destino,
-                                    horario.Horario as Horario, 
-                                    empresa.Nombre as NombreEmpresa,
-                                    empresa.IconoEmpresa,
-                                    provincia.Provincia
-                                FROM 
-                                    boleto
-                                INNER JOIN 
-                                    tipoboleto ON boleto.TipoBoletoID = tipoboleto.TipoBoletoID  
-                                INNER JOIN 
-                                    horario ON boleto.HorarioID = horario.HorarioID AND horario.Dia = '$day'
-                                INNER JOIN 
-                                    empresa ON empresa.EmpresaID = horario.EmpresaID
-                                INNER JOIN 
-                                    localidad ON boleto.LocalidadID = localidad.LocalidadID
-                                INNER JOIN 
-                                    provincia ON localidad.ProvinciaID = provincia.ProvinciaID
-                                WHERE 
-                                    localidad.Localidad = '$Localidad'
-                                    AND provincia.Provincia = '$Provincia'
-                                    AND boleto.TipoBoletoID = $tipo
-                                    AND boleto.CantidadPersonas = $pasajeros
-                                    AND boleto.IdaYvuelta = '$option';
-                                ";
-                                
-                                if($data = QueryAndGetData($query)){
-                                    if(mysqli_num_rows($data)>0){
+                                        // Obtener el nombre del día en inglés
+                                        $nombre_dia_ingles = date('l', $timestamp);
+                        
+                                        // Array de días en inglés a español
+                                        $dias_espaniol = array(
+                                            'Sunday' => 'Domingo',
+                                            'Monday' => 'Lunes',
+                                            'Tuesday' => 'Martes',
+                                            'Wednesday' => 'Miercoles',
+                                            'Thursday' => 'Jueves',
+                                            'Friday' => 'Viernes',
+                                            'Saturday' => 'Sabado'
+                                        );
+                        
+                                        // Retornar el nombre del día en español
+                                        return $dias_espaniol[$nombre_dia_ingles];
+                                    }
+                                    
+                                    $day = obtenerNombreDiaEnEspanol($fecha);
+                                   
+                                    $query = "SELECT 
+                                        localidad.Localidad as Nombre,
+                                        boleto.Precio as Precio,
+                                        tipoboleto.tipo as Tipo,
+                                        boleto.cantidadPersonas as Cantidad,
+                                        boleto.idaYvuelta as Ida,
+                                        localidad.Localidad as Destino,
+                                        horario.Horario as Horario, 
+                                        empresa.Nombre as NombreEmpresa,
+                                        empresa.IconoEmpresa,
+                                        provincia.Provincia
+                                    FROM 
+                                        boleto
+                                    INNER JOIN 
+                                        tipoboleto ON boleto.TipoBoletoID = tipoboleto.TipoBoletoID  
+                                    INNER JOIN 
+                                        horario ON boleto.HorarioID = horario.HorarioID AND horario.Dia = '$day'
+                                    INNER JOIN 
+                                        empresa ON empresa.EmpresaID = boleto.EmpresaID
+                                    INNER JOIN 
+                                        localidad ON boleto.LocalidadID = localidad.LocalidadID
+                                    INNER JOIN 
+                                        provincia ON localidad.ProvinciaID = provincia.ProvinciaID
+                                    WHERE 
+                                        localidad.Localidad = '$Localidad'
+                                        AND provincia.Provincia = '$Provincia'
+                                        AND boleto.TipoBoletoID = $tipo
+                                        AND boleto.CantidadPersonas = $pasajeros
+                                        AND boleto.IdaYvuelta = '$option';
+                                    ";
+                                   
+                                    if($data = QueryAndGetData($query)){
+                                        if(mysqli_num_rows($data)>0){
+                                            
+                                        }
+                                        else{
+                                            $var = 0;
+                                        }
                                         
                                     }
                                     else{
                                         $var = 0;
+                                        
                                     }
-                                    
                                 }
                                 else{
-                                    $var = 0;
-                                    
+                                    $var = 9;
                                 }
                             }
                             else{
-                                $var = 9;
+                                $var = 10;
                             }
                         }
-                        else{
-                            $var = 10;
-                        }
                     }
+                    else{
+                        $var = 15;
+                    }
+                  
                 }
                 else{
                     $var = 12;
@@ -284,7 +290,8 @@
             Swal.fire({
                     title: '¡No se encontro el boleto!',
                     icon: 'error',
-                    confirmButtonText: 'Aceptar'
+                    confirmButtonText: 'Aceptar',
+                    allowOutsideClick: false
                 }).then((result) => {
                     if (result.isConfirmed) {
                         
@@ -301,7 +308,8 @@
                     Swal.fire({
                         title: '¡Debes elegir una fecha!',
                         icon: 'error',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
                     }).then((result) => {
                         if (result.isConfirmed) {
                             
@@ -317,7 +325,8 @@
                         Swal.fire({
                             title: '¡Debes elegir un destino!',
                             icon: 'error',
-                            confirmButtonText: 'Aceptar'
+                            confirmButtonText: 'Aceptar',
+                            allowOutsideClick: false
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 
@@ -333,7 +342,8 @@
                             Swal.fire({
                                 title: '¡Debes elegir una opcion de viaje!',
                                 icon: 'error',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     
@@ -349,7 +359,8 @@
                                 Swal.fire({
                                     title: '¡Debes elegir una cantidad de personas!',
                                     icon: 'error',
-                                    confirmButtonText: 'Aceptar'
+                                    confirmButtonText: 'Aceptar',
+                                    allowOutsideClick: false
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         
@@ -357,6 +368,24 @@
                                     }
                                 });
                             </script>";
+                    }
+                    else{
+                        if($var === 15){
+                            echo "
+                                <script>
+                                    Swal.fire({
+                                        title: '¡Debes elegir un tipo de boleto!',
+                                        icon: 'error',
+                                        confirmButtonText: 'Aceptar',
+                                        allowOutsideClick: false
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            
+                                            history.go(-1);
+                                        }
+                                    });
+                                </script>";
+                        }
                     }
                 }
             }

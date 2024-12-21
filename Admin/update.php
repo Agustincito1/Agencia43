@@ -31,7 +31,8 @@
                     Swal.fire({
                         title: '¡Boleto modificado correctamente!',
                         icon: 'success',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
                     }).then((result) => {
                         if (result.isConfirmed) {
                             
@@ -87,7 +88,8 @@
                                 title: '¡Oops...!',
                                 text: 'No se pudo añadir la imagen: $input',
                                 icon: 'error',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                     if (result.isConfirmed) {
                                         history.go(-1);
@@ -123,7 +125,8 @@
                             Swal.fire({
                                 title: 'Empresa modificada correctamente!',
                                 icon: 'success',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     
@@ -150,7 +153,8 @@
                             Swal.fire({
                                 title: 'Horario modificado correctamente!',
                                 icon: 'success',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     
@@ -176,7 +180,8 @@
                                 Swal.fire({
                                     title: '¡Lugar modificado correctamente! ',
                                     icon: 'success',
-                                    confirmButtonText: 'Aceptar'
+                                    confirmButtonText: 'Aceptar',
+                                    allowOutsideClick: false
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         
@@ -200,7 +205,8 @@
                                     Swal.fire({
                                         title: '¡Tipo de boleto creado correctamente!',
                                         icon: 'success',
-                                        confirmButtonText: 'Aceptar'
+                                        confirmButtonText: 'Aceptar',
+                                         allowOutsideClick: false
                                     }).then((result) => {
                                         if (result.isConfirmed) {
                                             

@@ -32,7 +32,8 @@
                                 Swal.fire({
                                     title: '¡Inicio de sesion exitoso!',
                                     icon: 'success',
-                                    confirmButtonText: 'Aceptar'
+                                    confirmButtonText: 'Aceptar',
+                                    allowOutsideClick: false
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         
@@ -49,7 +50,8 @@
                             title: '¡Oops...!',
                             text: 'No existe este usuario admin',
                             icon: 'error',
-                            confirmButtonText: 'Aceptar'
+                            confirmButtonText: 'Aceptar',
+                            allowOutsideClick: false
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 
@@ -66,7 +68,8 @@
                         title: '¡Oops...!',
                         text: 'No existe este usuario admin',
                         icon: 'error',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
                     }).then((result) => {
                             if (result.isConfirmed) {
                                 

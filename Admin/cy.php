@@ -24,7 +24,8 @@
                     Swal.fire({
                         title: '¡Session cerrada correctamente!',
                         icon: 'success',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = 'login.php';

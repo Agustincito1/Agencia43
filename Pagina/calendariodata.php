@@ -11,13 +11,17 @@
 
         
         $query = "SELECT 
-            `Horario`, 
-            empresa.Nombre,
-            `Dia` 
-            
-        FROM `horario` 
-        INNER JOIN empresa on empresa.EmpresaID = horario.EmpresaID
-        WHERE horario.Dia = '$diatxt';";
+            horario.Horario, 
+            horario.Dia,
+            empresa.Nombre
+        FROM 
+            horario
+        JOIN 
+            boleto ON boleto.`HorarioID` = horario.`HorarioID`
+        JOIN 
+            empresa ON boleto.`EmpresaID` = empresa.`EmpresaID`
+        WHERE 
+            horario.Dia = '$diatxt';";
 
         $horarios = array();
 

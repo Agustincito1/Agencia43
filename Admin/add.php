@@ -40,7 +40,8 @@
                                             Swal.fire({
                                                 title: '¡Boleto creado correctamente!',
                                                 icon: 'success',
-                                                confirmButtonText: 'Aceptar'
+                                                confirmButtonText: 'Aceptar',
+                                                allowOutsideClick: false
                                             }).then((result) => {
                                                 if (result.isConfirmed) {
                                                     
@@ -58,7 +59,8 @@
                                             title: '¡Oops...!',
                                             text: 'Seleccione una empresa',
                                             icon: 'error',
-                                            confirmButtonText: 'Aceptar'
+                                            confirmButtonText: 'Aceptar',
+                                            allowOutsideClick: false
                                         }).then((result) => {
                                                 if (result.isConfirmed) {
                                                     
@@ -77,7 +79,8 @@
                                         title: '¡Oops...!',
                                         text: 'Seleccione una localidad',
                                         icon: 'error',
-                                        confirmButtonText: 'Aceptar'
+                                        confirmButtonText: 'Aceptar',
+                                        allowOutsideClick: false
                                     }).then((result) => {
                                             if (result.isConfirmed) {
                                                 
@@ -96,7 +99,8 @@
                                     title: '¡Oops...!',
                                     text: 'Seleccione la ida y vuelta',
                                     icon: 'error',
-                                    confirmButtonText: 'Aceptar'
+                                    confirmButtonText: 'Aceptar',
+                                    allowOutsideClick: false
                                 }).then((result) => {
                                         if (result.isConfirmed) {
                                             
@@ -113,7 +117,8 @@
                                 title: '¡Oops...!',
                                 text: 'Seleccione la cantidad',
                                 icon: 'error',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                     if (result.isConfirmed) {
                                         
@@ -130,7 +135,8 @@
                             title: '¡Oops...!',
                             text: 'Seleccione el horario',
                             icon: 'error',
-                            confirmButtonText: 'Aceptar'
+                            confirmButtonText: 'Aceptar',
+                            allowOutsideClick: false
                         }).then((result) => {
                                 if (result.isConfirmed) {
                                     
@@ -147,7 +153,8 @@
                         title: '¡Oops...!',
                         text: 'Seleccione el tipo de boleto',
                         icon: 'error',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
                     }).then((result) => {
                             if (result.isConfirmed) {
                                 
@@ -198,7 +205,8 @@
                                     title: '¡Oops...!',
                                     text: 'No se pudo añadir la imagen',
                                     icon: 'error',
-                                    confirmButtonText: 'Aceptar'
+                                    confirmButtonText: 'Aceptar',
+                                    allowOutsideClick: false
                                 }).then((result) => {
                                         if (result.isConfirmed) {
                                             
@@ -214,7 +222,8 @@
                                 title: '¡Oops...!',
                                 text: 'No se pudo añadir la imagen',
                                 icon: 'error',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                     if (result.isConfirmed) {
                                         
@@ -230,7 +239,8 @@
                             title: '¡Oops...!',
                             text: 'No se pudo añadir la imagen',
                             icon: 'error',
-                            confirmButtonText: 'Aceptar'
+                            confirmButtonText: 'Aceptar',
+                            allowOutsideClick: false
                         }).then((result) => {
                                 if (result.isConfirmed) {
                                     
@@ -275,7 +285,8 @@
                             Swal.fire({
                                 title: 'Empresa creada correctamente!',
                                 icon: 'success',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     
@@ -293,7 +304,8 @@
                             title: '¡Oops...!',
                             text: 'Seleccione el tipo de boleto',
                             icon: 'error',
-                            confirmButtonText: 'Aceptar'
+                            confirmButtonText: 'Aceptar',
+                            allowOutsideClick: false
                         }).then((result) => {
                                 if (result.isConfirmed) {
                                     
@@ -320,7 +332,8 @@
                                     Swal.fire({
                                         title: 'Horario creado correctamente!',
                                         icon: 'success',
-                                        confirmButtonText: 'Aceptar'
+                                        confirmButtonText: 'Aceptar',
+                                        allowOutsideClick: false
                                     }).then((result) => {
                                         if (result.isConfirmed) {
                                             
@@ -337,7 +350,8 @@
                                     title: '¡Oops...!',
                                     text: 'Seleccione un horario',
                                     icon: 'error',
-                                    confirmButtonText: 'Aceptar'
+                                    confirmButtonText: 'Aceptar',
+                                    allowOutsideClick: false
                                 }).then((result) => {
                                         if (result.isConfirmed) {
                                             
@@ -354,7 +368,8 @@
                                 title: '¡Oops...!',
                                 text: 'Seleccione un día',
                                 icon: 'error',
-                                confirmButtonText: 'Aceptar'
+                                confirmButtonText: 'Aceptar',
+                                allowOutsideClick: false
                             }).then((result) => {
                                     if (result.isConfirmed) {
                                         

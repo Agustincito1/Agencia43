@@ -106,7 +106,11 @@ body{
     grid-template-rows: 20rem 120rem auto; 
 }
 
-
+#bodyB{
+    display: grid;
+    gap: 10rem;
+    grid-template-rows: 20rem 140rem auto; 
+}
 #mainM, #mainB, #mainE,#mainH, #mainD{
     height: 100%;
     width: 100%;
@@ -325,8 +329,13 @@ body{
 }
 #up{
     width: 50%;
+    
 }
 
+#mainB #up{
+    width: 50%;
+    max-height: 58rem;
+}
 
 #mainH .mb-s__article:nth-child(4){
     width: 50%;
